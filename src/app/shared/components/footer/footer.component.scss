@@ -1,0 +1,63 @@
+@import "/src/styles.scss";
+
+:host {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+footer {
+    border-top-left-radius: 45px;
+    border-top-right-radius: 45px;
+    background-color: $grey;
+    padding: 2rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100vw;
+
+    position: relative;
+
+    margin-top: auto;
+}
+
+.copy {
+    justify-self: flex-end;
+    align-self: flex-start;
+}
+
+.link-box {
+    align-self: start;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+
+    a {
+        text-decoration: none;
+        color: $black;
+    }
+    .email {
+        text-decoration: underline;
+        color: $blue;
+
+        &:hover {
+            color: $black;
+        }
+    }
+}
+
+.logo {
+    position: absolute;
+    right: 1rem;
+    top: 1.5rem;
+    @media (max-width: 520px) {
+        position: unset;
+        right: unset;
+        top: unset;
+        align-self: end;
+        margin-bottom: 1rem;
+    }
+}

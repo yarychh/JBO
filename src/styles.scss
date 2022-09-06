@@ -1,1 +1,64 @@
 /* You can add global styles to this file, and also import other style files */
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+// @import url(//db.onlinewebfonts.com/c/8fb869a9a3a8c312702eef64d0e1d873?family=StereoGothicW01-800);
+// @import url(//db.onlinewebfonts.com/c/b4e5daf5e56a2f78c4ee9ab45d660b93?family=);
+// @font-face {
+//     font-family: "StereoGothicW01-800";
+//     src: url("//db.onlinewebfonts.com/t/8fb869a9a3a8c312702eef64d0e1d873.eot");
+//     src: url("//db.onlinewebfonts.com/t/8fb869a9a3a8c312702eef64d0e1d873.eot?#iefix")
+//             format("embedded-opentype"),
+//         url("//db.onlinewebfonts.com/t/8fb869a9a3a8c312702eef64d0e1d873.woff2")
+//             format("woff2"),
+//         url("//db.onlinewebfonts.com/t/8fb869a9a3a8c312702eef64d0e1d873.woff")
+//             format("woff"),
+//         url("//db.onlinewebfonts.com/t/8fb869a9a3a8c312702eef64d0e1d873.ttf")
+//             format("truetype"),
+//         url("//db.onlinewebfonts.com/t/8fb869a9a3a8c312702eef64d0e1d873.svg#StereoGothicW01-800")
+//             format("svg");
+// }
+// @font-face {
+//     font-family: "Gilroy";
+//     src: url("//db.onlinewebfonts.com/t/b4e5daf5e56a2f78c4ee9ab45d660b93.eot");
+//     src: url("//db.onlinewebfonts.com/t/b4e5daf5e56a2f78c4ee9ab45d660b93.eot?#iefix")
+//             format("embedded-opentype"),
+//         url("//db.onlinewebfonts.com/t/b4e5daf5e56a2f78c4ee9ab45d660b93.woff2")
+//             format("woff2"),
+//         url("//db.onlinewebfonts.com/t/b4e5daf5e56a2f78c4ee9ab45d660b93.woff")
+//             format("woff"),
+//         url("//db.onlinewebfonts.com/t/b4e5daf5e56a2f78c4ee9ab45d660b93.ttf")
+//             format("truetype"),
+//         url("//db.onlinewebfonts.com/t/b4e5daf5e56a2f78c4ee9ab45d660b93.svg#")
+//             format("svg");
+// }
+
+// basix reset
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    //   background-color: rgba(#ccc , .2);
+}
+body {
+    margin: 0;
+    font-family: "Gilroy", "Helvetica Neue", sans-serif !important;
+}
+
+// variables
+
+$font-heading: "StereoGothicW01-800";
+$font-basic: "Gilroy";
+
+//colors
+
+$blue: #00A3FF;
+$grey: #F0F0F0;
+$white: #FFFFFF;
+$white-20: rgba($white, .2);
+$black: #000000;
+
+$blur: blur(85px);
+
