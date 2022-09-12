@@ -1,0 +1,11 @@
+<ul *ngIf="full$ | async; else burger">
+    <li [class.dark]="isDark">ГЛАВНАЯ</li>
+    <li [class.dark]="isDark">НЕ ГЛАВНАЯ</li>
+    <li [class.dark]="isDark">О НАС</li>
+    <li [class.dark]="isDark">О ВАС</li>
+    <li [class.dark]="isDark">КОНТАКТЫ</li>
+</ul>
+
+<ng-template #burger>
+    <img [src]="isDark ? 'assets/svg/burger-white.svg' : 'assets/svg/burger.svg'" alt="burger-menu">
+</ng-template>

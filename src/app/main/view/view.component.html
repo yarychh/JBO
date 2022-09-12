@@ -1,2 +1,16 @@
-<p>view works!</p>
+<section class="meet" [class.dark]="isDark">
+    <div class="picbox">
+        <img src="assets\img\JBO-big-lq.png" alt="main-pic" class="main-pic">
+        <p class="priamikom" [class.dark-t]="isDark">прямиком с 2022</p>
+        <h1 class="sorry" [class.dark-t]="isDark">простите если трахнул</h1>
+        <button class="btn ahuet">Кнопка ахуеть</button>
+    </div>
+    <app-menu class="menu my-5 ms-0 ms-sm-4"></app-menu>
+</section>
 
+<section class="features" [class.dark]="isDark">
+    <app-pill [number]="'0001'" [description]="'Ну во первых ми пиздатые, очень. Ты ебанешься насколько.'"></app-pill>
+    <app-pill [number]="'0002'" [description]="'А во-вторых, мы все равно пиздатые'"></app-pill>
+    <app-pill [number]="'0003'" [description]="'Ну во первых ми пиздатые, очень. Ты ебанешься насколько.'"></app-pill>
+    <app-pill [number]="'0004'" [description]="'А во-вторых, мы все равно пиздатые'"></app-pill>
+</section>

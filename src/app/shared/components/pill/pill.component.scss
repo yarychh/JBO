@@ -1,0 +1,52 @@
+@import "/src/styles.scss";
+
+:host{
+    width: 100%;
+    height: 100%;
+}
+
+.pill{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 2rem;
+    @media (max-width: 700px) {
+        padding: 1rem;
+    }
+
+    border-radius: 60px;
+    border: 1px solid $black;
+    color: $black;
+    background-color: $white;
+
+    transition: all .3s;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    @media (max-width: 660px) {
+        flex-direction: column;
+    }
+
+    p{
+        max-width: 30%;
+        @media (max-width: 660px) {
+            max-width: max-content;
+            text-align: center;
+        }
+    }
+
+    &.dark {
+        border: 1px solid $white;
+        color: $white;
+        background-color: $black;
+    }
+
+    &:hover{
+        background-image: url('../../../../assets/img/manfire.png');
+        background-position: center;
+        background-size: cover;
+        backdrop-filter: blur(4px);
+        // filter: blur($blur);
+    }
+}

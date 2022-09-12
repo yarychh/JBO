@@ -1,60 +1,122 @@
 @import "/src/styles.scss";
 
-.switch {
-    position: relative;
-    display: inline-block;
-    width: 60px;
-    height: 34px;
-}
-
-.switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-}
-
-.slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: $black;
-    -webkit-transition: 0.4s;
-    transition: 0.4s;
-}
-
-.slider:before {
-    position: absolute;
-    content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
+.meet{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     background-color: $white;
-    -webkit-transition: 0.4s;
-    transition: 0.4s;
+
+    @media (max-width: 500px) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
 }
 
-input:checked + .slider {
+.ahuet{
+    border-radius: 60px;
+    padding: 1.375rem 5rem;
+    color: $white;
     background-color: $blue;
+    font-size: 1.1875rem;
+    font-weight: 700;
+    position: absolute;
+    right: -73px;
+    top: 80px;
+
+    &:hover{
+        background-color: $white;
+    }
+
+    @media (max-width: 1000px) {
+        right: -50px;
+    }
+
+    @media (max-width: 660px) {
+        position: initial;
+        margin-top: 2rem;
+    }
 }
 
-input:focus + .slider {
-    box-shadow: 0 0 1px $blue;
+.priamikom{
+    font-size: 1.1875rem;
+    font-weight: 500;
+    color: $black;
+    position: absolute;
+    left: -50px;
+    top: 58px;
+    @media (max-width: 660px) {
+        display: none;
+    }
 }
 
-input:checked + .slider:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
+.main-pic{
+    border-radius: 87px;
+    max-width: 85vw;
 }
 
-.slider.round {
-    border-radius: 34px;
+.picbox{
+    position: relative;
+    @media (max-width: 660px) {
+        position: initial;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
 }
 
-.slider.round:before {
-    border-radius: 50%;
+.menu{
+    align-self: flex-start;
+    @media (max-width: 660px) {
+        align-self: center;
+        margin-top: 1rem !important;
+        margin-bottom: 1rem !important;
+    }
+}
+
+.sorry{
+    color: $black;
+    font-size: 3.125rem;
+    font-weight: 400;
+    width: min-content;
+    position: absolute;
+    bottom: -4.5rem;
+    right: -40px;
+    @media (max-width: 700px) {
+        width: 100%;
+        position: initial;
+        margin-top: 2rem;
+        margin-bottom: 0;
+        text-align: center;
+    }
+}
+
+.dark{
+    background-color: $black;
+    color: $white;
+    &-t{
+        color: $white;
+        background-color: transparent;
+    }
+}
+
+.features{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repear(2, max-content);
+    padding: 4rem 2rem;
+    background-color: $white;
+
+    @media (max-width: 660px) {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    &.dark{
+        background-color: $black;
+    }
 }

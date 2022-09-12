@@ -3,6 +3,9 @@ import { CommonModule } from '@angular/common';
 import { SwitchComponent } from './components/switch/switch.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
+import { FormsModule } from '@angular/forms';
+import { MenuComponent } from './components/menu/menu.component';
+import { PillComponent } from './components/pill/pill.component';
 
 
 
@@ -10,15 +13,20 @@ import { HeaderComponent } from './components/header/header.component';
   declarations: [
     SwitchComponent,
     FooterComponent,
-    HeaderComponent
+    HeaderComponent,
+    MenuComponent,
+    PillComponent
   ],
   imports: [
-    CommonModule
+      CommonModule,
+      FormsModule,
     ],
     exports: [
         SwitchComponent,
         FooterComponent,
-        HeaderComponent
+        HeaderComponent,
+        MenuComponent,
+        PillComponent
   ]
 })
 export class SharedModule { }

@@ -1,8 +1,12 @@
-<header class="p-4 d-flex justify-content-center">
-    <div class="switch-box">
-        <p class="m-0 ">аффилейту</p>
-        <app-switch></app-switch>
-        <p class="m-0 ">рекламодателю</p>
+<header class="p-2 p-sm-4 d-flex justify-content-between" [class.dark]="isDark">
+    <div class="switch-box" [class.dark]="isDark">
+        <p class="m-0">аффилейту</p>
+        <app-switch [checked]="(role$ | async) === 'advertiser'" (change)="roleChange()"></app-switch>
+        <p class="m-0">рекламодателю</p>
+    </div>
+
+    <div class="lang-box d-inline-flex align-items-center" [class.dark]="isDark">
+        <img [src]="isDark ? 'assets/svg/Vectorglobe-Dark.svg' : 'assets/svg/Vectorglobe.svg'" alt="globe" class="me-2">
+        <span>EN</span>
     </div>
 </header>
-<p>header works!</p>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StateService } from 'src/app/shared/services/state.service';
 
 @Component({
   selector: 'app-view',
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewComponent implements OnInit {
 
-  constructor() { }
+    constructor(private state: StateService) { }
+
+    public get isDark(): boolean{
+        return this.state.isDark;
+    }
 
   ngOnInit(): void {
   }

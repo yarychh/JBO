@@ -1,13 +1,31 @@
-<footer class="pb-0">
-    <section class="link-box mb-3">
-        <a href="#">TELEGRAM</a>
-        <a href="#">LINKEDIN</a>
-        <a href="mailto:jbo@gmail.com" class="email">jbo@gmail.com</a>
-    </section>
+<ng-container *ngIf="isDark; else light">
+    <footer class="pb-0 dark">
+        <section class="link-box-dark mb-3">
+            <a href="#">TELEGRAM</a>
+            <a href="#">LINKEDIN</a>
+            <a href="mailto:jbo@gmail.com" class="email">jbo@gmail.com</a>
+        </section>
 
-    <div class="logo">
-        <img src="assets/svg/JBOLogo.svg" height="58" width="156" alt="JBO logo">
-    </div>
+        <div class="logo">
+            <img src="assets/svg/Group 42620JBO-logo-dark.svg" height="58" width="156" alt="JBO logo">
+        </div>
 
-    <p class="copy">All rights are reserved (c)</p>
-</footer>
+        <p class="copy-dark">All rights are reserved (c)</p>
+    </footer>
+</ng-container>
+
+<ng-template #light>
+    <footer class="pb-0">
+        <section class="link-box mb-3">
+            <a href="#">TELEGRAM</a>
+            <a href="#">LINKEDIN</a>
+            <a href="mailto:jbo@gmail.com" class="email">jbo@gmail.com</a>
+        </section>
+
+        <div class="logo">
+            <img src="assets/svg/JBOLogo.svg" height="58" width="156" alt="JBO logo">
+        </div>
+
+        <p class="copy">All rights are reserved (c)</p>
+    </footer>
+</ng-template>
