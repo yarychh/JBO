@@ -14,3 +14,19 @@
     <app-pill [number]="'0003'" [description]="'Ну во первых ми пиздатые, очень. Ты ебанешься насколько.'"></app-pill>
     <app-pill [number]="'0004'" [description]="'А во-вторых, мы все равно пиздатые'"></app-pill>
 </section>
+
+<section class="partners" [class.dark]="isDark">
+    <p>ПАРТНЕРЫ О НАС ГОВОРЯТ ТАКИЕ ВЕЩИ:</p>
+    <img src="assets\img\NP.png" alt="nova poshta" class="partners__logo">
+    <p class="quote">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt neque similique molestias nobis sequi
+        repudiandae sit incidunt impedit animi. Omnis autem, illum iste velit deserunt suscipit ad molestiae
+        exercitationem ullam.</p>
+    <div class="navbox">
+        <a calss="nav">
+            <img [src]="isDark ? 'assets/svg/arr-left.svg' : 'assets/svg/arr-left-dark.svg'" alt="arrow left">
+        </a>
+        <a calss="nav">
+            <img [src]="isDark ? 'assets/svg/arr-right.svg' : 'assets/svg/arr-right-dark.svg'" alt="arrow right">
+        </a>
+    </div>
+</section>

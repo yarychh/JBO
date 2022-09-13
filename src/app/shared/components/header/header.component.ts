@@ -21,5 +21,6 @@ export class HeaderComponent {
 
     public roleChange(): void {
         this.state.toggleRole();
+        document.body.classList.toggle('dark');
     }
 }

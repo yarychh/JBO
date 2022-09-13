@@ -45,6 +45,10 @@ body {
 body {
     margin: 0;
     font-family: "Gilroy", "Helvetica Neue", sans-serif !important;
+
+    &.dark{
+        background-color: $black;
+    }
 }
 
 // variables

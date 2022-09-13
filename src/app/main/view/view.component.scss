@@ -31,7 +31,7 @@
     }
 
     @media (max-width: 1000px) {
-        right: -50px;
+        right: -40px;
     }
 
     @media (max-width: 660px) {
@@ -45,7 +45,7 @@
     font-weight: 500;
     color: $black;
     position: absolute;
-    left: -50px;
+    left: -40px;
     top: 58px;
     @media (max-width: 660px) {
         display: none;
@@ -118,5 +118,59 @@
 
     &.dark{
         background-color: $black;
+    }
+}
+
+.partners{
+    background-color: $grey;
+    border-radius: 40px;
+    padding: 2rem;
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+
+    &.dark{
+        background-color: $white-20 !important;
+    }
+
+    .quote{
+        max-width: 60%;
+        align-self: flex-end;
+        font-size: 1.563rem;
+        @media (max-width: 760px) {
+            max-width: max-content;
+            text-align: center;
+        }
+    }
+
+    .navbox{
+        display: flex;
+        gap: 1rem;
+        flex-wrap: nowrap;
+        position: absolute;
+        top: 60%;
+        left: 5%;
+
+        @media (max-width: 760px) {
+            position: unset;
+            align-self: center;
+        }
+        .nav{
+            cursor: pointer;
+        }
+    }
+
+    &__logo{
+        position: absolute;
+        top: 30%;
+        left: 5%;
+        @media (max-width: 760px) {
+            position: unset;
+            align-self: center;
+            margin-bottom: 1rem;
+        }
     }
 }
