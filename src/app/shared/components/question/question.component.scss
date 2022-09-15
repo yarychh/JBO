@@ -1,0 +1,24 @@
+@import "/src/styles.scss";
+
+.question-box{
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+
+    .qa{
+        color: $black;
+
+        &.dark{
+            color: $white;
+        }
+
+        .question{
+            font-family: $font-heading;
+            font-size: 1.563rem;
+        }
+
+        .answer{
+            font-size: 1.25rem;
+        }
+    }
+}

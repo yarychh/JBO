@@ -6,6 +6,9 @@ import { HeaderComponent } from './components/header/header.component';
 import { FormsModule } from '@angular/forms';
 import { MenuComponent } from './components/menu/menu.component';
 import { PillComponent } from './components/pill/pill.component';
+import { FlowPillComponent } from './components/flow-pill/flow-pill.component';
+import { EventComponent } from './components/event/event.component';
+import { QuestionComponent } from './components/question/question.component';
 
 
 
@@ -15,7 +18,10 @@ import { PillComponent } from './components/pill/pill.component';
     FooterComponent,
     HeaderComponent,
     MenuComponent,
-    PillComponent
+    PillComponent,
+    FlowPillComponent,
+    EventComponent,
+    QuestionComponent
   ],
   imports: [
       CommonModule,
@@ -26,7 +32,10 @@ import { PillComponent } from './components/pill/pill.component';
         FooterComponent,
         HeaderComponent,
         MenuComponent,
-        PillComponent
+        PillComponent,
+        FlowPillComponent,
+        EventComponent,
+        QuestionComponent
   ]
 })
 export class SharedModule { }

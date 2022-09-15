@@ -1,0 +1,64 @@
+@import "/src/styles.scss";
+
+.event{
+    position: relative;
+    overflow: hidden;
+    border-radius: 40px;
+    border: 1px solid $black;
+    padding: 1.5rem;
+
+    &.dark{
+        border: 1px solid $white;
+    }
+
+    &__next{
+        color: $white;
+        border-radius: 20px;
+        border: 1px solid $white;
+        padding: 0 .5rem;
+        align-self: flex-start;
+        z-index: 999;
+        align-self: flex-end;
+    }
+
+    &__name{
+        font-family: $font-heading;
+        font-size: 1.563rem;
+        color: $black;
+        position: relative;
+        z-index: 999;
+        align-self: flex-start;
+        white-space: pre-line;
+        &.dark{
+            color: $white;
+        }
+    }
+
+    .background {
+        opacity: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        filter: blur(30px);
+        object-fit: cover;
+        transition: all 0.3s;
+    }
+
+    &:hover{
+        .background{
+            opacity: 1;
+        }
+
+        .event__name{
+            color: $white;
+        }
+    }
+}
+
+.mr-max{
+    margin-right: 30vw;
+}

@@ -1,0 +1,20 @@
+@import "/src/styles.scss";
+
+.pill-box{
+    padding: 2rem;
+    border: 1px solid $white;
+    border-radius: 40px;
+    color: $white;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    @media (max-width: 650px) {
+        flex-direction: column;
+    }
+}
+
+h3{
+    font-family: $font-heading;
+
+}

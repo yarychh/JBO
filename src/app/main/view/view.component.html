@@ -2,10 +2,10 @@
     <div class="picbox">
         <img src="assets\img\JBO-big-lq.png" alt="main-pic" class="main-pic">
         <p class="priamikom" [class.dark-t]="isDark">прямиком с 2022</p>
-        <h1 class="sorry" [class.dark-t]="isDark">простите если трахнул</h1>
         <button class="btn ahuet">Кнопка ахуеть</button>
     </div>
-    <app-menu class="menu my-5 ms-0 ms-sm-4"></app-menu>
+    <h1 class="sorry" [class.dark-t]="isDark">простите если трахнул</h1>
+    <app-menu class="menu my-5 mb-0 ms-0 ms-sm-4"></app-menu>
 </section>
 
 <section class="features" [class.dark]="isDark">
@@ -15,12 +15,11 @@
     <app-pill [number]="'0004'" [description]="'А во-вторых, мы все равно пиздатые'"></app-pill>
 </section>
 
-<section class="partners" [class.dark]="isDark">
+<section class="partners mb-5" [class.dark]="isDark">
     <p>ПАРТНЕРЫ О НАС ГОВОРЯТ ТАКИЕ ВЕЩИ:</p>
     <img src="assets\img\NP.png" alt="nova poshta" class="partners__logo">
-    <p class="quote">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt neque similique molestias nobis sequi
-        repudiandae sit incidunt impedit animi. Omnis autem, illum iste velit deserunt suscipit ad molestiae
-        exercitationem ullam.</p>
+    <p class="quote">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+        et dolore magna aliqua.</p>
     <div class="navbox">
         <a calss="nav">
             <img [src]="isDark ? 'assets/svg/arr-left.svg' : 'assets/svg/arr-left-dark.svg'" alt="arrow left">
@@ -29,4 +28,86 @@
             <img [src]="isDark ? 'assets/svg/arr-right.svg' : 'assets/svg/arr-right-dark.svg'" alt="arrow right">
         </a>
     </div>
+</section>
+
+<section *ngIf="!isDark" class="stats mb-5">
+    <div class="stats__card">
+        <img src="assets/img/olx-back.png" alt="background" class="stats__card--bg">
+        <div class="logo-card">
+            <img src="assets/img/olx.png" alt="OLX">
+            <h5>NFT</h5>
+            <span>CPA-сеть</span>
+        </div>
+        <div class="percentage">
+            <span class="cr">CR:</span>
+            <span class="percent">12-15%</span>
+        </div>
+        <div class="dollars">
+            <span class="cr">CR:</span>
+            <span class="numbers">$10 600-10 950</span>
+        </div>
+        <div class="countries">
+            <img src="assets/svg/Ellipse_ua.svg" alt="ua">
+            <img src="assets/svg/Ellipse_pt.svg" alt="pt">
+            <img src="assets/svg/Ellipse_sp.svg" alt="sp">
+        </div>
+
+    </div>
+    <div class="stats__nav">
+        <a calss="nav">
+            <img src="assets/svg/arr-left-dark.svg" alt="arrow left">
+        </a>
+        <a calss="nav">
+            <img src="assets/svg/arr-right-dark.svg" alt="arrow right">
+        </a>
+    </div>
+</section>
+
+<section *ngIf="isDark" class="flow px-3 px-md-5 mb-5">
+    <h2 class="flow__heading">ТАКОЙ ЗАГОЛОВОК</h2>
+    <div class="flow__box">
+        <app-flow-pill heading="ЗАГОЛОВОК"
+            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.">
+        </app-flow-pill>
+        <img src="assets/svg/arr-bottom-sm.svg" alt="arrow bottom" class="my-3">
+        <app-flow-pill heading="ЗАГОЛОВОК"
+            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.">
+        </app-flow-pill>
+        <img src="assets/svg/arr-bottom-sm.svg" alt="arrow bottom" class="my-3">
+        <app-flow-pill heading="ЗАГОЛОВОК"
+            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.">
+        </app-flow-pill>
+        <img src="assets/svg/arr-bottom-sm.svg" alt="arrow bottom" class="my-3">
+        <app-flow-pill heading="ЗАГОЛОВОК"
+            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.">
+        </app-flow-pill>
+    </div>
+</section>
+
+<section class="events px-3 px-md-4 mb-5" *ngIf="isDark" #events>
+    <div class="d-flex justify-content-between mb-3">
+        <h2 class="events__heading" [class.dark]="isDark">ИВЕНТЫ</h2>
+        <div>
+            <a calss="nav">
+                <img [src]="isDark ? 'assets/svg/arr-left.svg' : 'assets/svg/arr-left-dark.svg'" alt="arrow left">
+            </a>
+            <a calss="nav">
+                <img [src]="isDark ? 'assets/svg/arr-right.svg' : 'assets/svg/arr-right-dark.svg'" alt="arrow right">
+            </a>
+        </div>
+    </div>
+
+    <div class="d-flex">
+        <app-event class="me-4"></app-event>
+        <app-event class="me-4"></app-event>
+        <app-event></app-event>
+    </div>
+</section>
+
+<section class="faq px-3" #faq>
+    <app-question></app-question>
+    <app-question></app-question>
+    <app-question></app-question>
+    <app-question></app-question>
+    <app-question></app-question>
 </section>
