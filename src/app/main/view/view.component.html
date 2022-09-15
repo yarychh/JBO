@@ -8,7 +8,7 @@
     <app-menu class="menu my-5 mb-0 ms-0 ms-sm-4"></app-menu>
 </section>
 
-<section class="features" [class.dark]="isDark">
+<section class="features mb-5 pb-5" [class.dark]="isDark">
     <app-pill [number]="'0001'" [description]="'Ну во первых ми пиздатые, очень. Ты ебанешься насколько.'"></app-pill>
     <app-pill [number]="'0002'" [description]="'А во-вторых, мы все равно пиздатые'"></app-pill>
     <app-pill [number]="'0003'" [description]="'Ну во первых ми пиздатые, очень. Ты ебанешься насколько.'"></app-pill>
@@ -30,7 +30,7 @@
     </div>
 </section>
 
-<section *ngIf="!isDark" class="stats mb-5">
+<section *ngIf="!isDark" class="stats pt-5 mb-5 pb-5">
     <div class="stats__card">
         <img src="assets/img/olx-back.png" alt="background" class="stats__card--bg">
         <div class="logo-card">
@@ -63,8 +63,8 @@
     </div>
 </section>
 
-<section *ngIf="isDark" class="flow px-3 px-md-5 mb-5">
-    <h2 class="flow__heading">ТАКОЙ ЗАГОЛОВОК</h2>
+<section *ngIf="isDark" class="flow px-3 pt-5 px-md-5 mb-5 pb-5">
+    <h2 class="flow__heading mb-4">ТАКОЙ ЗАГОЛОВОК</h2>
     <div class="flow__box">
         <app-flow-pill heading="ЗАГОЛОВОК"
             description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.">
@@ -84,30 +84,45 @@
     </div>
 </section>
 
-<section class="events px-3 px-md-4 mb-5" *ngIf="isDark" #events>
-    <div class="d-flex justify-content-between mb-3">
-        <h2 class="events__heading" [class.dark]="isDark">ИВЕНТЫ</h2>
-        <div>
-            <a calss="nav">
-                <img [src]="isDark ? 'assets/svg/arr-left.svg' : 'assets/svg/arr-left-dark.svg'" alt="arrow left">
-            </a>
-            <a calss="nav">
-                <img [src]="isDark ? 'assets/svg/arr-right.svg' : 'assets/svg/arr-right-dark.svg'" alt="arrow right">
-            </a>
+<ng-container *ngIf="!isDark; else faq">
+    <ng-container [ngTemplateOutlet]="faq"></ng-container>
+</ng-container>
+<ng-container *ngIf="isDark; else events">
+    <ng-container [ngTemplateOutlet]="events"></ng-container>
+</ng-container>
+
+<ng-template #events>
+    <section class="events px-3 px-md-4 mb-5 pb-5">
+        <div class="d-flex justify-content-between mb-3">
+            <h2 class="events__heading" [class.dark]="isDark">ИВЕНТЫ</h2>
+            <div class="d-none d-md-inline-block">
+                <a calss="nav">
+                    <img [src]="isDark ? 'assets/svg/arr-left.svg' : 'assets/svg/arr-left-dark.svg'" alt="arrow left">
+                </a>
+                <a calss="nav">
+                    <img [src]="isDark ? 'assets/svg/arr-right.svg' : 'assets/svg/arr-right-dark.svg'" alt="arrow right">
+                </a>
+            </div>
         </div>
-    </div>
 
-    <div class="d-flex">
-        <app-event class="me-4"></app-event>
-        <app-event class="me-4"></app-event>
-        <app-event></app-event>
-    </div>
-</section>
+        <div class="d-flex">
+            <app-event class="me-4"></app-event>
+            <!-- <app-event class="me-4"></app-event> -->
+            <!-- <app-event></app-event> -->
+        </div>
+    </section>
+</ng-template>
 
-<section class="faq px-3" #faq>
-    <app-question></app-question>
-    <app-question></app-question>
-    <app-question></app-question>
-    <app-question></app-question>
-    <app-question></app-question>
-</section>
+<ng-template #faq>
+    <section class="faq px-2 mb-5 pb-5">
+        <app-question></app-question>
+        <app-question></app-question>
+        <app-question></app-question>
+        <app-question></app-question>
+        <app-question></app-question>
+    </section>
+</ng-template>
+
+<form >
+    
+</form>

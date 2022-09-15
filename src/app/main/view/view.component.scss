@@ -391,5 +391,13 @@
         font-size: 3.125rem;
         color: $black;
         text-align: left;
+        
+        @media (max-width: 500px) {
+            font-size: 2.8rem;
+        }
+
+        @media (max-width: 400px) {
+            font-size: 2.5rem;
+        }
     }
 }

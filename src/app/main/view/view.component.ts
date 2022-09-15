@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 import { StateService } from 'src/app/shared/services/state.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { StateService } from 'src/app/shared/services/state.service';
 })
 export class ViewComponent implements OnInit {
 
-    constructor(private state: StateService) { }
+    constructor(private state: StateService, private fb: FormBuilder) { }
 
     public get isDark(): boolean{
         return this.state.isDark;

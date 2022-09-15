@@ -1,27 +1,44 @@
 @import "/src/styles.scss";
 
-.event{
+.event {
     position: relative;
     overflow: hidden;
     border-radius: 40px;
     border: 1px solid $black;
     padding: 1.5rem;
 
-    &.dark{
+    &__container {
+        display: flex;
+        flex-direction: column;
+        @media (max-width: 600px) {
+            display: inline-block;
+        }
+    }
+
+    &.dark {
         border: 1px solid $white;
     }
 
-    &__next{
-        color: $white;
+    &__next {
+        position: relative;
         border-radius: 20px;
-        border: 1px solid $white;
-        padding: 0 .5rem;
-        align-self: flex-start;
+        color: $black;
+        border: 1px solid $black;
+        padding: 0 0.5rem;
         z-index: 999;
         align-self: flex-end;
+        @media (max-width: 600px) {
+            position: absolute;
+            top: 13px;
+            right: 20px;
+        }
+        &.dark {
+            color: $white;
+            border: 1px solid $white;
+        }
     }
 
-    &__name{
+    &__name {
         font-family: $font-heading;
         font-size: 1.563rem;
         color: $black;
@@ -29,7 +46,7 @@
         z-index: 999;
         align-self: flex-start;
         white-space: pre-line;
-        &.dark{
+        &.dark {
             color: $white;
         }
     }
@@ -48,17 +65,26 @@
         transition: all 0.3s;
     }
 
-    &:hover{
-        .background{
+    &:hover {
+        .background {
             opacity: 1;
         }
 
-        .event__name{
+        .event__name {
             color: $white;
+        }
+
+        .event__next {
+            color: $white;
+            border: 1px solid $white;
+            &.dark {
+                color: $white;
+                border: 1px solid $white;
+            }
         }
     }
 }
 
-.mr-max{
+.mr-max {
     margin-right: 30vw;
 }

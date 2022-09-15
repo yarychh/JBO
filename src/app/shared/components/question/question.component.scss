@@ -4,9 +4,13 @@
     display: flex;
     gap: 2rem;
     align-items: center;
+    @media (max-width: 650px) {
+        gap: 1rem;
+    }
 
     .qa{
         color: $black;
+        max-width: 100%;
 
         &.dark{
             color: $white;
@@ -15,6 +19,15 @@
         .question{
             font-family: $font-heading;
             font-size: 1.563rem;
+            @media (max-width: 650px) {
+                font-size: 1.25rem;
+            }
+            @media (max-width: 550px) {
+                font-size: 1.1rem;
+            }
+            @media (max-width: 500px) {
+                font-size: .875rem;
+            }
         }
 
         .answer{
