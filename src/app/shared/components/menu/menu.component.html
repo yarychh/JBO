@@ -7,5 +7,16 @@
 </ul>
 
 <ng-template #burger>
-    <img [src]="isDark ? 'assets/svg/burger-white.svg' : 'assets/svg/burger.svg'" alt="burger-menu">
+    <img *ngIf="!shown; else expanded" [src]="isDark ? 'assets/svg/burger-white.svg' : 'assets/svg/burger.svg'" alt="burger-menu" (click)="toggleShown()">
+
+    <ng-template #expanded>
+        <img [src]="isDark ? 'assets/svg/Close-white.svg' : 'assets/svg/Close-dark.svg'" alt="burger-menu" class="mb-3" (click)="toggleShown()">
+        <ul class="vertical">
+            <li [class.dark]="isDark" class="text-center">ГЛАВНАЯ</li>
+            <li [class.dark]="isDark" class="text-center">НЕ ГЛАВНАЯ</li>
+            <li [class.dark]="isDark" class="text-center">О НАС</li>
+            <li [class.dark]="isDark" class="text-center">О ВАС</li>
+            <li [class.dark]="isDark" class="text-center">КОНТАКТЫ</li>
+        </ul>
+    </ng-template>
 </ng-template>

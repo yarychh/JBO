@@ -262,8 +262,7 @@
             padding-bottom: 3rem;
         }
 
-
-        .logo-card{
+        .logo-card {
             background-color: $white-20;
             padding: 2rem 3rem;
             border-radius: 40px;
@@ -276,17 +275,17 @@
             justify-content: center;
             color: $white;
 
-            h5{
+            h5 {
                 margin-top: 1rem;
                 font-family: $font-heading;
             }
 
-            span{
+            span {
                 font-weight: 400;
             }
         }
 
-        .percentage{
+        .percentage {
             background-color: $white-20;
             padding: 2rem 3rem;
             border-radius: 40px;
@@ -297,25 +296,24 @@
             flex-direction: column;
             justify-content: center;
             color: $white;
-            .cr{
+            .cr {
                 text-align: left;
                 font-size: 1.25rem;
             }
-            .percent{
+            .percent {
                 font-size: 3.438rem;
                 font-weight: 400;
-
             }
         }
-        .dollars{
+        .dollars {
             background-color: $white-20;
             padding: 2rem 3rem;
             border-radius: 40px;
             width: max-content;
-            @media (max-width: 1370px){
+            @media (max-width: 1370px) {
                 min-width: min-content;
             }
-            @media (max-width: 615px){
+            @media (max-width: 615px) {
                 width: 100%;
             }
             position: relative;
@@ -324,18 +322,17 @@
             flex-direction: column;
             justify-content: center;
             color: $white;
-            .cr{
+            .cr {
                 text-align: left;
                 font-size: 1.25rem;
             }
-            .numbers{
+            .numbers {
                 font-size: 3.438rem;
                 font-weight: 400;
-
             }
         }
 
-        .countries{
+        .countries {
             margin-left: auto;
             z-index: 999;
             display: flex;
@@ -343,7 +340,7 @@
             gap: 1rem;
             justify-content: center;
             align-items: center;
-            @media (max-width: 1370px){
+            @media (max-width: 1370px) {
                 gap: 1.5rem;
                 flex-direction: row;
                 margin-left: unset;
@@ -366,7 +363,7 @@
         }
     }
 
-    &__nav{
+    &__nav {
         position: relative;
         z-index: 999;
         margin-left: 1.5rem;
@@ -381,23 +378,150 @@
     }
 }
 
-.events{
-    .dark{
+.events {
+    .dark {
         color: $white;
     }
 
-    &__heading{
+    &__heading {
         font-family: $font-heading;
         font-size: 3.125rem;
         color: $black;
         text-align: left;
-        
+
         @media (max-width: 500px) {
             font-size: 2.8rem;
         }
 
         @media (max-width: 400px) {
             font-size: 2.5rem;
+        }
+    }
+}
+
+.form {
+    background-color: $white-20 !important;
+    border-radius: 20px;
+    padding: 2rem;
+
+    .dark {
+        color: $white;
+    }
+
+    &__heading {
+        font-family: $font-heading;
+        font-size: 3.125rem;
+        color: $white;
+        background-color: transparent;
+        text-align: left;
+
+        @media (max-width: 640px) {
+            font-size: 2.8rem;
+        }
+
+        @media (max-width: 580px) {
+            font-size: 2.3rem;
+        }
+
+        @media (max-width: 500px) {
+            font-size: 2rem;
+        }
+
+        @media (max-width: 450px) {
+            font-size: 1.7rem;
+        }
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+
+        label {
+            color: $white;
+            font-weight: 500;
+            font-size: 1.25rem;
+            margin-left: 1rem;
+        }
+    }
+
+    &__contacts {
+        display: flex;
+        justify-content: space-between;
+        div {
+            width: 45%;
+        }
+
+        @media (max-width: 620px) {
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            div {
+                width: 100%;
+            }
+        }
+    }
+
+    &__control {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 2rem;
+
+        select {
+            padding: 1rem;
+            border-radius: 20px;
+            background-color: transparent;
+            color: $grey;
+
+            option {
+                color: $black;
+                background-color: transparent;
+            }
+        }
+
+        label {
+            margin-bottom: 0.5rem;
+        }
+
+        .input-box {
+            width: 100%;
+            padding: 1rem;
+            background-color: transparent;
+            border: 1px solid $white;
+            border-radius: 20px;
+            color: $white;
+            display: flex;
+            align-items: center;
+            input {
+                align-self: stretch;
+                width: 100%;
+                height: 100%;
+                background-color: transparent;
+                border: none;
+                color: $white;
+
+                &:focus-visible {
+                    outline: none;
+                }
+            }
+
+            span {
+                cursor: pointer;
+                font-weight: 500;
+            }
+        }
+    }
+
+    &__submit {
+        width: 100%;
+        border-radius: 60px;
+        padding: 1.375rem 5rem;
+        color: $white;
+        background-color: $blue;
+        font-size: 1.1875rem;
+        font-weight: 700;
+
+        &:hover {
+            background-color: $white !important;
         }
     }
 }

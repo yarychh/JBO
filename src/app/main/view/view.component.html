@@ -64,7 +64,7 @@
 </section>
 
 <section *ngIf="isDark" class="flow px-3 pt-5 px-md-5 mb-5 pb-5">
-    <h2 class="flow__heading mb-4">ТАКОЙ ЗАГОЛОВОК</h2>
+    <h2 class="flow__heading mb-5 pb-3">ТАКОЙ ЗАГОЛОВОК</h2>
     <div class="flow__box">
         <app-flow-pill heading="ЗАГОЛОВОК"
             description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.">
@@ -100,7 +100,8 @@
                     <img [src]="isDark ? 'assets/svg/arr-left.svg' : 'assets/svg/arr-left-dark.svg'" alt="arrow left">
                 </a>
                 <a calss="nav">
-                    <img [src]="isDark ? 'assets/svg/arr-right.svg' : 'assets/svg/arr-right-dark.svg'" alt="arrow right">
+                    <img [src]="isDark ? 'assets/svg/arr-right.svg' : 'assets/svg/arr-right-dark.svg'"
+                        alt="arrow right">
                 </a>
             </div>
         </div>
@@ -123,6 +124,57 @@
     </section>
 </ng-template>
 
-<form >
-    
-</form>
+<section class="form" *ngIf="isDark">
+    <h3 class="form__heading mb-5" [class.dark]="isDark">ТАКОЙ ЗАГОЛОВОК</h3>
+    <form [formGroup]="advertizerForm" (submit)="sendForm()" class="px-2 px-md-5">
+        <div class="form__control">
+            <label for="companyType">ТИП КОМПАНІЇ</label>
+            <select formControlName="companyType" name="companyType">
+                <option [value]="null" disabled selected>Прямий рекламодавець</option>
+                <option value="1">Audi</option>
+                <option value="2">BMW</option>
+            </select>
+        </div>
+
+        <div class="form__control">
+            <label for="geo">ВАШІ ГЕО</label>
+            <select formControlName="geo" name="geo">
+                <option [value]="null" disabled selected>Ваші гео</option>
+                <option value="1">Audi</option>
+                <option value="2">BMW</option>
+            </select>
+        </div>
+
+        <div class="form__control">
+            <label for="email">EMAIL</label>
+            <div class="input-box">
+                <input type="email" formControlName="email" name="email" placeholder="example@gmail.com">
+                <span (click)="paste('email')">ВСТАВИТЬ</span>
+            </div>
+        </div>
+
+        <div class="form__contacts">
+            <div class="form__control">
+                <label for="skype">SKYPE</label>
+                <div class="input-box">
+                    <input type="text" formControlName="skype" name="skype">
+                    <span (click)="paste('skype')">ВСТАВИТЬ</span>
+                </div>
+            </div>
+
+            <div class="form__control">
+                <label for="telegram">TELEGRAM</label>
+                <div class="input-box">
+                    <input type="text" formControlName="telegram" name="telegram">
+                    <span (click)="paste('telegram')">ВСТАВИТЬ</span>
+                </div>
+            </div>
+        </div>
+
+        <button type="submit" class="btn form__submit">Відправити заявку</button>
+    </form>
+</section>
+
+<section *ngIf="!isDark">
+
+</section>

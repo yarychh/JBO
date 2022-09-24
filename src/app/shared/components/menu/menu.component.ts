@@ -9,8 +9,9 @@ import { StateService } from '../../services/state.service';
 })
 export class MenuComponent {
     public full$ = new BehaviorSubject<boolean>(true);
+    public shown = false;
 
-    public get isDark(): boolean{
+    public get isDark(): boolean {
         return this.state.isDark;
     }
 
@@ -19,9 +20,13 @@ export class MenuComponent {
         fromEvent(window, 'resize').subscribe(() => this.burger());
     }
 
-    public burger(): void{
-        document.documentElement.clientWidth < 500 ? this.full$.next(false) : this.full$.next(true);
+    public burger(): void {
+        document.documentElement.clientWidth < 500
+            ? this.full$.next(false)
+            : this.full$.next(true);
     }
 
-
+    public toggleShown(): void {
+        this.shown = !this.shown;
+    }
 }

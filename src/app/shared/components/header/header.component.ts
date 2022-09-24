@@ -9,7 +9,9 @@ import { StateService } from '../../services/state.service';
     styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
-    constructor(private state: StateService) {}
+    constructor(private state: StateService) {
+        this.roleChange();
+    }
 
     public get role$(): Observable<Role> {
         return this.state.getRole();
