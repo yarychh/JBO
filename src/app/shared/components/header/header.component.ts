@@ -10,7 +10,6 @@ import { StateService } from '../../services/state.service';
 })
 export class HeaderComponent {
     constructor(private state: StateService) {
-        this.roleChange();
     }
 
     public get role$(): Observable<Role> {
