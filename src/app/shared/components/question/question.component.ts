@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { StateService } from '../../services/state.service';
 
 @Component({
@@ -7,8 +7,10 @@ import { StateService } from '../../services/state.service';
     styleUrls: ['./question.component.scss'],
 })
 export class QuestionComponent implements OnInit {
+    @Input() question!: string;
+    @Input() answer!: string;
     public shown = false;
-    
+
     public get isDark(): boolean {
         return this.state.isDark;
     }

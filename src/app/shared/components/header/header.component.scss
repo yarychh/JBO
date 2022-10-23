@@ -1,6 +1,6 @@
 @import "/src/styles.scss";
 
-.switch-box{
+.switch-box {
     display: flex;
     align-items: center;
     gap: 1.1rem;
@@ -8,11 +8,25 @@
     margin-right: auto;
 
     @media (max-width: 400px) {
-        gap: .5rem;
+        gap: 0.5rem;
     }
 }
 
-.dark{
+.dark {
     background-color: $black;
     color: $white;
+}
+
+#lang {
+    border: none;
+    background-color: transparent;
+    color: $black;
+
+    &.dark {
+        color: $white;
+    }
+
+    option .dark{
+        color: $black;;
+    }
 }

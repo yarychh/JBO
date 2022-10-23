@@ -1,9 +1,9 @@
 <ul *ngIf="full$ | async; else burger">
-    <li [class.dark]="isDark">ГЛАВНАЯ</li>
-    <li [class.dark]="isDark">НЕ ГЛАВНАЯ</li>
-    <li [class.dark]="isDark">О НАС</li>
-    <li [class.dark]="isDark">О ВАС</li>
-    <li [class.dark]="isDark">КОНТАКТЫ</li>
+    <li [class.dark]="isDark">{{ 'home' | translate }}</li>
+    <li [class.dark]="isDark">{{ 'about-us' | translate }}</li>
+    <li [class.dark]="isDark">{{ 'events' | translate }}</li>
+    <li [class.dark]="isDark">{{ 'faq' | translate }}</li>
+    <li [class.dark]="isDark">{{ 'contacts' | translate }}</li>
 </ul>
 
 <ng-template #burger>
@@ -12,11 +12,11 @@
     <ng-template #expanded>
         <img [src]="isDark ? 'assets/svg/Close-white.svg' : 'assets/svg/Close-dark.svg'" alt="burger-menu" class="mb-3" (click)="toggleShown()">
         <ul class="vertical">
-            <li [class.dark]="isDark" class="text-center">ГЛАВНАЯ</li>
-            <li [class.dark]="isDark" class="text-center">НЕ ГЛАВНАЯ</li>
-            <li [class.dark]="isDark" class="text-center">О НАС</li>
-            <li [class.dark]="isDark" class="text-center">О ВАС</li>
-            <li [class.dark]="isDark" class="text-center">КОНТАКТЫ</li>
+            <li [class.dark]="isDark" class="text-center">{{ 'home' | translate }}</li>
+            <li [class.dark]="isDark" class="text-center">{{ 'about-us' | translate }}</li>
+            <li [class.dark]="isDark" class="text-center">{{ 'events' | translate }}</li>
+            <li [class.dark]="isDark" class="text-center">{{ 'faq' | translate }}</li>
+            <li [class.dark]="isDark" class="text-center">{{ 'contacts' | translate }}</li>
         </ul>
     </ng-template>
 </ng-template>

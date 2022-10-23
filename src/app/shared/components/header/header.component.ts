@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { UntypedFormControl } from '@angular/forms';
+import { TranslateService } from '@ngx-translate/core';
 import { Observable } from 'rxjs';
 import { Role } from '../../constants/role.enum';
 import { StateService } from '../../services/state.service';
@@ -8,8 +10,17 @@ import { StateService } from '../../services/state.service';
     templateUrl: './header.component.html',
     styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent {
-    constructor(private state: StateService) {
+export class HeaderComponent implements OnInit, OnDestroy {
+    public currentLang = '';
+    constructor(private state: StateService, private translate: TranslateService) { }
+
+    ngOnInit(): void {
+        this.translate.onLangChange.subscribe((event) => {
+            this.currentLang = event.lang;
+        });
+    }
+    ngOnDestroy(): void {
+        this.translate.onLangChange.unsubscribe();
     }
 
     public get role$(): Observable<Role> {
@@ -20,8 +31,17 @@ export class HeaderComponent {
         return this.state.isDark;
     }
 
+    public selected(lang: string): boolean {
+        return lang  === this.currentLang;
+    }
+
     public roleChange(): void {
         this.state.toggleRole();
         document.body.classList.toggle('dark');
+    }
+
+    public langChange(event: any): void {
+        const lang = event.target.value;
+        this.translate.use(lang);
     }
 }

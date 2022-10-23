@@ -6,18 +6,18 @@
             Your browser is not supporting video tag!
         </video>
 
-        <p class="priamikom" [class.dark-t]="isDark">прямиком с 2022</p>
-        <button class="btn ahuet">{{ 'button' | translate }}</button>
+        <p class="priamikom" [class.dark-t]="isDark">{{ 'since' | translate }}</p>
+        <button class="btn ahuet">{{ 'start-button' | translate }}</button>
     </div>
-    <h1 class="sorry" [class.dark-t]="isDark">простите если трахнул</h1>
+    <h1 class="sorry" [class.dark-t]="isDark">{{ 'sorry' | translate }}</h1>
     <app-menu class="menu my-5 mb-0 ms-0 ms-sm-4"></app-menu>
 </section>
 
 <section class="features mb-5 pb-5" [class.dark]="isDark">
-    <app-pill [number]="'0001'" [description]="'Ну во первых ми пиздатые, очень. Ты ебанешься насколько.'"></app-pill>
-    <app-pill [number]="'0002'" [description]="'А во-вторых, мы все равно пиздатые'"></app-pill>
-    <app-pill [number]="'0003'" [description]="'Ну во первых ми пиздатые, очень. Ты ебанешься насколько.'"></app-pill>
-    <app-pill [number]="'0004'" [description]="'А во-вторых, мы все равно пиздатые'"></app-pill>
+    <app-pill [number]="'0001'" description="{{ '1-feature' | translate }}"></app-pill>
+    <app-pill [number]="'0002'" description="{{ '2-feature' | translate }}"></app-pill>
+    <app-pill [number]="'0003'" description="{{ '3-feature' | translate }}"></app-pill>
+    <app-pill [number]="'0004'" description="{{ '4-feature' | translate }}"></app-pill>
 </section>
 
 <article class="reviews mb-5">
@@ -36,7 +36,7 @@
         <ng-template *ngFor="let i of [1, 2, 3, 4]" swiperSlide>
             <div class="swiper-slide-container">
                 <section class="partners pt-4 mb-5 pb-5" [class.dark]="isDark">
-                    <p>ПАРТНЕРЫ О НАС ГОВОРЯТ ТАКИЕ ВЕЩИ:</p>
+                    <p>{{ 'partners-say' | translate }}</p>
                     <img src="assets\img\NP.png" alt="nova poshta" class="partners__logo">
                     <p class="quote">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
                         ut labore
@@ -108,22 +108,22 @@
 </div>
 
 <section *ngIf="isDark" class="flow px-3 pt-5 px-md-5 mb-5 pb-5">
-    <h2 class="flow__heading mb-5 pb-3">ТАКОЙ ЗАГОЛОВОК</h2>
+    <h2 class="flow__heading mb-5 pb-3">{{ 'success-formula' | translate }}</h2>
     <div class="flow__box">
-        <app-flow-pill heading="ЗАГОЛОВОК"
-            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.">
+        <app-flow-pill heading="{{ 'request' | translate }}"
+            description="{{ 'request-desc' | translate }}">
         </app-flow-pill>
         <img src="assets/svg/arr-bottom-sm.svg" alt="arrow bottom" class="my-3">
-        <app-flow-pill heading="ЗАГОЛОВОК"
-            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.">
+        <app-flow-pill heading="{{ 'analysis' | translate }}"
+            description="{{ 'analysis-desc' | translate }}">
         </app-flow-pill>
         <img src="assets/svg/arr-bottom-sm.svg" alt="arrow bottom" class="my-3">
-        <app-flow-pill heading="ЗАГОЛОВОК"
-            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.">
+        <app-flow-pill heading="{{ 'launch' | translate }}"
+            description="{{ 'launch-desc' | translate }}">
         </app-flow-pill>
         <img src="assets/svg/arr-bottom-sm.svg" alt="arrow bottom" class="my-3">
-        <app-flow-pill heading="ЗАГОЛОВОК"
-            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.">
+        <app-flow-pill heading="{{ 'profit' | translate }}"
+            description="{{ 'profit-desc' | translate }}">
         </app-flow-pill>
     </div>
 </section>
@@ -138,7 +138,7 @@
 <ng-template #events>
     <section class="events px-3 px-md-4 mb-5 pb-5">
         <div class="d-flex justify-content-between mb-3">
-            <h2 class="events__heading" [class.dark]="isDark">ИВЕНТЫ</h2>
+            <h2 class="events__heading" [class.dark]="isDark">{{ 'events' | translate }}</h2>
             <div class="d-none d-md-inline-block">
                 <a calss="nav" (click)="slidePrev('events')">
                     <img [src]="isDark ? 'assets/svg/arr-left.svg' : 'assets/svg/arr-left-dark.svg'" alt="arrow left">
@@ -171,19 +171,18 @@
 
 <ng-template #faq>
     <section class="faq px-3 px-sm-5 mb-5 pb-5">
-        <app-question></app-question>
-        <app-question></app-question>
-        <app-question></app-question>
-        <app-question></app-question>
-        <app-question></app-question>
+        <app-question question="{{ 'question-1' | translate }}" answer="{{ 'answer-1' | translate }}"></app-question>
+        <app-question question="{{ 'question-2' | translate }}" answer="{{ 'answer-2' | translate }}"></app-question>
+        <app-question question="{{ 'question-3' | translate }}" answer="{{ 'answer-3' | translate }}"></app-question>
+        <app-question question="{{ 'question-4' | translate }}" answer="{{ 'answer-4' | translate }}"></app-question>
     </section>
 </ng-template>
 
 <section class="form" *ngIf="isDark">
-    <h3 class="form__heading mb-5" [class.dark]="isDark">ТАКОЙ ЗАГОЛОВОК</h3>
+    <h3 class="form__heading mb-5" [class.dark]="isDark">{{ 'apply-now' | translate }}</h3>
     <form [formGroup]="advertizerForm" (submit)="sendForm()" class="px-2 px-md-5">
         <div class="form__control">
-            <label for="companyType">ТИП КОМПАНІЇ</label>
+            <label for="companyType">{{ 'company-type' | translate }}</label>
             <select formControlName="companyType" name="companyType">
                 <option [value]="null" disabled selected>Прямий рекламодавець</option>
                 <option value="1">Audi</option>
@@ -192,7 +191,7 @@
         </div>
 
         <div class="form__control">
-            <label for="geo">ВАШІ ГЕО</label>
+            <label for="geo">{{ 'company-geo' | translate }}</label>
             <select formControlName="geo" name="geo">
                 <option [value]="null" disabled selected>Ваші гео</option>
                 <option value="1">Audi</option>
@@ -204,7 +203,7 @@
             <label for="email">EMAIL</label>
             <div class="input-box">
                 <input type="email" formControlName="email" name="email" placeholder="example@gmail.com">
-                <span (click)="paste('email')">ВСТАВИТЬ</span>
+                <span (click)="paste('email')">{{ 'paste' | translate }}</span>
             </div>
         </div>
 
@@ -213,7 +212,7 @@
                 <label for="skype">SKYPE</label>
                 <div class="input-box">
                     <input type="text" formControlName="skype" name="skype">
-                    <span (click)="paste('skype')">ВСТАВИТЬ</span>
+                    <span (click)="paste('skype')">{{ 'paste' | translate }}</span>
                 </div>
             </div>
 
@@ -221,20 +220,20 @@
                 <label for="telegram">TELEGRAM</label>
                 <div class="input-box">
                     <input type="text" formControlName="telegram" name="telegram">
-                    <span (click)="paste('telegram')">ВСТАВИТЬ</span>
+                    <span (click)="paste('telegram')">{{ 'paste' | translate }}</span>
                 </div>
             </div>
         </div>
 
-        <button type="submit" class="btn form__submit">Відправити заявку</button>
+        <button type="submit" class="btn form__submit">{{ 'submit' | translate }}</button>
     </form>
 </section>
 
 <section class="webmaster" *ngIf="!isDark">
     <div class="picbox">
-        <p class="picbox__master">вебмастеру</p>
+        <p class="picbox__master">{{ 'web-master' | translate }}</p>
         <img src="assets/img/car.png" alt="car" class="picbox__pic rotating">
-        <p class="picbox__affiliate">аффилейту</p>
+        <p class="picbox__affiliate">{{ 'affilicate' | translate }}</p>
     </div>
     <div class="textbox">
         <h3>Lorem ipsum dolor sit amet.</h3>

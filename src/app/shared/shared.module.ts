@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { SwitchComponent } from './components/switch/switch.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MenuComponent } from './components/menu/menu.component';
 import { PillComponent } from './components/pill/pill.component';
 import { FlowPillComponent } from './components/flow-pill/flow-pill.component';
@@ -27,6 +27,7 @@ import { TranslateModule } from '@ngx-translate/core';
   imports: [
       CommonModule,
       FormsModule,
+      ReactiveFormsModule,
       TranslateModule
     ],
     exports: [
