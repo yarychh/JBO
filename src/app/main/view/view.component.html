@@ -1,6 +1,7 @@
+<div class="content-wrap">
 <section class="meet" [class.dark]="isDark">
     <div class="picbox">
-        <video autoplay muted loop class="main-pic">
+        <video [autoplay]="true" [muted]="true" loop class="main-pic">
             <source src="assets/video/Frame 41303_3.mp4" type="video/mp4">
             Your browser is not supporting video tag!
         </video>
@@ -19,53 +20,92 @@
     <app-pill [number]="'0004'" [description]="'А во-вторых, мы все равно пиздатые'"></app-pill>
 </section>
 
-<section class="partners mb-5" [class.dark]="isDark">
-    <p>ПАРТНЕРЫ О НАС ГОВОРЯТ ТАКИЕ ВЕЩИ:</p>
-    <img src="assets\img\NP.png" alt="nova poshta" class="partners__logo">
-    <p class="quote">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-        et dolore magna aliqua.</p>
-    <div class="navbox">
-        <a calss="nav">
+<article class="reviews mb-5">
+    <swiper
+        #reviews
+        [slidesPerView]="1"
+        [spaceBetween]="0"
+        [centeredSlides]="true"
+        [loop]="true"
+        [keyboard]="{
+            enabled: true
+        }"
+        [virtual]="true"
+        class="my-swiper"
+    >
+        <ng-template *ngFor="let i of [1, 2, 3, 4]" swiperSlide>
+            <div class="swiper-slide-container">
+                <section class="partners pt-4 mb-5 pb-5" [class.dark]="isDark">
+                    <p>ПАРТНЕРЫ О НАС ГОВОРЯТ ТАКИЕ ВЕЩИ:</p>
+                    <img src="assets\img\NP.png" alt="nova poshta" class="partners__logo">
+                    <p class="quote">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                        ut labore
+                        et dolore magna aliqua.</p>
+                </section>
+            </div>
+        </ng-template>
+    </swiper>
+    <div class="reviews__navbox">
+        <a calss="nav" (click)="slidePrev('reviews')" >
             <img [src]="isDark ? 'assets/svg/arr-left.svg' : 'assets/svg/arr-left-dark.svg'" alt="arrow left">
         </a>
-        <a calss="nav">
+        <a calss="nav" (click)="slideNext('reviews')">
             <img [src]="isDark ? 'assets/svg/arr-right.svg' : 'assets/svg/arr-right-dark.svg'" alt="arrow right">
         </a>
     </div>
-</section>
+</article>
 
-<section *ngIf="!isDark" class="stats pt-5 mb-5 pb-5">
-    <div class="stats__card">
-        <img src="assets/img/olx-back.png" alt="background" class="stats__card--bg">
-        <div class="logo-card">
-            <img src="assets/img/olx.png" alt="OLX">
-            <h5>NFT</h5>
-            <span>CPA-сеть</span>
-        </div>
-        <div class="percentage">
-            <span class="cr">CR:</span>
-            <span class="percent">12-15%</span>
-        </div>
-        <div class="dollars">
-            <span class="cr">CR:</span>
-            <span class="numbers">$10 600-10 950</span>
-        </div>
-        <div class="countries">
-            <img src="assets/svg/Ellipse_ua.svg" alt="ua">
-            <img src="assets/svg/Ellipse_pt.svg" alt="pt">
-            <img src="assets/svg/Ellipse_sp.svg" alt="sp">
-        </div>
+<div class="statistics-container">
+    <article class="statistics" *ngIf="!isDark">
+        <swiper
+        #statistics
+        [slidesPerView]="1"
+        [spaceBetween]="0"
+        [centeredSlides]="true"
+        [loop]="true"
+        [keyboard]="{
+            enabled: true
+        }"
+        [virtual]="true"
+        class="my-swiper"
+        >
+            <ng-template *ngFor="let i of [1, 2, 3, 4]" swiperSlide>
+                <section class="stats pt-5 mb-5 pb-5">
+                    <div class="stats__card">
+                        <img src="assets/img/olx-back.png" alt="background" class="stats__card--bg">
+                        <div class="logo-card">
+                            <img src="assets/img/olx.png" alt="OLX">
+                            <h5>NFT</h5>
+                            <span>CPA-сеть</span>
+                        </div>
+                        <div class="percentage">
+                            <span class="cr">CR:</span>
+                            <span class="percent">12-15%</span>
+                        </div>
+                        <div class="dollars">
+                            <span class="cr">CR:</span>
+                            <span class="numbers">$10600-10950</span>
+                        </div>
+                        <div class="countries">
+                            <img src="assets/svg/Ellipse_ua.svg" alt="ua">
+                            <img src="assets/svg/Ellipse_pt.svg" alt="pt">
+                            <img src="assets/svg/Ellipse_sp.svg" alt="sp">
+                        </div>
 
-    </div>
-    <div class="stats__nav">
-        <a calss="nav">
-            <img src="assets/svg/arr-left-dark.svg" alt="arrow left">
-        </a>
-        <a calss="nav">
-            <img src="assets/svg/arr-right-dark.svg" alt="arrow right">
-        </a>
-    </div>
-</section>
+                    </div>
+                </section>
+            </ng-template>
+        </swiper>
+        <div class="statistics__nav">
+            <a calss="nav" (click)="slidePrev('statistics')">
+                <img src="assets/svg/arr-left-dark.svg" alt="arrow left">
+            </a>
+            <a calss="nav" (click)="slideNext('statistics')">
+                <img src="assets/svg/arr-right-dark.svg" alt="arrow right">
+            </a>
+        </div>
+    </article>
+</div>
 
 <section *ngIf="isDark" class="flow px-3 pt-5 px-md-5 mb-5 pb-5">
     <h2 class="flow__heading mb-5 pb-3">ТАКОЙ ЗАГОЛОВОК</h2>
@@ -100,26 +140,37 @@
         <div class="d-flex justify-content-between mb-3">
             <h2 class="events__heading" [class.dark]="isDark">ИВЕНТЫ</h2>
             <div class="d-none d-md-inline-block">
-                <a calss="nav">
+                <a calss="nav" (click)="slidePrev('events')">
                     <img [src]="isDark ? 'assets/svg/arr-left.svg' : 'assets/svg/arr-left-dark.svg'" alt="arrow left">
                 </a>
-                <a calss="nav">
+                <a calss="nav" (click)="slideNext('events')">
                     <img [src]="isDark ? 'assets/svg/arr-right.svg' : 'assets/svg/arr-right-dark.svg'"
                         alt="arrow right">
                 </a>
             </div>
         </div>
 
-        <div class="d-flex">
-            <app-event class="me-4"></app-event>
-            <!-- <app-event class="me-4"></app-event> -->
-            <!-- <app-event></app-event> -->
-        </div>
+        <swiper
+            #swiperEvents
+            [slidesPerView]="1"
+            [spaceBetween]="30"
+            [loop]="true"
+            [keyboard]="{
+                enabled: true
+            }"
+            [virtual]="true"
+            class="my-swiper"
+            [breakpoints]="breakpoints"
+        >
+            <ng-template *ngFor="let i of [1, 2, 3, 4]" swiperSlide>
+                <app-event></app-event>
+            </ng-template>
+        </swiper>
     </section>
 </ng-template>
 
 <ng-template #faq>
-    <section class="faq px-2 mb-5 pb-5">
+    <section class="faq px-3 px-sm-5 mb-5 pb-5">
         <app-question></app-question>
         <app-question></app-question>
         <app-question></app-question>
@@ -182,7 +233,7 @@
 <section class="webmaster" *ngIf="!isDark">
     <div class="picbox">
         <p class="picbox__master">вебмастеру</p>
-        <img src="assets/img/car.png" alt="car" class="picbox__pic">
+        <img src="assets/img/car.png" alt="car" class="picbox__pic rotating">
         <p class="picbox__affiliate">аффилейту</p>
     </div>
     <div class="textbox">
@@ -190,3 +241,4 @@
         <img src="assets/svg/big-arr-rigth-black.svg" alt="right arrow">
     </div>
 </section>
+</div>

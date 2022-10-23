@@ -1,6 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { StateService } from 'src/app/shared/services/state.service';
+import SwiperCore, { Keyboard, Virtual } from 'swiper';
+import { SwiperComponent } from 'swiper/angular';
+
+SwiperCore.use([Keyboard, Virtual]);
 
 @Component({
     selector: 'app-view',
@@ -9,6 +13,10 @@ import { StateService } from 'src/app/shared/services/state.service';
 })
 export class ViewComponent implements OnInit {
     public advertizerForm!: FormGroup;
+
+    @ViewChild('reviews', { static: false }) reviews?: SwiperComponent;
+    @ViewChild('statistics', { static: false }) statistics?: SwiperComponent;
+    @ViewChild('swiperEvents', { static: false }) events?: SwiperComponent;
 
     constructor(private state: StateService, private fb: FormBuilder) {
         this.advertizerForm = this.fb.group({
@@ -24,6 +32,24 @@ export class ViewComponent implements OnInit {
         return this.state.isDark;
     }
 
+    public breakpoints = {
+        600: {
+            slidesPerView: 1.2,
+        },
+
+        730: {
+            slidesPerView: 1.4,
+        },
+        1000: {
+            slidesPerView: 1.7
+        },
+        1700: {
+            centeredSlides: true,
+            slidesPerView: 2,
+            spaceBetween: 50
+        },
+    };
+
     ngOnInit(): void {}
 
     public sendForm(): void {
@@ -31,10 +57,41 @@ export class ViewComponent implements OnInit {
         this.advertizerForm.reset();
     }
 
-    public async paste(controlName: string): Promise<void>{
+    public async paste(controlName: string): Promise<void> {
         const control = this.advertizerForm.get(controlName);
         const pasteData = await navigator.clipboard.readText();
         control?.setValue(pasteData);
+    }
 
+    public slideNext(identifier: string): void {
+        switch (identifier) {
+            case 'reviews':
+                this.reviews?.swiperRef.slideNext();
+                break;
+            case 'statistics':
+                this.statistics?.swiperRef.slideNext();
+                break;
+            case 'events':
+                this.events?.swiperRef.slideNext();
+                break;
+            default:
+                break;
+        }
+    }
+
+    public slidePrev(identifier: string): void {
+        switch (identifier) {
+            case 'reviews':
+                this.reviews?.swiperRef.slidePrev();
+                break;
+            case 'statistics':
+                this.statistics?.swiperRef.slidePrev();
+                break;
+            case 'events':
+                this.events?.swiperRef.slidePrev();
+                break;
+            default:
+                break;
+        }
     }
 }

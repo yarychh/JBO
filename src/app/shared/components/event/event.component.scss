@@ -1,6 +1,8 @@
 @import "/src/styles.scss";
 
 .event {
+    max-width: 920px;
+    width: fit-content;
     position: relative;
     overflow: hidden;
     border-radius: 40px;

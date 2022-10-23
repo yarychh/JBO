@@ -1,10 +1,14 @@
-<div class="question-box mb-4">
-    <div class="icon" (click)="shown = !shown">
-        <img *ngIf="!shown" [src]="isDark ? 'assets/svg/plus-white.svg' : 'assets/svg/plus-dark.svg'" alt="plus">
-        <img *ngIf="shown" [src]="isDark ? 'assets/svg/minus-white.svg' : 'assets/svg/minus-dark.svg'" alt="minus">
+<div class="accordion-container">
+
+    <div (click)="shown = !shown">
+        <img *ngIf="!shown" [src]="isDark ? 'assets/svg/plus-white.svg' : 'assets/svg/plus-dark.svg'" class="acc-icon" alt="plus">
+        <img *ngIf="shown" [src]="isDark ? 'assets/svg/minus-white.svg' : 'assets/svg/minus-dark.svg'" class="acc-icon" alt="minus">
     </div>
+
     <div class="qa" [class.dark]="isDark">
         <h3 class="question">КАКИМ ФАЙЛООБМЕННИКОМ ВЫ ПОЛЬЗУЕТЕСЬ?</h3>
-        <p *ngIf="shown" class="answer mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p *ngIf="shown" class="answer mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua.</p>
     </div>
+
 </div>

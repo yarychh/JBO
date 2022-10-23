@@ -1,22 +1,28 @@
 @import "/src/styles.scss";
 
-.question-box{
-    display: flex;
-    gap: 2rem;
-    align-items: center;
-    @media (max-width: 650px) {
-        gap: 1rem;
+.accordion-container {
+    display: grid;
+    grid-template-columns: 68px 1fr;
+    column-gap: 5.2rem;
+
+    @media (max-width:750px) {
+        grid-template-columns: 45px 1fr;
+        column-gap: 3rem;
     }
 
-    .qa{
-        color: $black;
-        max-width: 100%;
+    @media (max-width:500px) {
+        column-gap: 2rem;
+    }
 
-        &.dark{
+    .qa {
+        color: $black;
+        max-width: max-content;
+
+        &.dark {
             color: $white;
         }
 
-        .question{
+        .question {
             font-family: $font-heading;
             font-size: 1.563rem;
             @media (max-width: 650px) {
@@ -26,12 +32,32 @@
                 font-size: 1.1rem;
             }
             @media (max-width: 500px) {
-                font-size: .875rem;
+                font-size: 0.875rem;
             }
         }
 
-        .answer{
+        .answer {
             font-size: 1.25rem;
         }
+    }
+}
+
+.acc-icon {
+    height: 4.375rem;
+    width: 4.375rem;
+
+    @media (max-width: 750px) {
+        height: 55px;
+        width: 55px;
+    }
+
+    @media (max-width: 650px) {
+        height: 50px;
+        width: 50px;
+    }
+
+    @media (max-width: 500px) {
+        height: 45px;
+        width: 45px;
     }
 }

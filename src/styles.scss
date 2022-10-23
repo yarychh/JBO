@@ -1,6 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 /* Importing Bootstrap SCSS file. */
 @import 'bootstrap/scss/bootstrap';
+
+@import 'swiper/scss';
+@import 'swiper/scss/navigation';
+@import 'swiper/scss/pagination';
+
 @font-face {
     font-family: 'Gilroy';
     src: url('./assets/gilroy/Gilroy-Regular.ttf');
