@@ -222,7 +222,7 @@
                 </div>
             </div>
 
-            <button type="submit" class="btn form__submit">{{ 'submit' | translate }}</button>
+            <button type="submit" [disabled]="advertizerForm.invalid" class="btn form__submit">{{ 'submit' | translate }}</button>
         </form>
     </section>
 

@@ -1,6 +1,6 @@
 @import "/src/styles.scss";
 
-.content-wrap{
+.content-wrap {
     max-width: 1900px;
     margin: 0 auto;
 }
@@ -203,7 +203,7 @@
         //     max-width: 1000px;
         // }
         @media (max-width: 760px) {
-           gap: 2rem;
+            gap: 2rem;
         }
 
         &.dark {
@@ -610,6 +610,10 @@
 
         &:hover {
             background-color: $white !important;
+        }
+
+        &:disabled{
+            color: $white;
         }
     }
 }
