@@ -597,6 +597,12 @@
                 font-weight: 500;
             }
         }
+
+        .error{
+            font-weight: 500;
+            color: red;
+            text-shadow: 0 .1rem 1rem rgba($black, .7);
+        }
     }
 
     &__submit {

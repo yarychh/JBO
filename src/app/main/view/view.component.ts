@@ -22,7 +22,7 @@ export class ViewComponent implements OnInit {
         this.advertizerForm = this.fb.group({
             companyType: [null, Validators.required],
             geo: [null, Validators.required],
-            email: [null, [Validators.email, Validators.required]],
+            email: [null, {validators: [Validators.email, Validators.required], updateOn: 'blur'}],
             skype: [null],
             telegram: [null],
         });

@@ -202,6 +202,7 @@
                     <input type="email" formControlName="email" name="email" placeholder="example@gmail.com">
                     <span (click)="paste('email')">{{ 'paste' | translate }}</span>
                 </div>
+                <p *ngIf="advertizerForm.get('email')?.hasError('email')" class="error ms-3 mb-0 p-1">Please enter valid email</p>
             </div>
 
             <div class="form__contacts">
