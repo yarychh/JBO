@@ -186,7 +186,7 @@
     }
 
     .partners {
-        max-width: 85rem;
+        // max-width: 85rem;
         margin: 0 auto;
         background-color: $grey;
         border-radius: 40px;
@@ -199,8 +199,11 @@
         align-items: flex-start;
         justify-content: center;
 
-        @media (max-width: 1400px) {
-            max-width: 1000px;
+        // @media (max-width: 1400px) {
+        //     max-width: 1000px;
+        // }
+        @media (max-width: 760px) {
+           gap: 2rem;
         }
 
         &.dark {
@@ -622,7 +625,7 @@
     }
 
     .picbox {
-        margin: 0 2rem;
+        margin: 0 4rem;
         display: flex;
         flex-direction: column;
 

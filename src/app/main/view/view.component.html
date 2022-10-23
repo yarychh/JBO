@@ -1,243 +1,240 @@
 <div class="content-wrap">
-<section class="meet" [class.dark]="isDark">
-    <div class="picbox">
-        <video [autoplay]="true" [muted]="true" loop class="main-pic">
-            <source src="assets/video/Frame 41303_3.mp4" type="video/mp4">
-            Your browser is not supporting video tag!
-        </video>
+    <section id="home" class="meet" [class.dark]="isDark">
+        <div class="picbox">
+            <video [autoplay]="true" [muted]="true" loop class="main-pic">
+                <source src="assets/video/Frame 41303_3.mp4" type="video/mp4">
+                Your browser is not supporting video tag!
+            </video>
 
-        <p class="priamikom" [class.dark-t]="isDark">{{ 'since' | translate }}</p>
-        <button class="btn ahuet">{{ 'start-button' | translate }}</button>
-    </div>
-    <h1 class="sorry" [class.dark-t]="isDark">{{ 'sorry' | translate }}</h1>
-    <app-menu class="menu my-5 mb-0 ms-0 ms-sm-4"></app-menu>
-</section>
-
-<section class="features mb-5 pb-5" [class.dark]="isDark">
-    <app-pill [number]="'0001'" description="{{ '1-feature' | translate }}"></app-pill>
-    <app-pill [number]="'0002'" description="{{ '2-feature' | translate }}"></app-pill>
-    <app-pill [number]="'0003'" description="{{ '3-feature' | translate }}"></app-pill>
-    <app-pill [number]="'0004'" description="{{ '4-feature' | translate }}"></app-pill>
-</section>
-
-<article class="reviews mb-5">
-    <swiper
-        #reviews
-        [slidesPerView]="1"
-        [spaceBetween]="0"
-        [centeredSlides]="true"
-        [loop]="true"
-        [keyboard]="{
-            enabled: true
-        }"
-        [virtual]="true"
-        class="my-swiper"
-    >
-        <ng-template *ngFor="let i of [1, 2, 3, 4]" swiperSlide>
-            <div class="swiper-slide-container">
-                <section class="partners pt-4 mb-5 pb-5" [class.dark]="isDark">
-                    <p>{{ 'partners-say' | translate }}</p>
-                    <img src="assets\img\NP.png" alt="nova poshta" class="partners__logo">
-                    <p class="quote">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                        ut labore
-                        et dolore magna aliqua.</p>
-                </section>
-            </div>
-        </ng-template>
-    </swiper>
-    <div class="reviews__navbox">
-        <a calss="nav" (click)="slidePrev('reviews')" >
-            <img [src]="isDark ? 'assets/svg/arr-left.svg' : 'assets/svg/arr-left-dark.svg'" alt="arrow left">
-        </a>
-        <a calss="nav" (click)="slideNext('reviews')">
-            <img [src]="isDark ? 'assets/svg/arr-right.svg' : 'assets/svg/arr-right-dark.svg'" alt="arrow right">
-        </a>
-    </div>
-</article>
-
-<div class="statistics-container">
-    <article class="statistics" *ngIf="!isDark">
-        <swiper
-        #statistics
-        [slidesPerView]="1"
-        [spaceBetween]="0"
-        [centeredSlides]="true"
-        [loop]="true"
-        [keyboard]="{
-            enabled: true
-        }"
-        [virtual]="true"
-        class="my-swiper"
-        >
-            <ng-template *ngFor="let i of [1, 2, 3, 4]" swiperSlide>
-                <section class="stats pt-5 mb-5 pb-5">
-                    <div class="stats__card">
-                        <img src="assets/img/olx-back.png" alt="background" class="stats__card--bg">
-                        <div class="logo-card">
-                            <img src="assets/img/olx.png" alt="OLX">
-                            <h5>NFT</h5>
-                            <span>CPA-сеть</span>
-                        </div>
-                        <div class="percentage">
-                            <span class="cr">CR:</span>
-                            <span class="percent">12-15%</span>
-                        </div>
-                        <div class="dollars">
-                            <span class="cr">CR:</span>
-                            <span class="numbers">$10600-10950</span>
-                        </div>
-                        <div class="countries">
-                            <img src="assets/svg/Ellipse_ua.svg" alt="ua">
-                            <img src="assets/svg/Ellipse_pt.svg" alt="pt">
-                            <img src="assets/svg/Ellipse_sp.svg" alt="sp">
-                        </div>
-
-                    </div>
-                </section>
-            </ng-template>
-        </swiper>
-        <div class="statistics__nav">
-            <a calss="nav" (click)="slidePrev('statistics')">
-                <img src="assets/svg/arr-left-dark.svg" alt="arrow left">
-            </a>
-            <a calss="nav" (click)="slideNext('statistics')">
-                <img src="assets/svg/arr-right-dark.svg" alt="arrow right">
-            </a>
+            <p class="priamikom" [class.dark-t]="isDark">{{ 'since' | translate }}</p>
+            <button class="btn ahuet">{{ 'start-button' | translate }}</button>
         </div>
-    </article>
-</div>
+        <h1 class="sorry" [class.dark-t]="isDark">{{ 'sorry' | translate }}</h1>
+        <app-menu class="menu my-5 mb-0 ms-0 ms-sm-4"></app-menu>
+    </section>
 
-<section *ngIf="isDark" class="flow px-3 pt-5 px-md-5 mb-5 pb-5">
-    <h2 class="flow__heading mb-5 pb-3">{{ 'success-formula' | translate }}</h2>
-    <div class="flow__box">
-        <app-flow-pill heading="{{ 'request' | translate }}"
-            description="{{ 'request-desc' | translate }}">
-        </app-flow-pill>
-        <img src="assets/svg/arr-bottom-sm.svg" alt="arrow bottom" class="my-3">
-        <app-flow-pill heading="{{ 'analysis' | translate }}"
-            description="{{ 'analysis-desc' | translate }}">
-        </app-flow-pill>
-        <img src="assets/svg/arr-bottom-sm.svg" alt="arrow bottom" class="my-3">
-        <app-flow-pill heading="{{ 'launch' | translate }}"
-            description="{{ 'launch-desc' | translate }}">
-        </app-flow-pill>
-        <img src="assets/svg/arr-bottom-sm.svg" alt="arrow bottom" class="my-3">
-        <app-flow-pill heading="{{ 'profit' | translate }}"
-            description="{{ 'profit-desc' | translate }}">
-        </app-flow-pill>
-    </div>
-</section>
+    <section class="features mb-5 pb-5" [class.dark]="isDark" id="about-us">
+        <app-pill [number]="'0001'" description="{{ '1-feature' | translate }}"></app-pill>
+        <app-pill [number]="'0002'" description="{{ '2-feature' | translate }}"></app-pill>
+        <app-pill [number]="'0003'" description="{{ '3-feature' | translate }}"></app-pill>
+        <app-pill [number]="'0004'" description="{{ '4-feature' | translate }}"></app-pill>
+    </section>
 
-<ng-container *ngIf="!isDark; else faq">
-    <ng-container [ngTemplateOutlet]="faq"></ng-container>
-</ng-container>
-<ng-container *ngIf="isDark; else events">
-    <ng-container [ngTemplateOutlet]="events"></ng-container>
-</ng-container>
-
-<ng-template #events>
-    <section class="events px-3 px-md-4 mb-5 pb-5">
-        <div class="d-flex justify-content-between mb-3">
-            <h2 class="events__heading" [class.dark]="isDark">{{ 'events' | translate }}</h2>
-            <div class="d-none d-md-inline-block">
-                <a calss="nav" (click)="slidePrev('events')">
-                    <img [src]="isDark ? 'assets/svg/arr-left.svg' : 'assets/svg/arr-left-dark.svg'" alt="arrow left">
-                </a>
-                <a calss="nav" (click)="slideNext('events')">
-                    <img [src]="isDark ? 'assets/svg/arr-right.svg' : 'assets/svg/arr-right-dark.svg'"
-                        alt="arrow right">
-                </a>
-            </div>
-        </div>
-
+    <article class="reviews mb-5">
         <swiper
-            #swiperEvents
+            #reviews
             [slidesPerView]="1"
-            [spaceBetween]="30"
+            [spaceBetween]="0"
+            [centeredSlides]="true"
             [loop]="true"
             [keyboard]="{
                 enabled: true
             }"
-            [virtual]="true"
             class="my-swiper"
-            [breakpoints]="breakpoints"
         >
             <ng-template *ngFor="let i of [1, 2, 3, 4]" swiperSlide>
-                <app-event></app-event>
+                <div class="swiper-slide-container">
+                    <section class="partners pt-4 mb-5 pb-5" [class.dark]="isDark">
+                        <p>{{ 'partners-say' | translate }}</p>
+                        <img src="assets\img\NP.png" alt="nova poshta" class="partners__logo">
+                        <p class="quote">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                            ut labore
+                            et dolore magna aliqua.</p>
+                    </section>
+                </div>
             </ng-template>
         </swiper>
-    </section>
-</ng-template>
-
-<ng-template #faq>
-    <section class="faq px-3 px-sm-5 mb-5 pb-5">
-        <app-question question="{{ 'question-1' | translate }}" answer="{{ 'answer-1' | translate }}"></app-question>
-        <app-question question="{{ 'question-2' | translate }}" answer="{{ 'answer-2' | translate }}"></app-question>
-        <app-question question="{{ 'question-3' | translate }}" answer="{{ 'answer-3' | translate }}"></app-question>
-        <app-question question="{{ 'question-4' | translate }}" answer="{{ 'answer-4' | translate }}"></app-question>
-    </section>
-</ng-template>
-
-<section class="form" *ngIf="isDark">
-    <h3 class="form__heading mb-5" [class.dark]="isDark">{{ 'apply-now' | translate }}</h3>
-    <form [formGroup]="advertizerForm" (submit)="sendForm()" class="px-2 px-md-5">
-        <div class="form__control">
-            <label for="companyType">{{ 'company-type' | translate }}</label>
-            <select formControlName="companyType" name="companyType">
-                <option [value]="null" disabled selected>Прямий рекламодавець</option>
-                <option value="1">Audi</option>
-                <option value="2">BMW</option>
-            </select>
+        <div class="reviews__navbox">
+            <a calss="nav" (click)="slidePrev('reviews')" >
+                <img [src]="isDark ? 'assets/svg/arr-left.svg' : 'assets/svg/arr-left-dark.svg'" alt="arrow left">
+            </a>
+            <a calss="nav" (click)="slideNext('reviews')">
+                <img [src]="isDark ? 'assets/svg/arr-right.svg' : 'assets/svg/arr-right-dark.svg'" alt="arrow right">
+            </a>
         </div>
+    </article>
 
-        <div class="form__control">
-            <label for="geo">{{ 'company-geo' | translate }}</label>
-            <select formControlName="geo" name="geo">
-                <option [value]="null" disabled selected>Ваші гео</option>
-                <option value="1">Audi</option>
-                <option value="2">BMW</option>
-            </select>
-        </div>
+    <div class="statistics-container">
+        <article class="statistics" *ngIf="!isDark">
+            <swiper
+            #statistics
+            [slidesPerView]="1"
+            [spaceBetween]="0"
+            [centeredSlides]="true"
+            [loop]="true"
+            [keyboard]="{
+                enabled: true
+            }"
+            class="my-swiper"
+            >
+                <ng-template *ngFor="let i of [1, 2, 3, 4]" swiperSlide>
+                    <section class="stats pt-5 mb-5 pb-5">
+                        <div class="stats__card">
+                            <img src="assets/img/olx-back.png" alt="background" class="stats__card--bg">
+                            <div class="logo-card">
+                                <img src="assets/img/olx.png" alt="OLX">
+                                <h5>NFT</h5>
+                                <span>{{ 'cpa-net' | translate }}</span>
+                            </div>
+                            <div class="percentage">
+                                <span class="cr">CR:</span>
+                                <span class="percent">12-15%</span>
+                            </div>
+                            <div class="dollars">
+                                <span class="cr">CR:</span>
+                                <span class="numbers">$10600-10950</span>
+                            </div>
+                            <div class="countries">
+                                <img src="assets/svg/Ellipse_ua.svg" alt="ua">
+                                <img src="assets/svg/Ellipse_pt.svg" alt="pt">
+                                <img src="assets/svg/Ellipse_sp.svg" alt="sp">
+                            </div>
 
-        <div class="form__control">
-            <label for="email">EMAIL</label>
-            <div class="input-box">
-                <input type="email" formControlName="email" name="email" placeholder="example@gmail.com">
-                <span (click)="paste('email')">{{ 'paste' | translate }}</span>
+                        </div>
+                    </section>
+                </ng-template>
+            </swiper>
+            <div class="statistics__nav">
+                <a calss="nav" (click)="slidePrev('statistics')">
+                    <img src="assets/svg/arr-left-dark.svg" alt="arrow left">
+                </a>
+                <a calss="nav" (click)="slideNext('statistics')">
+                    <img src="assets/svg/arr-right-dark.svg" alt="arrow right">
+                </a>
             </div>
-        </div>
+        </article>
+    </div>
 
-        <div class="form__contacts">
-            <div class="form__control">
-                <label for="skype">SKYPE</label>
-                <div class="input-box">
-                    <input type="text" formControlName="skype" name="skype">
-                    <span (click)="paste('skype')">{{ 'paste' | translate }}</span>
+    <section *ngIf="isDark" class="flow px-3 pt-5 px-md-5 mb-5 pb-5">
+        <h2 class="flow__heading mb-5 pb-3">{{ 'success-formula' | translate }}</h2>
+        <div class="flow__box">
+            <app-flow-pill heading="{{ 'request' | translate }}"
+                description="{{ 'request-desc' | translate }}">
+            </app-flow-pill>
+            <img src="assets/svg/arr-bottom-sm.svg" alt="arrow bottom" class="my-3">
+            <app-flow-pill heading="{{ 'analysis' | translate }}"
+                description="{{ 'analysis-desc' | translate }}">
+            </app-flow-pill>
+            <img src="assets/svg/arr-bottom-sm.svg" alt="arrow bottom" class="my-3">
+            <app-flow-pill heading="{{ 'launch' | translate }}"
+                description="{{ 'launch-desc' | translate }}">
+            </app-flow-pill>
+            <img src="assets/svg/arr-bottom-sm.svg" alt="arrow bottom" class="my-3">
+            <app-flow-pill heading="{{ 'profit' | translate }}"
+                description="{{ 'profit-desc' | translate }}">
+            </app-flow-pill>
+        </div>
+    </section>
+
+    <ng-container *ngIf="!isDark; else faq">
+        <ng-container [ngTemplateOutlet]="faq"></ng-container>
+    </ng-container>
+    <ng-container *ngIf="isDark; else events">
+        <ng-container [ngTemplateOutlet]="events"></ng-container>
+    </ng-container>
+
+    <ng-template #events>
+        <section id="event" class="events px-3 px-md-4 mb-5 pb-5">
+            <div class="d-flex justify-content-between mb-3">
+                <h2 class="events__heading" [class.dark]="isDark">{{ 'events' | translate }}</h2>
+                <div class="d-none d-md-inline-block">
+                    <a calss="nav" (click)="slidePrev('events')">
+                        <img [src]="isDark ? 'assets/svg/arr-left.svg' : 'assets/svg/arr-left-dark.svg'" alt="arrow left">
+                    </a>
+                    <a calss="nav" (click)="slideNext('events')">
+                        <img [src]="isDark ? 'assets/svg/arr-right.svg' : 'assets/svg/arr-right-dark.svg'"
+                            alt="arrow right">
+                    </a>
                 </div>
             </div>
 
+            <swiper
+                #swiperEvents
+                [slidesPerView]="1"
+                [spaceBetween]="30"
+                [loop]="true"
+                [keyboard]="{
+                    enabled: true
+                }"
+                class="my-swiper"
+                [breakpoints]="breakpoints"
+            >
+                <ng-template *ngFor="let i of [1, 2, 3, 4]" swiperSlide>
+                    <app-event></app-event>
+                </ng-template>
+            </swiper>
+        </section>
+    </ng-template>
+
+    <ng-template #faq>
+        <section id="faq" class="faq px-3 px-sm-5 mb-5 pb-5">
+            <app-question question="{{ 'question-1' | translate }}" answer="{{ 'answer-1' | translate }}"></app-question>
+            <app-question question="{{ 'question-2' | translate }}" answer="{{ 'answer-2' | translate }}"></app-question>
+            <app-question question="{{ 'question-3' | translate }}" answer="{{ 'answer-3' | translate }}"></app-question>
+            <app-question question="{{ 'question-4' | translate }}" answer="{{ 'answer-4' | translate }}"></app-question>
+        </section>
+    </ng-template>
+
+    <section class="form" *ngIf="isDark">
+        <h3 class="form__heading mb-5" [class.dark]="isDark">{{ 'apply-now' | translate }}</h3>
+        <form [formGroup]="advertizerForm" (submit)="sendForm()" class="px-2 px-md-5">
             <div class="form__control">
-                <label for="telegram">TELEGRAM</label>
+                <label for="companyType">{{ 'company-type' | translate }}</label>
+                <select formControlName="companyType" name="companyType">
+                    <option [value]="null" disabled selected>Прямий рекламодавець</option>
+                    <option value="1">Audi</option>
+                    <option value="2">BMW</option>
+                </select>
+            </div>
+
+            <div class="form__control">
+                <label for="geo">{{ 'company-geo' | translate }}</label>
+                <select formControlName="geo" name="geo">
+                    <option [value]="null" disabled selected>Ваші гео</option>
+                    <option value="1">Audi</option>
+                    <option value="2">BMW</option>
+                </select>
+            </div>
+
+            <div class="form__control">
+                <label for="email">EMAIL</label>
                 <div class="input-box">
-                    <input type="text" formControlName="telegram" name="telegram">
-                    <span (click)="paste('telegram')">{{ 'paste' | translate }}</span>
+                    <input type="email" formControlName="email" name="email" placeholder="example@gmail.com">
+                    <span (click)="paste('email')">{{ 'paste' | translate }}</span>
                 </div>
             </div>
+
+            <div class="form__contacts">
+                <div class="form__control">
+                    <label for="skype">SKYPE</label>
+                    <div class="input-box">
+                        <input type="text" formControlName="skype" name="skype">
+                        <span (click)="paste('skype')">{{ 'paste' | translate }}</span>
+                    </div>
+                </div>
+
+                <div class="form__control">
+                    <label for="telegram">TELEGRAM</label>
+                    <div class="input-box">
+                        <input type="text" formControlName="telegram" name="telegram">
+                        <span (click)="paste('telegram')">{{ 'paste' | translate }}</span>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="btn form__submit">{{ 'submit' | translate }}</button>
+        </form>
+    </section>
+
+    <section class="webmaster" *ngIf="!isDark">
+        <div class="picbox">
+            <p class="picbox__master">{{ 'web-master' | translate }}</p>
+            <img src="assets/img/car.png" alt="car" class="picbox__pic rotating">
+            <p class="picbox__affiliate">{{ 'affilicate' | translate }}</p>
         </div>
-
-        <button type="submit" class="btn form__submit">{{ 'submit' | translate }}</button>
-    </form>
-</section>
-
-<section class="webmaster" *ngIf="!isDark">
-    <div class="picbox">
-        <p class="picbox__master">{{ 'web-master' | translate }}</p>
-        <img src="assets/img/car.png" alt="car" class="picbox__pic rotating">
-        <p class="picbox__affiliate">{{ 'affilicate' | translate }}</p>
-    </div>
-    <div class="textbox">
-        <h3>Lorem ipsum dolor sit amet.</h3>
-        <img src="assets/svg/big-arr-rigth-black.svg" alt="right arrow">
-    </div>
-</section>
+        <div class="textbox">
+            <h3>Lorem ipsum dolor sit amet.</h3>
+            <img src="assets/svg/big-arr-rigth-black.svg" alt="right arrow">
+        </div>
+    </section>
 </div>

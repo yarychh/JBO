@@ -29,4 +29,9 @@ export class MenuComponent {
     public toggleShown(): void {
         this.shown = !this.shown;
     }
+
+    public scrollto(id: string): void{
+        const element = document.getElementById(id);
+        element?.scrollIntoView();
+    }
 }

@@ -1,5 +1,5 @@
 <ng-container *ngIf="isDark; else light">
-    <footer class="pb-0 dark">
+    <footer id="contacts" class="pb-0 dark">
         <section class="link-box-dark mb-3">
             <a href="#">TELEGRAM</a>
             <a href="#">LINKEDIN</a>
@@ -10,12 +10,12 @@
             <img src="assets/svg/Group 42620JBO-logo-dark.svg" height="58" width="156" alt="JBO logo">
         </div>
 
-        <p class="copy-dark">All rights are reserved (c)</p>
+        <p class="copy-dark">All rights are reserved &#169;</p>
     </footer>
 </ng-container>
 
 <ng-template #light>
-    <footer class="pb-0">
+    <footer id="contacts" class="pb-0">
         <section class="link-box mb-3">
             <a href="#">TELEGRAM</a>
             <a href="#">LINKEDIN</a>
@@ -26,6 +26,6 @@
             <img src="assets/svg/JBOLogo.svg" height="58" width="156" alt="JBO logo">
         </div>
 
-        <p class="copy">All rights are reserved (c)</p>
+        <p class="copy">All rights are reserved &#169;</p>
     </footer>
 </ng-template>

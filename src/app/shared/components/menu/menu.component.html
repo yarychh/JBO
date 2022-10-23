@@ -1,9 +1,9 @@
 <ul *ngIf="full$ | async; else burger">
-    <li [class.dark]="isDark">{{ 'home' | translate }}</li>
-    <li [class.dark]="isDark">{{ 'about-us' | translate }}</li>
-    <li [class.dark]="isDark">{{ 'events' | translate }}</li>
-    <li [class.dark]="isDark">{{ 'faq' | translate }}</li>
-    <li [class.dark]="isDark">{{ 'contacts' | translate }}</li>
+    <li [class.dark]="isDark" (click)="scrollto('home')">{{ 'home' | translate }}</li>
+    <li [class.dark]="isDark" (click)="scrollto('about-us')">{{ 'about-us' | translate }}</li>
+    <li [class.dark]="isDark" (click)="scrollto('event')">{{ 'events' | translate }}</li>
+    <li [class.dark]="isDark" (click)="scrollto('faq')">{{ 'faq' | translate }}</li>
+    <li [class.dark]="isDark" (click)="scrollto('contacts')">{{ 'contacts' | translate }}</li>
 </ul>
 
 <ng-template #burger>
@@ -12,11 +12,11 @@
     <ng-template #expanded>
         <img [src]="isDark ? 'assets/svg/Close-white.svg' : 'assets/svg/Close-dark.svg'" alt="burger-menu" class="mb-3" (click)="toggleShown()">
         <ul class="vertical">
-            <li [class.dark]="isDark" class="text-center">{{ 'home' | translate }}</li>
-            <li [class.dark]="isDark" class="text-center">{{ 'about-us' | translate }}</li>
-            <li [class.dark]="isDark" class="text-center">{{ 'events' | translate }}</li>
-            <li [class.dark]="isDark" class="text-center">{{ 'faq' | translate }}</li>
-            <li [class.dark]="isDark" class="text-center">{{ 'contacts' | translate }}</li>
+            <li [class.dark]="isDark" class="text-center" (click)="scrollto('home')">{{ 'home' | translate }}</li>
+            <li [class.dark]="isDark" class="text-center" (click)="scrollto('about-us')">{{ 'about-us' | translate }}</li>
+            <li [class.dark]="isDark" class="text-center" (click)="scrollto('event')">{{ 'events' | translate }}</li>
+            <li [class.dark]="isDark" class="text-center" (click)="scrollto('faq')">{{ 'faq' | translate }}</li>
+            <li [class.dark]="isDark" class="text-center" (click)="scrollto('contacts')">{{ 'contacts' | translate }}</li>
         </ul>
     </ng-template>
 </ng-template>
