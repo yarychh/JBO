@@ -46,7 +46,7 @@ export class ViewComponent implements OnInit {
         1700: {
             centeredSlides: true,
             slidesPerView: 2,
-            spaceBetween: 50
+            spaceBetween: 30
         },
     };
 
