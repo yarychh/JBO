@@ -122,6 +122,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "JBO:build:production",
+            "firebaseProject": "jboproj",
+            "firebaseHostingSite": "jboproj"
+          }
         }
       }
     }
