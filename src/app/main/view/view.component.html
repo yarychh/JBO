@@ -14,10 +14,10 @@
     </section>
 
     <section class="features mb-5 pb-5" [class.dark]="isDark" id="about-us">
-        <app-pill [number]="'0001'" description="{{ '1-feature' | translate }}"></app-pill>
-        <app-pill [number]="'0002'" description="{{ '2-feature' | translate }}"></app-pill>
-        <app-pill [number]="'0003'" description="{{ '3-feature' | translate }}"></app-pill>
-        <app-pill [number]="'0004'" description="{{ '4-feature' | translate }}"></app-pill>
+        <app-pill [number]="'0001'" description="{{ '1-feature' + (isDark ? '-brok' : '-web') | translate }}"></app-pill>
+        <app-pill [number]="'0002'" description="{{ '2-feature' + (isDark ? '-brok' : '-web') | translate }}"></app-pill>
+        <app-pill [number]="'0003'" description="{{ '3-feature' + (isDark ? '-brok' : '-web') | translate }}"></app-pill>
+        <app-pill [number]="'0004'" description="{{ '4-feature' + (isDark ? '-brok' : '-web') | translate }}"></app-pill>
     </section>
 
     <article class="reviews mb-5">
@@ -232,7 +232,7 @@
             <p class="picbox__affiliate">{{ 'affilicate' | translate }}</p>
         </div>
         <div class="textbox">
-            <h3>Lorem ipsum dolor sit amet.</h3>
+            <h3>{{'connect' | translate}}</h3>
             <img src="assets/svg/big-arr-rigth-black.svg" alt="right arrow">
         </div>
     </section>

@@ -10,10 +10,14 @@
     "events": "EVENTS",
     "faq": "FAQ",
     "contacts": "CONTACTS",
-    "1-feature": "our support works even at night to be always in touch for you <3",
-    "2-feature": "we only work with trusted brokers",
-    "3-feature": "high CPA rates and payouts without hold",
-    "4-feature": "always up-to-date information on converting offers broker",
+    "1-feature-brok": "our support works even at night to be always in touch for you <3",
+    "2-feature-brok": "we only work with trusted brokers",
+    "3-feature-brok": "high CPA rates and payouts without hold",
+    "4-feature-brok": "always up-to-date information on converting offers broker",
+    "1-feature-web": "our support works even at night to be always in touch for you <3",
+    "2-feature-web": "we only work with trusted brokers",
+    "3-feature-web": "high CPA rates and payouts without hold",
+    "4-feature-web": "always up-to-date information on converting offers broker",
     "partners-say": "WHAT OUR PARTNERS SAY ABOUT US:",
     "success-formula": "SUCCESS FORMULA",
     "request": "REQUEST",
@@ -37,5 +41,6 @@
     "company-type": "COMPANY TYPE",
     "company-geo": "COMPANY GEO",
     "apply-now": "APPLY NOW",
-    "cpa-net": "CPA-net"
+    "cpa-net": "CPA-net",
+    "connect": "connect us"
 }
