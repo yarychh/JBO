@@ -1,8 +1,9 @@
 @import "/src/styles.scss";
 
 .event {
+    display: flex;
     max-width: 920px;
-    width: fit-content;
+    min-height: 186px;
     position: relative;
     overflow: hidden;
     border-radius: 40px;
@@ -12,6 +13,8 @@
     &__container {
         display: flex;
         flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
         @media (max-width: 600px) {
             display: inline-block;
         }
@@ -19,25 +22,6 @@
 
     &.dark {
         border: 1px solid $white;
-    }
-
-    &__next {
-        position: relative;
-        border-radius: 20px;
-        color: $black;
-        border: 1px solid $black;
-        padding: 0 0.5rem;
-        z-index: 999;
-        align-self: flex-end;
-        @media (max-width: 600px) {
-            position: absolute;
-            top: 13px;
-            right: 20px;
-        }
-        &.dark {
-            color: $white;
-            border: 1px solid $white;
-        }
     }
 
     &__name {

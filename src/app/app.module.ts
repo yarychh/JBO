@@ -13,6 +13,8 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFireModule } from '@angular/fire/compat';
 
 export function createTranslateLoader(http: HttpClient) {
     return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -32,13 +34,15 @@ export function createTranslateLoader(http: HttpClient) {
         TranslateModule.forRoot({
             defaultLanguage: 'en',
             loader: {
-              provide: TranslateLoader,
-              useFactory: createTranslateLoader,
-              deps: [HttpClient],
+                provide: TranslateLoader,
+                useFactory: createTranslateLoader,
+                deps: [HttpClient],
             },
         }),
         provideFirebaseApp(() => initializeApp(environment.firebase)),
         provideFirestore(() => getFirestore()),
+        AngularFireModule.initializeApp(environment.firebase),
+        AngularFirestoreModule,
     ],
     providers: [],
     bootstrap: [AppComponent],

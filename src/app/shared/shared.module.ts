@@ -11,25 +11,18 @@ import { EventComponent } from './components/event/event.component';
 import { QuestionComponent } from './components/question/question.component';
 import { TranslateModule } from '@ngx-translate/core';
 
-
-
 @NgModule({
-  declarations: [
-    SwitchComponent,
-    FooterComponent,
-    HeaderComponent,
-    MenuComponent,
-    PillComponent,
-    FlowPillComponent,
-    EventComponent,
-    QuestionComponent
-  ],
-  imports: [
-      CommonModule,
-      FormsModule,
-      ReactiveFormsModule,
-      TranslateModule
+    declarations: [
+        SwitchComponent,
+        FooterComponent,
+        HeaderComponent,
+        MenuComponent,
+        PillComponent,
+        FlowPillComponent,
+        EventComponent,
+        QuestionComponent,
     ],
+    imports: [CommonModule, FormsModule, ReactiveFormsModule, TranslateModule],
     exports: [
         SwitchComponent,
         FooterComponent,
@@ -38,7 +31,7 @@ import { TranslateModule } from '@ngx-translate/core';
         PillComponent,
         FlowPillComponent,
         EventComponent,
-        QuestionComponent
-  ]
+        QuestionComponent,
+    ],
 })
-export class SharedModule { }
+export class SharedModule {}

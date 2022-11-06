@@ -1,10 +1,7 @@
 <div class="event" [class.dark]="isDark">
     <img src="assets/img/event-bg.png" alt="event background" class="background">
     <div class="event__container">
-        <span class="event__next" [class.dark]="isDark">next</span>
-        <h3 class="event__name py-3 mr-max" [class.dark]="isDark">NAME
-            <pre class="event__name" [class.dark]="isDark">OF EVENT</pre>
-        </h3>
-        <h3 class="event__name align-self-end" [class.dark]="isDark">22.06.2022</h3>
+        <h3 class="event__name py-3 mr-max" [class.dark]="isDark">{{ currentLang === 'en' ? event.title : event.titleUA }}</h3>
+        <h3 class="event__name align-self-end" [class.dark]="isDark">{{ event.date | date }}</h3>
     </div>
 </div>

@@ -134,10 +134,10 @@
     </ng-container>
 
     <ng-template #events>
-        <section id="event" class="events mb-5 pb-5">
+        <section *ngIf="eventsList?.length" id="event" class="events mb-5 pb-5">
             <div class="d-flex justify-content-between mb-3 px-3 px-md-4">
                 <h2 class="events__heading" [class.dark]="isDark">{{ 'events' | translate }}</h2>
-                <div class="d-none d-md-inline-block">
+                <div class="d-md-inline-block events__nav">
                     <a calss="nav" (click)="slidePrev('events')">
                         <img [src]="isDark ? 'assets/svg/arr-left.svg' : 'assets/svg/arr-left-dark.svg'" alt="arrow left">
                     </a>
@@ -159,8 +159,8 @@
                 class="my-swiper"
                 [breakpoints]="breakpoints"
             >
-                <ng-template *ngFor="let i of [1, 2, 3, 4]" swiperSlide>
-                    <app-event></app-event>
+                <ng-template *ngFor="let i of eventsList" swiperSlide>
+                    <app-event [event]="i"></app-event>
                 </ng-template>
             </swiper>
         </section>

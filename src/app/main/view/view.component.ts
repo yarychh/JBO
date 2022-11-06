@@ -1,5 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { firstValueFrom } from 'rxjs';
+import { IEvent } from 'src/app/shared/constants/event.interface';
+import { FirestoreService } from 'src/app/shared/services/firestore.service';
 import { StateService } from 'src/app/shared/services/state.service';
 import SwiperCore, { Keyboard, Virtual } from 'swiper';
 import { SwiperComponent } from 'swiper/angular';
@@ -18,7 +21,9 @@ export class ViewComponent implements OnInit {
     @ViewChild('statistics', { static: false }) statistics?: SwiperComponent;
     @ViewChild('swiperEvents', { static: false }) events?: SwiperComponent;
 
-    constructor(private state: StateService, private fb: FormBuilder) {
+    public eventsList?: IEvent[];
+
+    constructor(private state: StateService, private fb: FormBuilder, public firestore: FirestoreService) {
         this.advertizerForm = this.fb.group({
             companyType: [null, Validators.required],
             geo: [null, Validators.required],
@@ -50,7 +55,9 @@ export class ViewComponent implements OnInit {
         },
     };
 
-    ngOnInit(): void {}
+    async ngOnInit(): Promise<void> {
+        this.eventsList = await firstValueFrom(this.firestore.getEvents());
+    }
 
     public sendForm(): void {
         console.log('formValue', this.advertizerForm.value);
