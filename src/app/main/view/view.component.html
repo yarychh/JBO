@@ -32,14 +32,12 @@
             }"
             class="my-swiper"
         >
-            <ng-template *ngFor="let i of [1, 2, 3, 4]" swiperSlide>
+            <ng-template *ngFor="let i of reviewList" swiperSlide>
                 <div class="swiper-slide-container">
                     <section class="partners pt-4 mb-5 pb-5" [class.dark]="isDark">
                         <p>{{ 'partners-say' | translate }}</p>
                         <img src="assets\img\NP.png" alt="nova poshta" class="partners__logo">
-                        <p class="quote">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                            ut labore
-                            et dolore magna aliqua.</p>
+                        <p class="quote">{{ currentLang === 'en' ? i.review : i.reviewUA }}</p>
                     </section>
                 </div>
             </ng-template>
@@ -134,10 +132,10 @@
     </ng-container>
 
     <ng-template #events>
-        <section id="event" class="events mb-5 pb-5">
+        <section *ngIf="eventsList?.length" id="event" class="events mb-5 pb-5">
             <div class="d-flex justify-content-between mb-3 px-3 px-md-4">
                 <h2 class="events__heading" [class.dark]="isDark">{{ 'events' | translate }}</h2>
-                <div class="d-none d-md-inline-block">
+                <div class="d-md-inline-block events__nav">
                     <a calss="nav" (click)="slidePrev('events')">
                         <img [src]="isDark ? 'assets/svg/arr-left.svg' : 'assets/svg/arr-left-dark.svg'" alt="arrow left">
                     </a>
@@ -159,8 +157,8 @@
                 class="my-swiper"
                 [breakpoints]="breakpoints"
             >
-                <ng-template *ngFor="let i of [1, 2, 3, 4]" swiperSlide>
-                    <app-event></app-event>
+                <ng-template *ngFor="let i of eventsList" swiperSlide>
+                    <app-event [event]="i" [lang]="currentLang"></app-event>
                 </ng-template>
             </swiper>
         </section>

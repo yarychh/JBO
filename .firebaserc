@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "jboproj": {
+      "hosting": {
+        "JBO": [
+          "jboproj"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "jboproj"
+  }
+}
