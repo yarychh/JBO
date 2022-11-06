@@ -1,7 +1,9 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { TranslateService } from '@ngx-translate/core';
 import { firstValueFrom } from 'rxjs';
 import { IEvent } from 'src/app/shared/constants/event.interface';
+import { IReview } from 'src/app/shared/constants/review.interface';
 import { FirestoreService } from 'src/app/shared/services/firestore.service';
 import { StateService } from 'src/app/shared/services/state.service';
 import SwiperCore, { Keyboard, Virtual } from 'swiper';
@@ -14,7 +16,7 @@ SwiperCore.use([Keyboard, Virtual]);
     templateUrl: './view.component.html',
     styleUrls: ['./view.component.scss'],
 })
-export class ViewComponent implements OnInit {
+export class ViewComponent implements OnInit, OnDestroy {
     public advertizerForm!: FormGroup;
 
     @ViewChild('reviews', { static: false }) reviews?: SwiperComponent;
@@ -22,8 +24,15 @@ export class ViewComponent implements OnInit {
     @ViewChild('swiperEvents', { static: false }) events?: SwiperComponent;
 
     public eventsList?: IEvent[];
+    public reviewList?: IReview[];
+    public currentLang!: string;
 
-    constructor(private state: StateService, private fb: FormBuilder, public firestore: FirestoreService) {
+    constructor(
+        private state: StateService,
+        private fb: FormBuilder,
+        public firestore: FirestoreService,
+        private translate: TranslateService
+    ) {
         this.advertizerForm = this.fb.group({
             companyType: [null, Validators.required],
             geo: [null, Validators.required],
@@ -31,6 +40,7 @@ export class ViewComponent implements OnInit {
             skype: [null],
             telegram: [null],
         });
+        this.currentLang = translate.currentLang;
     }
 
     public get isDark(): boolean {
@@ -57,6 +67,14 @@ export class ViewComponent implements OnInit {
 
     async ngOnInit(): Promise<void> {
         this.eventsList = await firstValueFrom(this.firestore.getEvents());
+        this.reviewList = await firstValueFrom(this.firestore.getReviews());
+        this.translate.onLangChange.subscribe((event) => {
+            this.currentLang = event.lang;
+        });
+    }
+
+    ngOnDestroy(): void {
+        this.translate.onLangChange.unsubscribe();
     }
 
     public sendForm(): void {

@@ -8,30 +8,15 @@ import { StateService } from '../../services/state.service';
     templateUrl: './event.component.html',
     styleUrls: ['./event.component.scss'],
 })
-export class EventComponent implements OnInit, OnDestroy {
+export class EventComponent implements OnInit {
     @Input() event!: IEvent;
+    @Input() lang!: string;
 
     public get isDark(): boolean {
         return this.state.isDark;
     }
-    public currentLang!: string;
 
-    constructor(
-        private state: StateService,
-        private translate: TranslateService
-    ) {
-        this.currentLang = translate.currentLang;
-    }
+    constructor(private state: StateService) {}
 
-    ngOnInit(): void {
-        this.translate.onLangChange.subscribe((event) => {
-            this.currentLang = event.lang;
-        });
-        console.log(this.event);
-
-    }
-
-    ngOnDestroy(): void {
-        this.translate.onLangChange.unsubscribe();
-    }
+    ngOnInit(): void {}
 }
