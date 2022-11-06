@@ -21,4 +21,10 @@ export class FirestoreService {
             .collection('reviews')
             .valueChanges() as Observable<IReview[]>;
     }
+
+    public submitForm(data: any): void {
+        this._firestore
+            .collection('submissions')
+            .add(data);
+    }
 }

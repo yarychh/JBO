@@ -5,6 +5,7 @@ import { firstValueFrom } from 'rxjs';
 import { IEvent } from 'src/app/shared/constants/event.interface';
 import { IReview } from 'src/app/shared/constants/review.interface';
 import { FirestoreService } from 'src/app/shared/services/firestore.service';
+import { FormToEmailService } from 'src/app/shared/services/form-to-email.service';
 import { StateService } from 'src/app/shared/services/state.service';
 import SwiperCore, { Keyboard, Virtual } from 'swiper';
 import { SwiperComponent } from 'swiper/angular';
@@ -31,7 +32,8 @@ export class ViewComponent implements OnInit, OnDestroy {
         private state: StateService,
         private fb: FormBuilder,
         public firestore: FirestoreService,
-        private translate: TranslateService
+        private translate: TranslateService,
+        private mailTo: FormToEmailService
     ) {
         this.advertizerForm = this.fb.group({
             companyType: [null, Validators.required],
@@ -77,9 +79,10 @@ export class ViewComponent implements OnInit, OnDestroy {
         this.translate.onLangChange.unsubscribe();
     }
 
-    public sendForm(): void {
+    public async sendForm(): Promise<void> {
         console.log('formValue', this.advertizerForm.value);
-        this.advertizerForm.reset();
+        this.firestore.submitForm(this.advertizerForm.value);
+        // await firstValueFrom(this.mailTo.submitForm(this.advertizerForm.value)).then(() => this.advertizerForm.reset());
     }
 
     public async paste(controlName: string): Promise<void> {
