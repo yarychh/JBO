@@ -3,6 +3,7 @@
 .content-wrap {
     max-width: 1900px;
     margin: 0 auto;
+    overflow-x: hidden;
 }
 
 .meet {
@@ -165,20 +166,15 @@
     &__navbox {
         position: absolute;
         left: 10rem;
-        bottom: -50px;
+        bottom: 15px;
         z-index: 99;
         display: flex;
 
-        @media (max-width: 900px) {
+        @media (max-width: 760px) {
             bottom: 0.85rem;
             left: calc(50% - 85px);
             align-self: center;
             gap: 1rem;
-        }
-
-        @media (min-width: 1900px) {
-            left: 20%;
-            bottom: -50px;
         }
 
         img {
@@ -239,8 +235,21 @@
 .flow {
     &__box {
         display: flex;
-        flex-direction: column;
-        align-items: center;
+        justify-content: space-evenly;
+
+        .arrow{
+            transform: rotate(270deg);
+        }
+
+        @media (max-width: 1125px) {
+            flex-direction: column;
+            align-items: center;
+            justify-content: unset;
+
+            .arrow{
+                transform: rotate(0deg);
+            }
+        }
     }
 
     &__heading {
@@ -280,16 +289,16 @@
 
     &__nav {
         position: absolute;
-        bottom: 1.5rem;
-        left: 10rem;
+        bottom: 4.5rem;
+        left: calc(50% - 85px);
         z-index: 99;
         display: flex;
+        gap: 1rem;
 
         @media (max-width: 900px) {
             bottom: 4.5rem;
             left: calc(50% - 85px);
             align-self: center;
-            gap: 1rem;
         }
     }
 }
@@ -678,7 +687,7 @@
         max-width: 60%;
         display: flex;
         flex-direction: column-reverse;
-        justify-content: flex-end;
+        justify-content: center;
 
         @media (max-width: 650px) {
             flex-direction: column;

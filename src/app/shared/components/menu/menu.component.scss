@@ -21,6 +21,10 @@ ul {
     }
 }
 
+img{
+    cursor: pointer;
+}
+
 li {
     margin: 0;
     padding: 10px;
@@ -31,6 +35,7 @@ li {
     transition: all 0.3s;
     font-size: 1rem;
     font-weight: 500;
+    cursor: pointer;
 
     &:hover {
         filter: invert(1);

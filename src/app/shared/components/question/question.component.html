@@ -1,13 +1,12 @@
 <div class="accordion-container">
 
-    <div (click)="shown = !shown">
-        <img *ngIf="!shown" [src]="isDark ? 'assets/svg/plus-white.svg' : 'assets/svg/plus-dark.svg'" class="acc-icon" alt="plus">
-        <img *ngIf="shown" [src]="isDark ? 'assets/svg/minus-white.svg' : 'assets/svg/minus-dark.svg'" class="acc-icon" alt="minus">
+    <div (click)="shown = !shown" class="icon">
+        <div class="plus-minus" [class.shown]="shown" [class.dark]="isDark"></div>
     </div>
 
     <div class="qa" [class.dark]="isDark">
-        <h3 class="question">{{ question }}</h3>
-        <p *ngIf="shown" class="answer mb-0">{{ answer }}</p>
+        <h3 class="question" [class.shown]="shown">{{ question }}</h3>
+        <p [class.shown]="shown" class="answer mb-0">{{ answer }}</p>
     </div>
 
 </div>

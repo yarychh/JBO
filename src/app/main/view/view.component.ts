@@ -4,8 +4,8 @@ import { TranslateService } from '@ngx-translate/core';
 import { firstValueFrom } from 'rxjs';
 import { IEvent } from 'src/app/shared/constants/event.interface';
 import { IReview } from 'src/app/shared/constants/review.interface';
+import { IStats } from 'src/app/shared/constants/stats.interface';
 import { FirestoreService } from 'src/app/shared/services/firestore.service';
-import { FormToEmailService } from 'src/app/shared/services/form-to-email.service';
 import { StateService } from 'src/app/shared/services/state.service';
 import SwiperCore, { Keyboard, Virtual } from 'swiper';
 import { SwiperComponent } from 'swiper/angular';
@@ -26,6 +26,7 @@ export class ViewComponent implements OnInit, OnDestroy {
 
     public eventsList?: IEvent[];
     public reviewList?: IReview[];
+    public statisticsList?: IStats[];
     public currentLang!: string;
 
     constructor(
@@ -33,14 +34,13 @@ export class ViewComponent implements OnInit, OnDestroy {
         private fb: FormBuilder,
         public firestore: FirestoreService,
         private translate: TranslateService,
-        private mailTo: FormToEmailService
     ) {
         this.advertizerForm = this.fb.group({
             companyType: [null, Validators.required],
             geo: [null, Validators.required],
-            email: [null, {validators: [Validators.email, Validators.required], updateOn: 'blur'}],
+            email: [null, {validators: [Validators.email], updateOn: 'blur'}],
             skype: [null],
-            telegram: [null],
+            telegram: [null, Validators.required],
         });
         this.currentLang = translate.currentLang;
     }
@@ -70,6 +70,7 @@ export class ViewComponent implements OnInit, OnDestroy {
     async ngOnInit(): Promise<void> {
         this.eventsList = await firstValueFrom(this.firestore.getEvents());
         this.reviewList = await firstValueFrom(this.firestore.getReviews());
+        this.statisticsList = await firstValueFrom(this.firestore.getStats());
         this.translate.onLangChange.subscribe((event) => {
             this.currentLang = event.lang;
         });
@@ -80,9 +81,7 @@ export class ViewComponent implements OnInit, OnDestroy {
     }
 
     public async sendForm(): Promise<void> {
-        console.log('formValue', this.advertizerForm.value);
-        this.firestore.submitForm(this.advertizerForm.value);
-        // await firstValueFrom(this.mailTo.submitForm(this.advertizerForm.value)).then(() => this.advertizerForm.reset());
+        this.firestore.submitForm(this.advertizerForm.value).then(() => this.advertizerForm.reset());
     }
 
     public async paste(controlName: string): Promise<void> {

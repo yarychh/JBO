@@ -9,37 +9,18 @@
 @font-face {
     font-family: 'Gilroy';
     src: url('./assets/gilroy/Gilroy-Regular.ttf');
-    font-weight:300;
+    font-weight: 300;
 }
+
 @font-face {
     font-family: 'Gilroy';
     src: url('./assets/gilroy/Gilroy-SemiBold.ttf');
-    font-weight:400;
+    font-weight: 400;
 }
 
 @font-face {
     font-family: 'StereoGothic';
     src: url('./assets/stereo-gothic/Stereo\ Gothic\ 800.ttf');
-}
-
-// basic reset
-
-html,
-body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    //   background-color: rgba(#ccc , .2);
-    font-family: "Gilroy", sans-serif;
-    font-weight: 300;
-}
-body {
-    margin: 0;
-
-    &.dark{
-        background-color: $black;
-    }
 }
 
 // variables
@@ -56,4 +37,46 @@ $white-20: rgba($white, .2);
 $black: #000000;
 
 $blur: blur(85px);
+
+// basic reset
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    //   background-color: rgba(#ccc , .2);
+    font-family: "Gilroy", sans-serif;
+    font-weight: 300;
+}
+
+body {
+    margin: 0;
+
+    &::-webkit-scrollbar {
+        width: .75rem;
+    }
+
+    &::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    }
+
+    &::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background: #ccc;
+    }
+
+    &.dark {
+        background-color: $black;
+
+        &::-webkit-scrollbar-track {
+            -webkit-box-shadow: inset 0 0 6px rgba(#fff, 0.3);
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background: #5A5A5A;
+        }
+    }
+}
 
