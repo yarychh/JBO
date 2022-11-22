@@ -229,6 +229,17 @@
                 margin-bottom: 1rem;
             }
         }
+
+        &__title {
+            position: absolute;
+            top: calc(50% - 95px);
+            left: 13%;
+            @media (max-width: 760px) {
+                position: unset;
+                align-self: center;
+                margin-bottom: 1rem;
+            }
+        }
     }
 }
 
@@ -688,6 +699,7 @@
         display: flex;
         flex-direction: column-reverse;
         justify-content: center;
+        align-items: flex-end;
 
         @media (max-width: 650px) {
             flex-direction: column;
@@ -711,6 +723,13 @@
 
         img {
             align-self: flex-end;
+            cursor: pointer;
+            transition: all .25s;
+            border-radius: 60px;
+
+            &:hover{
+                box-shadow: 0 .5rem 1rem rgba($black, .5);
+            }
         }
     }
 }

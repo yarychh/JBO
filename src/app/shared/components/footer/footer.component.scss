@@ -50,13 +50,8 @@ footer {
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
-
-    a {
+    a{
         text-decoration: none;
-        color: $black;
-    }
-    .email {
-        text-decoration: underline;
         color: $blue;
 
         &:hover {
@@ -69,12 +64,8 @@ footer {
         display: flex;
         flex-wrap: wrap;
         gap: 1rem;
-        a {
+        a{
             text-decoration: none;
-            color: $white;
-        }
-        .email {
-            text-decoration: underline;
             color: $blue;
 
             &:hover {

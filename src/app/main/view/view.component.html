@@ -36,6 +36,7 @@
                 <div class="swiper-slide-container">
                     <section class="partners pt-4 mb-5 pb-5" [class.dark]="isDark">
                         <p>{{ 'partners-say' | translate }}</p>
+                        <h2 class="partners__title">{{ currentLang === 'en' ? i.title : i.titleUA }}</h2>
                         <img src="assets\img\NP.png" alt="nova poshta" class="partners__logo">
                         <p class="quote">{{ currentLang === 'en' ? i.review : i.reviewUA }}</p>
                     </section>
@@ -70,22 +71,24 @@
                         <div class="stats__card">
                             <img src="assets/img/olx-back.png" alt="background" class="stats__card--bg">
                             <div class="logo-card">
-                                <img src="assets/img/olx.png" alt="OLX">
+                                <img [src]="stat.imgURL" alt="OLX">
                                 <h5>{{currentLang === 'en' ? stat.title : stat.titleUA }}</h5>
-                                <span>{{currentLang === 'en' ? stat.subtitle : stat.subtitleUA }}</span>
                             </div>
                             <div class="percentage">
                                 <span class="cr">CR:</span>
                                 <span class="percent">{{ stat.percentage }}</span>
                             </div>
                             <div class="dollars">
-                                <span class="cr">CR:</span>
+                                <span class="cr">CPA:</span>
                                 <span class="numbers">{{ stat.cost }}</span>
                             </div>
                             <div class="countries">
-                                <img src="assets/svg/Ellipse_ua.svg" alt="ua">
-                                <img src="assets/svg/Ellipse_pt.svg" alt="pt">
-                                <img src="assets/svg/Ellipse_sp.svg" alt="sp">
+                                <ng-container *ngFor="let geo of stat.geo">
+                                    <img *ngIf="geo === 'ua' || geo === 'sp' || geo === 'pt'; else otherGeo" [src]="'assets/img/' + geo + '.svg'" [alt]="geo">
+                                    <ng-template #otherGeo>
+                                        <img [src]="'assets/img/' + geo + '.png'" width="26" height="26" [alt]="geo">
+                                    </ng-template>
+                                </ng-container>
                             </div>
 
                         </div>
@@ -179,9 +182,8 @@
             <div class="form__control">
                 <label for="companyType">{{ 'company-type' | translate }} <span class="error">*</span></label>
                 <select formControlName="companyType" name="companyType">
-                    <option [value]="null" disabled selected>Прямий рекламодавець</option>
-                    <option value="1">Audi</option>
-                    <option value="2">BMW</option>
+                    <option value="direct advertiser">{{ "direct-advertiser" | translate }}</option>
+                    <option value="affiliate network">{{ "affiliate-network" | translate }}</option>
                 </select>
             </div>
 
@@ -232,7 +234,9 @@
         </div>
         <div class="textbox">
             <h3>{{'connect' | translate}}</h3>
-            <img src="assets/svg/big-arr-rigth-black.svg" alt="right arrow">
+            <a href="https://jm.jbomarketing.club/user/registration?parent=d8e18710f0aaae5b5513c274af98b5c3" target="_blank">
+                <img src="assets/svg/big-arr-rigth-black.svg" alt="right arrow">
+            </a>
         </div>
     </section>
 </div>
