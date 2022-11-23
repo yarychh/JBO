@@ -36,9 +36,9 @@
                 <div class="swiper-slide-container">
                     <section class="partners pt-4 mb-5 pb-5" [class.dark]="isDark">
                         <p>{{ 'partners-say' | translate }}</p>
-                        <h2 class="partners__title">{{ currentLang === 'en' ? i.title : i.titleUA }}</h2>
+                        <h2 class="partners__title">{{ i.title }}</h2>
                         <img src="assets\img\NP.png" alt="nova poshta" class="partners__logo">
-                        <p class="quote">{{ currentLang === 'en' ? i.review : i.reviewUA }}</p>
+                        <p class="quote">{{ i.review }}</p>
                     </section>
                 </div>
             </ng-template>
@@ -72,7 +72,7 @@
                             <img src="assets/img/olx-back.png" alt="background" class="stats__card--bg">
                             <div class="logo-card">
                                 <img [src]="stat.imgURL" alt="OLX">
-                                <h5>{{currentLang === 'en' ? stat.title : stat.titleUA }}</h5>
+                                <h5>{{ stat.title }}</h5>
                             </div>
                             <div class="percentage">
                                 <span class="cr">CR:</span>

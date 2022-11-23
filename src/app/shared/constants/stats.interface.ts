@@ -4,5 +4,4 @@ export interface IStats {
     percentage: string;
     geo: string[];
     title: string;
-    titleUA: string;
 }

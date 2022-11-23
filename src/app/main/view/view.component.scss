@@ -232,7 +232,7 @@
 
         &__title {
             position: absolute;
-            top: calc(50% - 95px);
+            bottom: calc(20%);
             left: 13%;
             @media (max-width: 760px) {
                 position: unset;
