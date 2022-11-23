@@ -36,9 +36,13 @@
                 <div class="swiper-slide-container">
                     <section class="partners pt-4 mb-5 pb-5" [class.dark]="isDark">
                         <p>{{ 'partners-say' | translate }}</p>
-                        <h2 class="partners__title">{{ i.title }}</h2>
-                        <img src="assets\img\NP.png" alt="nova poshta" class="partners__logo">
-                        <p class="quote">{{ i.review }}</p>
+                        <div class="content">
+                            <div class="logoName">
+                                <h2 class="partners__title">{{ i.title }}</h2>
+                                <img [src]="i.imgURL" [alt]="i.title" class="partners__logo" width="200" height="200">
+                            </div>
+                            <p class="quote">{{ i.review }}</p>
+                        </div>
                     </section>
                 </div>
             </ng-template>
