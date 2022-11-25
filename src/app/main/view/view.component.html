@@ -7,7 +7,7 @@
             </video>
 
             <p class="priamikom" [class.dark-t]="isDark">{{ 'since' | translate }}</p>
-            <button class="btn ahuet">{{ 'start-button' | translate }}</button>
+            <button class="btn ahuet" (click)="scrollto('contacts')">{{ 'start-button' | translate }}</button>
         </div>
         <h1 class="sorry" [class.dark-t]="isDark">{{ 'sorry' | translate }}</h1>
         <app-menu class="menu my-5 mb-0 ms-0 ms-sm-4"></app-menu>

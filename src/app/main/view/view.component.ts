@@ -80,6 +80,11 @@ export class ViewComponent implements OnInit, OnDestroy {
         this.translate.onLangChange.unsubscribe();
     }
 
+    public scrollto(id: string): void{
+        const element = document.getElementById(id);
+        element?.scrollIntoView();
+    }
+
     public async sendForm(): Promise<void> {
         this.firestore.submitForm(this.advertizerForm.value).then(() => this.advertizerForm.reset());
     }
