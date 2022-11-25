@@ -33,12 +33,12 @@ export class ViewComponent implements OnInit, OnDestroy {
         private state: StateService,
         private fb: FormBuilder,
         public firestore: FirestoreService,
-        private translate: TranslateService,
+        private translate: TranslateService
     ) {
         this.advertizerForm = this.fb.group({
             companyType: [null, Validators.required],
             geo: [null, Validators.required],
-            email: [null, {validators: [Validators.email], updateOn: 'blur'}],
+            email: [null, { validators: [Validators.email], updateOn: 'blur' }],
             skype: [null],
             telegram: [null, Validators.required],
         });
@@ -58,12 +58,12 @@ export class ViewComponent implements OnInit, OnDestroy {
             slidesPerView: 1.4,
         },
         1000: {
-            slidesPerView: 1.7
+            slidesPerView: 1.7,
         },
         1700: {
             centeredSlides: true,
             slidesPerView: 2,
-            spaceBetween: 30
+            spaceBetween: 30,
         },
     };
 
@@ -80,13 +80,15 @@ export class ViewComponent implements OnInit, OnDestroy {
         this.translate.onLangChange.unsubscribe();
     }
 
-    public scrollto(id: string): void{
+    public scrollto(id: string): void {
         const element = document.getElementById(id);
         element?.scrollIntoView();
     }
 
     public async sendForm(): Promise<void> {
-        this.firestore.submitForm(this.advertizerForm.value).then(() => this.advertizerForm.reset());
+        this.firestore
+            .submitForm(this.advertizerForm.value)
+            .then(() => this.advertizerForm.reset());
     }
 
     public async paste(controlName: string): Promise<void> {

@@ -20,17 +20,14 @@
         <app-pill [number]="'0004'" description="{{ '4-feature' + (isDark ? '-brok' : '-web') | translate }}"></app-pill>
     </section>
 
-    <article class="reviews mb-5">
+    <article class="reviews mb-5" *ngIf="reviewList?.length">
         <swiper
             #reviews
-            [loop]="true"
             [slidesPerView]="1"
-            [spaceBetween]="30"
             [centeredSlides]="true"
+            [spaceBetween]="30"
+            [loop]="true"
             [autoHeight]="true"
-            [keyboard]="{
-                enabled: true
-            }"
             class="my-swiper"
         >
             <ng-template *ngFor="let i of reviewList" swiperSlide>
@@ -58,18 +55,15 @@
         </div>
     </article>
 
-    <div class="statistics-container">
+    <div class="statistics-container" *ngIf="statisticsList?.length">
         <article class="statistics" *ngIf="!isDark">
             <swiper
             #statistics
-            [loop]="true"
             [slidesPerView]="1"
             [spaceBetween]="30"
             [centeredSlides]="true"
+            [loop]="true"
             [autoHeight]="true"
-            [keyboard]="{
-                enabled: true
-            }"
             class="my-swiper"
             >
                 <ng-template *ngFor="let stat of statisticsList" swiperSlide>
@@ -157,16 +151,13 @@
 
             <swiper
                 #swiperEvents
-                [loop]="true"
                 [slidesPerView]="1"
                 [spaceBetween]="30"
                 [centeredSlides]="true"
+                [loop]="true"
                 [autoHeight]="true"
-                [keyboard]="{
-                    enabled: true
-                }"
-                class="my-swiper"
                 [breakpoints]="breakpoints"
+                class="my-swiper"
             >
                 <ng-template *ngFor="let i of eventsList" swiperSlide>
                     <app-event [event]="i" [lang]="currentLang"></app-event>
