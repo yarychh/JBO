@@ -9,6 +9,7 @@
     border-radius: 40px;
     border: 1px solid $black;
     padding: 1.5rem;
+    perspective: 1px;
 
     &__container {
         display: flex;
