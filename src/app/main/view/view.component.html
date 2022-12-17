@@ -67,32 +67,33 @@
             class="my-swiper"
             >
                 <ng-template *ngFor="let stat of statisticsList" swiperSlide>
-                    <section class="stats pt-5 mb-5 pb-5">
-                        <div class="stats__card">
-                            <img src="assets/img/olx-back.png" alt="background" class="stats__card--bg">
-                            <div class="logo-card">
-                                <img [src]="stat.imgURL" alt="OLX">
-                                <h5>{{ stat.title }}</h5>
+                    <div class="swiper-slide-container">
+                        <section class="stats pt-5 mb-5 pb-5">
+                            <div class="stats__card">
+                                <div class="stats__card--bg"></div>
+                                <div class="logo-card">
+                                    <img [src]="stat.imgURL" alt="OLX">
+                                    <h5>{{ stat.title }}</h5>
+                                </div>
+                                <div class="percentage">
+                                    <span class="cr">CR:</span>
+                                    <span class="percent">{{ stat.percentage }}</span>
+                                </div>
+                                <div class="dollars">
+                                    <span class="cr">CPA:</span>
+                                    <span class="numbers">{{ stat.cost }}</span>
+                                </div>
+                                <div class="countries">
+                                    <ng-container *ngFor="let geo of stat.geo">
+                                        <img *ngIf="geo === 'ua' || geo === 'sp' || geo === 'pt'; else otherGeo" [src]="'assets/img/' + geo + '.svg'" [alt]="geo">
+                                        <ng-template #otherGeo>
+                                            <img [src]="'assets/img/' + geo + '.png'" width="26" height="26" [alt]="geo">
+                                        </ng-template>
+                                    </ng-container>
+                                </div>
                             </div>
-                            <div class="percentage">
-                                <span class="cr">CR:</span>
-                                <span class="percent">{{ stat.percentage }}</span>
-                            </div>
-                            <div class="dollars">
-                                <span class="cr">CPA:</span>
-                                <span class="numbers">{{ stat.cost }}</span>
-                            </div>
-                            <div class="countries">
-                                <ng-container *ngFor="let geo of stat.geo">
-                                    <img *ngIf="geo === 'ua' || geo === 'sp' || geo === 'pt'; else otherGeo" [src]="'assets/img/' + geo + '.svg'" [alt]="geo">
-                                    <ng-template #otherGeo>
-                                        <img [src]="'assets/img/' + geo + '.png'" width="26" height="26" [alt]="geo">
-                                    </ng-template>
-                                </ng-container>
-                            </div>
-
-                        </div>
-                    </section>
+                        </section>
+                    </div>
                 </ng-template>
             </swiper>
             <div class="statistics__nav">
@@ -160,7 +161,9 @@
                 class="my-swiper"
             >
                 <ng-template *ngFor="let i of eventsList" swiperSlide>
-                    <app-event [event]="i" [lang]="currentLang"></app-event>
+                    <div class="swiper-slide-container">
+                        <app-event [event]="i" [lang]="currentLang"></app-event>
+                    </div>
                 </ng-template>
             </swiper>
         </section>
