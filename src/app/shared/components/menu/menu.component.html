@@ -1,7 +1,7 @@
 <ul *ngIf="full$ | async; else burger">
     <li [class.dark]="isDark" (click)="scrollto('home')">{{ 'home' | translate }}</li>
     <li [class.dark]="isDark" (click)="scrollto('about-us')">{{ 'about-us' | translate }}</li>
-    <li [class.dark]="isDark" (click)="scrollto('event')">{{ 'events' | translate }}</li>
+    <!-- <li [class.dark]="isDark" (click)="scrollto('event')">{{ 'events' | translate }}</li> -->
     <li [class.dark]="isDark" (click)="scrollto('faq')">{{ 'faq' | translate }}</li>
     <li [class.dark]="isDark" (click)="scrollto('contacts')">{{ 'contacts' | translate }}</li>
 </ul>
@@ -14,7 +14,7 @@
         <ul class="vertical">
             <li [class.dark]="isDark" class="text-center" (click)="scrollto('home')">{{ 'home' | translate }}</li>
             <li [class.dark]="isDark" class="text-center" (click)="scrollto('about-us')">{{ 'about-us' | translate }}</li>
-            <li [class.dark]="isDark" class="text-center" (click)="scrollto('event')">{{ 'events' | translate }}</li>
+            <!-- <li [class.dark]="isDark" class="text-center" (click)="scrollto('event')">{{ 'events' | translate }}</li> -->
             <li [class.dark]="isDark" class="text-center" (click)="scrollto('faq')">{{ 'faq' | translate }}</li>
             <li [class.dark]="isDark" class="text-center" (click)="scrollto('contacts')">{{ 'contacts' | translate }}</li>
         </ul>
