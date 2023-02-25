@@ -27,6 +27,7 @@
             font-family: $font-heading;
             font-size: 1.563rem;
             transition: all .25s ease-out;
+            cursor: pointer;
 
             &.shown {
                 transform: translateY(0);

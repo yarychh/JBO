@@ -5,8 +5,15 @@
     </div>
 
     <div class="qa" [class.dark]="isDark">
-        <h3 class="question" [class.shown]="shown">{{ question }}</h3>
-        <p [class.shown]="shown" class="answer mb-0">{{ answer }}</p>
+        <h3
+            (click)="shown = !shown"
+            class="question"
+            [class.shown]="shown"
+        >{{ question }}</h3>
+        <p
+            class="answer mb-0"
+            [class.shown]="shown"
+        >{{ answer }}</p>
     </div>
 
 </div>
