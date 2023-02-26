@@ -34,7 +34,7 @@
         >
             <ng-template *ngFor="let i of reviewList" swiperSlide>
                 <div class="swiper-slide-container">
-                    <section class="partners pt-4 mb-5 pb-5" [class.dark]="isDark">
+                    <section class="partners pt-4 mb-5 pb-md-5" [class.dark]="isDark">
                         <p>{{ 'partners-say' | translate }}</p>
                         <div class="content">
                             <div class="logoName">
@@ -89,7 +89,7 @@
                                     <ng-container *ngFor="let geo of stat.geo">
                                         <img *ngIf="geo === 'ua' || geo === 'sp' || geo === 'pt'; else otherGeo" [src]="'assets/img/' + geo + '.svg'" [alt]="geo">
                                         <ng-template #otherGeo>
-                                            <img [src]="'assets/img/' + geo + '.png'" width="26" height="26" [alt]="geo">
+                                            <img [src]="'assets/img/' + geo + '.png'" width="36" height="36" [alt]="geo">
                                         </ng-template>
                                     </ng-container>
                                 </div>

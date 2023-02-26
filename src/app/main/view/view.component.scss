@@ -203,6 +203,11 @@
             gap: 2rem;
         }
 
+        @media (max-width: 400px) {
+            gap: 0;
+            padding: 1.5rem;
+        }
+
         &.dark {
             background-color: $white-20 !important;
         }
@@ -304,7 +309,7 @@
     &__nav {
         position: absolute;
         bottom: 4.5rem;
-        left: calc(50% - 85px);
+        left: calc(50% - 83px);
         z-index: 99;
         display: flex;
         gap: 1rem;
@@ -354,7 +359,6 @@
         @media (max-width: 400px) {
             width: min-content;
             padding: 1rem;
-            padding-bottom: 3rem;
         }
 
         .logo-card {
@@ -369,6 +373,10 @@
             align-items: center;
             justify-content: center;
             color: $white;
+
+            @media (max-width: 400px) {
+                padding: .5rem 2rem;
+            }
 
             h5 {
                 margin-top: 1rem;
@@ -391,6 +399,10 @@
             flex-direction: column;
             justify-content: center;
             color: $white;
+
+            @media (max-width: 400px) {
+                padding: .5rem 2rem;
+            }
 
             .cr {
                 text-align: left;
@@ -427,6 +439,10 @@
             flex-direction: column;
             justify-content: center;
             color: $white;
+
+            @media (max-width: 400px) {
+                padding: .5rem 2rem;
+            }
 
             .cr {
                 text-align: left;
@@ -510,6 +526,7 @@
 
 .events {
     position: relative;
+    padding: .1rem;
 
     .dark {
         color: $white;
