@@ -1,3 +1,6 @@
+import { isPlatformBrowser } from '@angular/common';
+import { Inject } from '@angular/core';
+import { PLATFORM_ID } from '@angular/core';
 import { Component } from '@angular/core';
 import { BehaviorSubject, fromEvent } from 'rxjs';
 import { StateService } from '../../services/state.service';
@@ -15,15 +18,19 @@ export class MenuComponent {
         return this.state.isDark;
     }
 
-    constructor(private state: StateService) {
+    constructor(private state: StateService, @Inject(PLATFORM_ID) private platformId: any,) {
         this.burger();
-        fromEvent(window, 'resize').subscribe(() => this.burger());
+        if (isPlatformBrowser(this.platformId)) {
+            fromEvent(window, 'resize').subscribe(() => this.burger());
+        }
     }
 
     public burger(): void {
-        document.documentElement.clientWidth < 500
-            ? this.full$.next(false)
-            : this.full$.next(true);
+        if (isPlatformBrowser(this.platformId)) {
+            document.documentElement.clientWidth < 500
+                ? this.full$.next(false)
+                : this.full$.next(true);
+        }
     }
 
     public toggleShown(): void {
@@ -31,7 +38,9 @@ export class MenuComponent {
     }
 
     public scrollto(id: string): void{
-        const element = document.getElementById(id);
-        element?.scrollIntoView();
+        if (isPlatformBrowser(this.platformId)) {
+            const element = document.getElementById(id);
+            element?.scrollIntoView();
+        }
     }
 }

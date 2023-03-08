@@ -1,3 +1,6 @@
+import { isPlatformBrowser } from '@angular/common';
+import { Inject } from '@angular/core';
+import { PLATFORM_ID } from '@angular/core';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { UntypedFormControl } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
@@ -12,7 +15,11 @@ import { StateService } from '../../services/state.service';
 })
 export class HeaderComponent implements OnInit, OnDestroy {
     public currentLang = '';
-    constructor(private state: StateService, private translate: TranslateService) { }
+    constructor(
+        private state: StateService,
+        private translate: TranslateService,
+        @Inject(PLATFORM_ID) private platformId: any
+    ) {}
 
     ngOnInit(): void {
         this.translate.onLangChange.subscribe((event) => {
@@ -32,12 +39,14 @@ export class HeaderComponent implements OnInit, OnDestroy {
     }
 
     public selected(lang: string): boolean {
-        return lang  === this.currentLang;
+        return lang === this.currentLang;
     }
 
     public roleChange(): void {
-        this.state.toggleRole();
-        document.body.classList.toggle('dark');
+        if (isPlatformBrowser(this.platformId)) {
+            this.state.toggleRole();
+            document.body.classList.toggle('dark');
+        }
     }
 
     public langChange(event: any): void {

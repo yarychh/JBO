@@ -1,3 +1,6 @@
+import { isPlatformBrowser } from '@angular/common';
+import { PLATFORM_ID } from '@angular/core';
+import { Inject } from '@angular/core';
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
@@ -33,7 +36,8 @@ export class ViewComponent implements OnInit, OnDestroy {
         private state: StateService,
         private fb: FormBuilder,
         public firestore: FirestoreService,
-        private translate: TranslateService
+        private translate: TranslateService,
+        @Inject(PLATFORM_ID) private platformId: any,
     ) {
         this.advertizerForm = this.fb.group({
             companyType: [null, Validators.required],
@@ -81,8 +85,10 @@ export class ViewComponent implements OnInit, OnDestroy {
     }
 
     public scrollto(id: string): void {
-        const element = document.getElementById(id);
-        element?.scrollIntoView();
+        if (isPlatformBrowser(this.platformId)) {
+            const element = document.getElementById(id);
+            element?.scrollIntoView();
+        }
     }
 
     public async sendForm(): Promise<void> {

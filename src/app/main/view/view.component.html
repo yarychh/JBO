@@ -22,41 +22,6 @@
         <app-pill [number]="'0006'" description="{{ '6-feature' + (isDark ? '-brok' : '-web') | translate }}"></app-pill>
     </section>
 
-    <article class="reviews mb-5" *ngIf="reviewList?.length">
-        <swiper
-            #reviews
-            [slidesPerView]="1"
-            [centeredSlides]="true"
-            [spaceBetween]="30"
-            [loop]="true"
-            [autoHeight]="true"
-            class="my-swiper"
-        >
-            <ng-template *ngFor="let i of reviewList" swiperSlide>
-                <div class="swiper-slide-container">
-                    <section class="partners pt-4 mb-5 pb-md-5" [class.dark]="isDark">
-                        <p>{{ 'partners-say' | translate }}</p>
-                        <div class="content">
-                            <div class="logoName">
-                                <h2 class="partners__title">{{ i.title }}</h2>
-                                <img [src]="i.imgURL" [alt]="i.title" class="partners__logo" width="200" height="200">
-                            </div>
-                            <p class="quote">{{ i.review }}</p>
-                        </div>
-                    </section>
-                </div>
-            </ng-template>
-        </swiper>
-        <div class="reviews__navbox">
-            <a calss="nav" (click)="slidePrev('reviews')" >
-                <img [src]="isDark ? 'assets/svg/arr-left.svg' : 'assets/svg/arr-left-dark.svg'" alt="arrow left">
-            </a>
-            <a calss="nav" (click)="slideNext('reviews')">
-                <img [src]="isDark ? 'assets/svg/arr-right.svg' : 'assets/svg/arr-right-dark.svg'" alt="arrow right">
-            </a>
-        </div>
-    </article>
-
     <div class="statistics-container" *ngIf="statisticsList?.length">
         <article class="statistics" *ngIf="!isDark">
             <swiper
@@ -108,6 +73,41 @@
             </div>
         </article>
     </div>
+
+    <article class="reviews mb-5" *ngIf="reviewList?.length">
+        <swiper
+            #reviews
+            [slidesPerView]="1"
+            [centeredSlides]="true"
+            [spaceBetween]="30"
+            [loop]="true"
+            [autoHeight]="true"
+            class="my-swiper"
+        >
+            <ng-template *ngFor="let i of reviewList" swiperSlide>
+                <div class="swiper-slide-container">
+                    <section class="partners pt-4 mb-5 pb-md-5" [class.dark]="isDark">
+                        <p>{{ 'partners-say' | translate }}</p>
+                        <div class="content">
+                            <div class="logoName">
+                                <h2 class="partners__title">{{ i.title }}</h2>
+                                <img [src]="i.imgURL" [alt]="i.title" class="partners__logo" width="200" height="200">
+                            </div>
+                            <p class="quote">{{ i.review }}</p>
+                        </div>
+                    </section>
+                </div>
+            </ng-template>
+        </swiper>
+        <div class="reviews__navbox">
+            <a calss="nav" (click)="slidePrev('reviews')" >
+                <img [src]="isDark ? 'assets/svg/arr-left.svg' : 'assets/svg/arr-left-dark.svg'" alt="arrow left">
+            </a>
+            <a calss="nav" (click)="slideNext('reviews')">
+                <img [src]="isDark ? 'assets/svg/arr-right.svg' : 'assets/svg/arr-right-dark.svg'" alt="arrow right">
+            </a>
+        </div>
+    </article>
 
     <section *ngIf="isDark" class="flow px-5 pt-5 mb-5 pb-5">
         <h2 class="flow__heading mb-5 pb-3">{{ 'success-formula' | translate }}</h2>
