@@ -10,7 +10,7 @@
     <img *ngIf="!shown; else expanded" [src]="isDark ? 'assets/svg/burger-white.svg' : 'assets/svg/burger.svg'" alt="burger-menu" (click)="toggleShown()">
 
     <ng-template #expanded>
-        <img [src]="isDark ? 'assets/svg/Close-white.svg' : 'assets/svg/Close-dark.svg'" alt="burger-menu" class="mb-3" (click)="toggleShown()">
+        <img [src]="isDark ? 'assets/svg/Close-white.svg' : 'assets/svg/Close-dark.svg'" alt="burger-menu" (click)="toggleShown()">
         <ul class="vertical">
             <li [class.dark]="isDark" class="text-center" (click)="scrollto('home')">{{ 'home' | translate }}</li>
             <li [class.dark]="isDark" class="text-center" (click)="scrollto('about-us')">{{ 'about-us' | translate }}</li>

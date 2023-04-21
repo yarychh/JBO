@@ -10,7 +10,6 @@
             <button class="btn ahuet" (click)="scrollto('contacts')">{{ 'start-button' | translate }}</button>
         </div>
         <h1 class="sorry" [class.dark-t]="isDark">{{ 'sorry' | translate }}</h1>
-        <app-menu class="menu my-5 mb-0 ms-0 ms-sm-4"></app-menu>
     </section>
 
     <section class="features mb-5 pb-5" [class.dark]="isDark" id="about-us">
@@ -48,10 +47,10 @@
             </ng-template>
         </swiper>
         <div class="reviews__navbox">
-            <a calss="nav" (click)="slidePrev('reviews')" >
+            <a class="nav" (click)="slidePrev('reviews')" >
                 <img [src]="isDark ? 'assets/svg/arr-left.svg' : 'assets/svg/arr-left-dark.svg'" alt="arrow left">
             </a>
-            <a calss="nav" (click)="slideNext('reviews')">
+            <a class="nav" (click)="slideNext('reviews')">
                 <img [src]="isDark ? 'assets/svg/arr-right.svg' : 'assets/svg/arr-right-dark.svg'" alt="arrow right">
             </a>
         </div>
@@ -99,10 +98,10 @@
                 </ng-template>
             </swiper>
             <div class="statistics__nav">
-                <a calss="nav" (click)="slidePrev('statistics')">
+                <a class="nav" (click)="slidePrev('statistics')">
                     <img src="assets/svg/arr-left-dark.svg" alt="arrow left">
                 </a>
-                <a calss="nav" (click)="slideNext('statistics')">
+                <a class="nav" (click)="slideNext('statistics')">
                     <img src="assets/svg/arr-right-dark.svg" alt="arrow right">
                 </a>
             </div>
@@ -142,10 +141,10 @@
             <div class="d-flex justify-content-between mb-3 px-3 px-md-4">
                 <h2 class="events__heading" [class.dark]="isDark">{{ 'events' | translate }}</h2>
                 <div class="d-md-inline-block events__nav">
-                    <a calss="nav" (click)="slidePrev('events')">
+                    <a class="nav" (click)="slidePrev('events')">
                         <img [src]="isDark ? 'assets/svg/arr-left.svg' : 'assets/svg/arr-left-dark.svg'" alt="arrow left">
                     </a>
-                    <a calss="nav" (click)="slideNext('events')">
+                    <a class="nav" (click)="slideNext('events')">
                         <img [src]="isDark ? 'assets/svg/arr-right.svg' : 'assets/svg/arr-right-dark.svg'"
                             alt="arrow right">
                     </a>
@@ -186,7 +185,7 @@
         <form [formGroup]="advertizerForm" (submit)="sendForm()" class="px-2 px-md-5">
             <div class="form__control">
                 <label for="companyType">{{ 'company-type' | translate }} <span class="error">*</span></label>
-                <select formControlName="companyType" name="companyType">
+                <select formControlName="companyType" id="companyType">
                     <option value="direct advertiser">{{ "direct-advertiser" | translate }}</option>
                     <option value="affiliate network">{{ "affiliate-network" | translate }}</option>
                 </select>
@@ -195,7 +194,7 @@
             <div class="form__control">
                 <label for="geo">{{ 'company-geo' | translate }} <span class="error">*</span></label>
                 <div class="input-box">
-                    <input type="text" formControlName="geo" name="geo">
+                    <input type="text" formControlName="geo" id="geo">
                     <span (click)="paste('geo')">{{ 'paste' | translate }}</span>
                 </div>
             </div>
@@ -203,7 +202,7 @@
             <div class="form__control">
                 <label for="email">EMAIL</label>
                 <div class="input-box">
-                    <input type="email" formControlName="email" name="email" placeholder="example@gmail.com">
+                    <input type="email" formControlName="email" id="email" placeholder="example@gmail.com">
                     <span (click)="paste('email')">{{ 'paste' | translate }}</span>
                 </div>
                 <p *ngIf="advertizerForm.get('email')?.hasError('email')" class="error ms-3 mb-0 p-1">Please enter valid email</p>
@@ -213,7 +212,7 @@
                 <div class="form__control">
                     <label for="skype">SKYPE</label>
                     <div class="input-box">
-                        <input type="text" formControlName="skype" name="skype">
+                        <input type="text" formControlName="skype" id="skype">
                         <span (click)="paste('skype')">{{ 'paste' | translate }}</span>
                     </div>
                 </div>
@@ -221,7 +220,7 @@
                 <div class="form__control">
                     <label for="telegram">TELEGRAM <span class="error">*</span></label>
                     <div class="input-box">
-                        <input type="text" formControlName="telegram" name="telegram">
+                        <input type="text" formControlName="telegram" id="telegram">
                         <span (click)="paste('telegram')">{{ 'paste' | translate }}</span>
                     </div>
                 </div>

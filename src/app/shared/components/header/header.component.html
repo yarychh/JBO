@@ -1,13 +1,24 @@
-<header class="p-2 p-sm-4 d-flex justify-content-between" [class.dark]="isDark">
+<!--<header class="p-2 p-sm-4 d-flex" [class.dark]="isDark">-->
+<!--    <div class="switch-box" [class.dark]="isDark">-->
+<!--        <p class="m-0">{{ 'affiliate' |translate }}</p>-->
+<!--        <app-switch [checked]="(role$ | async) === 'advertiser'" (change)="roleChange()"></app-switch>-->
+<!--        <p class="m-0">{{ 'advertiser' |translate }}</p>-->
+<!--    </div>-->
+
+<!--</header>-->
+
+<header>
     <div class="switch-box" [class.dark]="isDark">
-        <p class="m-0">{{ 'affiliate' |translate }}</p>
+        <p>{{ 'affiliate' |translate }}</p>
         <app-switch [checked]="(role$ | async) === 'advertiser'" (change)="roleChange()"></app-switch>
-        <p class="m-0">{{ 'advertiser' |translate }}</p>
+        <p>{{ 'advertiser' |translate }}</p>
     </div>
 
-    <div class="lang-box d-inline-flex align-items-center" [class.dark]="isDark">
-        <img [src]="isDark ? 'assets/svg/Vectorglobe-Dark.svg' : 'assets/svg/Vectorglobe.svg'" alt="globe" class="me-2">
-        <select name="lang" id="lang" (change)="langChange($event)" [class.dark]="isDark">
+    <app-menu class="menu"></app-menu>
+
+    <div class="lang-box" [class.dark]="isDark">
+        <img [src]="isDark ? 'assets/svg/Vectorglobe-Dark.svg' : 'assets/svg/Vectorglobe.svg'" alt="globe">
+        <select class="lang-select" name="lang" id="lang" (change)="langChange($event)" [class.dark]="isDark">
             <option value="en" [selected]="selected('en')" [class.dark]="isDark">EN</option>
             <option value="ua" [selected]="selected('ua')" [class.dark]="isDark">UA</option>
         </select>
