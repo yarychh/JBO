@@ -27,10 +27,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
         return this.state.getRole();
     }
 
-    public get isDark(): boolean {
-        return this.state.isDark;
-    }
-
     public selected(lang: string): boolean {
         return lang  === this.currentLang;
     }

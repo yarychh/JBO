@@ -1,37 +1,66 @@
-@import "/src/styles.scss";
+@import '/src/styles.scss';
 
 :host {
-    // position: absolute;
-    // bottom: 0;
-    // left: 0;
     width: 100%;
 }
 
-footer {
-    border-top-left-radius: 45px;
-    border-top-right-radius: 45px;
-    background-color: $grey;
-    padding: 2rem;
+footer, .footer {
+    display: grid;
+    margin: 5.75rem 4.75rem 0 4.75rem;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
+    div {
+        max-width: 220px;
+    }
 
-    position: relative;
-
-    &.dark {
-        border-top-left-radius: 0;
-        border-top-right-radius: 0;
-        background-color: $black;
-        padding: 2rem;
-
+    & > * {
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
+        align-self: start;
+        margin-bottom: 5.75rem;
 
-        position: relative;
+        h5 {
+            margin-bottom: 1.25rem;
+            font-family: $font-heading;
+            font-weight: 400;
+        }
+
+        a {
+            text-decoration: none;
+            color: $black;
+            font-size: 1.25rem;
+            font-weight: 500;
+            margin-bottom: 0.625rem;
+        }
+    }
+
+    &-logo {
+        display: flex;
+        flex-direction: column;
+        align-self: center;
+        justify-content: flex-start;
+
+        img {
+            height: 5.125rem;
+        }
+
+        p {
+            margin: 2.2rem 0;
+            font-weight: 500;
+            font-size: 0.875rem;
+            color: $black;
+        }
+    }
+
+    &-social {
+        a:first-of-type {
+            color: $blue;
+        }
+
+        img {
+            height: 1.5625rem;
+            margin-right: 1.5625rem;
+        }
     }
 }
 
@@ -42,36 +71,6 @@ footer {
         justify-self: flex-end;
         align-self: flex-start;
         color: $white;
-    }
-}
-
-.link-box {
-    align-self: start;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    a{
-        text-decoration: none;
-        color: $blue;
-
-        &:hover {
-            color: $black;
-        }
-    }
-
-    &-dark {
-        align-self: start;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1rem;
-        a{
-            text-decoration: none;
-            color: $blue;
-
-            &:hover {
-                color: $white;
-            }
-        }
     }
 }
 

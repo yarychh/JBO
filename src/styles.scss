@@ -6,6 +6,9 @@
 @import 'swiper/scss/navigation';
 @import 'swiper/scss/pagination';
 
+@import 'scss/variables';
+@import 'scss/typography';
+
 @font-face {
     font-family: 'Gilroy';
     src: url('./assets/gilroy/Gilroy-Regular.ttf');
@@ -25,7 +28,7 @@
 
 // variables
 
-$font-heading: "StereoGothic";
+$font-heading: 'Unbounded', cursive;;
 $font-basic: "Gilroy";
 
 //colors
@@ -80,12 +83,6 @@ body {
     }
 }
 
-h1, h2, h3, h4 ,h5 {
-    margin: 0 !important;
-    padding: 0 !important;
-}
-
-p {
-    margin: 0 !important;
-    padding: 0 !important;
+.content-wrapper {
+    margin: 0 4.625rem  ;
 }

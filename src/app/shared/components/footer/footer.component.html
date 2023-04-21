@@ -1,31 +1,41 @@
-<ng-container *ngIf="isDark; else light">
-    <footer id="contacts" class="pb-0 dark">
-        <section class="link-box-dark mb-3">
-            <a target="_blank" href="https://t.me/jbomarketing">TELEGRAM</a>
-            <a target="_blank" href="https://www.linkedin.com/company/jbo-marketing/">LINKEDIN</a>
-            <a href="mailto:info@jbomarketing.space" class="email">info@jbomarketing.space</a>
-        </section>
-
-        <div class="logo">
-            <img src="assets/svg/Group 42620JBO-logo-dark.svg" height="58" width="156" alt="JBO logo">
+<div class="footer-wrap">
+    <footer>
+        <div class="footer-logo">
+            <img src="assets/svg/JBOLogo.svg" alt="JBO logo">
+            <p>&#169; COPYRIGHT 2023</p>
         </div>
 
-        <p class="copy-dark">All rights are reserved &#169;</p>
-    </footer>
-</ng-container>
-
-<ng-template #light>
-    <footer id="contacts" class="pb-0">
-        <section class="link-box mb-3">
-            <a target="_blank" href="https://t.me/jbomarketing">TELEGRAM</a>
-            <a target="_blank" href="https://www.linkedin.com/company/jbo-marketing/">LINKEDIN</a>
-            <a href="mailto:info@jbomarketing.space" class="email">info@jbomarketing.space</a>
-        </section>
-
-        <div class="logo">
-            <img src="assets/svg/JBOLogo.svg" height="58" width="156" alt="JBO logo">
+        <div class="footer-social">
+            <h5>FOLLOW US</h5>
+            <a href="mailto:info@jbomarketing.space">jbo@gmail.com</a>
+            <span class="icons-box">
+            <a href="https://t.me/jbomarketing">
+                <img src="assets/svg/insta.svg" alt="Instagram">
+            </a>
+            <a href="https://www.linkedin.com/company/jbo-marketing/">
+                <img src="assets/svg/linkedin.svg" alt="LinkedIn">
+            </a>
+            <a href="https://t.me/jbomarketing">
+                <img src="assets/svg/telega.svg" alt="Telegram">
+            </a>
+        </span>
         </div>
 
-        <p class="copy">All rights are reserved &#169;</p>
+        <div class="footer-pages">
+            <h5>PAGES</h5>
+            <a [routerLink]="['about-us']">About us</a>
+            <a [routerLink]="['blog']">Blog</a>
+            <a [routerLink]="['contacts']">Contact</a>
+        </div>
+
+        <div class="footer-info">
+            <h5>INFO</h5>
+            <a href="">Publishers</a>
+            <a href="">Advertisers</a>
+            <a href="">Privacy policy</a>
+            <a href="">Cookies policy</a>
+            <a href="">Terms and Conditions</a>
+            <a href="">FAQ</a>
+        </div>
     </footer>
-</ng-template>
+</div>
