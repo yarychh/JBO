@@ -42,10 +42,8 @@ li {
         filter: invert(1);
     }
 
-    &.dark {
-        border: 1px solid $white;
-        color: $white;
-        background-color: $black;
+    &:active {
+        filter: invert(1);
     }
 }
 

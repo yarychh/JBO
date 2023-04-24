@@ -1,0 +1,65 @@
+<div class="contact-page content-wrapper">
+    <section class="heading">
+        <h1>CONTACT</h1>
+        <img src="assets/img/contact-img.png" alt="Contact">
+    </section>
+
+    <section class="socials">
+        <div class="pillow">
+            <h2>INSTAGRAM</h2>
+            <a href="https://t.me/jbomarketing">@instagram</a>
+        </div>
+        <div class="pillow">
+            <h2>TELEGRAM</h2>
+            <a href="https://t.me/jbomarketing">@telegram</a>
+        </div>
+        <div class="pillow">
+            <h2>MAIL</h2>
+            <a href="mailto:info@jbomarketing.space">jbo@gmail.com</a>
+        </div>
+    </section>
+
+    <section class="contact-form">
+        <h2>Вопросы?</h2>
+        <form [formGroup]="contactFormGroup">
+            <mat-form-field
+                appearance="fill"
+                floatLabel="auto"
+                class="contact-form-field"
+
+            >
+                <mat-label>Name</mat-label>
+                <input
+                    matInput
+                    type="text"
+                />
+            </mat-form-field>
+
+            <mat-form-field
+                appearance="fill"
+                floatLabel="auto"
+                class="contact-form-field"
+            >
+                <mat-label>Email</mat-label>
+                <input
+                    matInput
+                    type="email"
+                />
+            </mat-form-field>
+
+            <mat-form-field
+                appearance="fill"
+                floatLabel="auto"
+                class="contact-form-field_bold"
+            >
+                <mat-label>Lorem</mat-label>
+                <input
+                    matInput
+                    type="text"
+                />
+            </mat-form-field>
+
+            <button class="contact-form-btn" type="submit">Send</button>
+        </form>
+    </section>
+</div>

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterLinkWithHref } from "@angular/router";
 import { SwitchComponent } from './components/switch/switch.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -22,7 +23,7 @@ import { TranslateModule } from '@ngx-translate/core';
         EventComponent,
         QuestionComponent,
     ],
-    imports: [CommonModule, FormsModule, ReactiveFormsModule, TranslateModule],
+    imports: [CommonModule, FormsModule, ReactiveFormsModule, TranslateModule, RouterLinkWithHref],
     exports: [
         SwitchComponent,
         FooterComponent,

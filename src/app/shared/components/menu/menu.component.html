@@ -1,22 +1,31 @@
 <ul *ngIf="full$ | async; else burger">
-    <li [class.dark]="isDark" (click)="scrollto('home')">{{ 'home' | translate }}</li>
-    <li [class.dark]="isDark" (click)="scrollto('about-us')">{{ 'about-us' | translate }}</li>
-    <!-- <li [class.dark]="isDark" (click)="scrollto('event')">{{ 'events' | translate }}</li> -->
-    <li [class.dark]="isDark" (click)="scrollto('faq')">{{ 'faq' | translate }}</li>
-    <li [class.dark]="isDark" (click)="scrollto('contacts')">{{ 'contacts' | translate }}</li>
+    <li (click)="redirectTo('home')">{{ 'home' | translate }}</li>
+    <li (click)="scrollto('about-us')">{{ 'about-us' | translate }}</li>
+    <!-- <li (click)="scrollto('event')">{{ 'events' | translate }}</li> -->
+    <li (click)="scrollto('faq')">{{ 'faq' | translate }}</li>
+    <li (click)="redirectTo('contacts')">{{ 'contacts' | translate }}</li>
 </ul>
 
+<div class="menu-wrap" *ngIf="full$ | async; else burger">
+    <div
+        class="menu-item"
+        *ngFor="let item of menuItems"
+    >
+
+    </div>
+</div>
+
 <ng-template #burger>
-    <img *ngIf="!shown; else expanded" [src]="isDark ? 'assets/svg/burger-white.svg' : 'assets/svg/burger.svg'" alt="burger-menu" (click)="toggleShown()">
+    <img *ngIf="!shown; else expanded" src="assets/svg/burger.svg" alt="burger-menu" (click)="toggleShown()">
 
     <ng-template #expanded>
-        <img [src]="isDark ? 'assets/svg/Close-white.svg' : 'assets/svg/Close-dark.svg'" alt="burger-menu" (click)="toggleShown()">
+        <img src="assets/svg/Close-dark.svg" alt="burger-menu" (click)="toggleShown()">
         <ul class="vertical">
-            <li [class.dark]="isDark" class="text-center" (click)="scrollto('home')">{{ 'home' | translate }}</li>
-            <li [class.dark]="isDark" class="text-center" (click)="scrollto('about-us')">{{ 'about-us' | translate }}</li>
-            <!-- <li [class.dark]="isDark" class="text-center" (click)="scrollto('event')">{{ 'events' | translate }}</li> -->
-            <li [class.dark]="isDark" class="text-center" (click)="scrollto('faq')">{{ 'faq' | translate }}</li>
-            <li [class.dark]="isDark" class="text-center" (click)="scrollto('contacts')">{{ 'contacts' | translate }}</li>
+            <li class="text-center" (click)="scrollto('home')">{{ 'home' | translate }}</li>
+            <li class="text-center" (click)="scrollto('about-us')">{{ 'about-us' | translate }}</li>
+            <!-- <li class="text-center" (click)="scrollto('event')">{{ 'events' | translate }}</li> -->
+            <li class="text-center" (click)="scrollto('faq')">{{ 'faq' | translate }}</li>
+            <li class="text-center" (click)="scrollto('contacts')">{{ 'contacts' | translate }}</li>
         </ul>
     </ng-template>
 </ng-template>

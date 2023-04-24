@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from "@angular/router";
 import { BehaviorSubject, fromEvent } from 'rxjs';
 import { StateService } from '../../services/state.service';
 
@@ -10,12 +11,23 @@ import { StateService } from '../../services/state.service';
 export class MenuComponent {
     public full$ = new BehaviorSubject<boolean>(true);
     public shown = false;
+    public menuItems = [
+        {
+            name: 'home',
+            url: '/home'
+        },
+        {
+            name: 'about-us',
+            url: '/about-us'
+        },
+        {
+            name: 'careers',
+            url: '/careers'
+        }
+    ]
 
-    public get isDark(): boolean {
-        return this.state.isDark;
-    }
-
-    constructor(private state: StateService) {
+    constructor(private state: StateService,
+                private router: Router) {
         this.burger();
         fromEvent(window, 'resize').subscribe(() => this.burger());
     }
@@ -30,8 +42,15 @@ export class MenuComponent {
         this.shown = !this.shown;
     }
 
-    public scrollto(id: string): void{
+    public scrollto(id: string): void {
         const element = document.getElementById(id);
         element?.scrollIntoView();
+    }
+
+    public redirectTo(pageName: string): void {
+        this.router.navigate(['', pageName]);
+    }
+
+    public getActiveTab(): void {
     }
 }
