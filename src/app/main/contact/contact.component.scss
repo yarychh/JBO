@@ -62,23 +62,29 @@
             width: 52rem;
             display: flex;
             flex-direction: column;
-            gap: 3.75rem;
+            gap: 3rem;
 
         }
 
         &-field {
+            display: flex;
+            flex-direction: column;
             font-weight: 500;
             border-bottom: 1px solid $black;
 
+            input {
+                border: none;
+            }
 
             &_bold {
                 font-weight: 700;
-                border-bottom: 2px solid $black;
+                border-bottom: 3px solid $black;
             }
         }
 
         &-btn {
             padding: 1.25rem 24.5rem;
+            margin: .75rem 0;
             background-color: $blue;
             color: $white;
             border-radius: 3.75rem;

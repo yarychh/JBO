@@ -4,6 +4,7 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from "@angula
 import { MatButtonModule } from "@angular/material/button";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
+import { FirestoreService } from "../../shared/services/firestore.service";
 
 @Component({
     selector: 'app-contact',
@@ -15,20 +16,28 @@ import { MatInputModule } from "@angular/material/input";
 export class ContactComponent implements OnInit {
     public contactFormGroup!: FormGroup;
 
-    constructor() {
+    public get fc() {
+        return this.contactFormGroup.controls;
+    }
+
+    constructor(private firestore: FirestoreService) {
     }
 
     ngOnInit(): void {
         this.initForm();
-        console.log(this.contactFormGroup);
     }
 
     public initForm(): void {
         this.contactFormGroup = new FormGroup({
             name: new FormControl('', [Validators.required]),
-            email: new FormControl('', [Validators.email]),
+            email: new FormControl('', [Validators.required, Validators.email]),
             question: new FormControl('', [Validators.required])
         })
     }
 
+    public submitQuestionsForm(fg: FormGroup): void {
+        if (fg.invalid) return;
+        this.firestore.submitForm(fg.value).then(() => fg.reset())
+        // this.contactFormGroup.reset();
+    }
 }
