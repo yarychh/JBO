@@ -23,7 +23,7 @@ const routes: Routes = [
             import('./main/advertiser/advertiser.component').then((c) => c.AdvertiserComponent),
     },
     {
-        path: 'about',
+        path: 'about-us',
         loadComponent: () =>
             import('./main/about/about.component').then((c) => c.AboutComponent),
     },
@@ -33,7 +33,7 @@ const routes: Routes = [
             import('./main/contact/contact.component').then((c) => c.ContactComponent),
     },
     {
-        path: 'FAQ',
+        path: 'faq',
         loadComponent: () =>
             import('./main/fuck-you/fuck-you.component').then((c) => c.FuckYouComponent),
     },

@@ -6,66 +6,26 @@
 
     <section class="socials">
         <div class="pillow">
-            <h2>INSTAGRAM</h2>
-            <a href="https://t.me/jbomarketing">@instagram</a>
+            <a href="https://t.me/jbomarketing">
+                <h2>INSTAGRAM</h2>
+                @instagram
+            </a>
         </div>
         <div class="pillow">
-            <h2>TELEGRAM</h2>
-            <a href="https://t.me/jbomarketing">@telegram</a>
+            <a href="https://t.me/jbomarketing">
+                <h2>TELEGRAM</h2>
+                @telegram
+            </a>
         </div>
         <div class="pillow">
-            <h2>MAIL</h2>
-            <a href="mailto:info@jbomarketing.space">jbo@gmail.com</a>
+            <a href="mailto:info@jbomarketing.space">
+                <h2>MAIL</h2>
+                jbo@gmail.com
+            </a>
         </div>
     </section>
 
     <section class="contact-form">
-        <h2>Вопросы?</h2>
-        <form [formGroup]="contactFormGroup" (submit)="submitQuestionsForm(contactFormGroup)">
-            <mat-form-field
-                appearance="fill"
-                floatLabel="auto"
-                class="contact-form-field"
-
-            >
-                <mat-label>Name</mat-label>
-                <input
-                    matInput
-                    type="text"
-                    formControlName="name"
-                />
-            </mat-form-field>
-
-            <mat-form-field
-                class="contact-form-field"
-                appearance="fill"
-                floatLabel="auto"
-            >
-                <mat-label>Email</mat-label>
-                <input
-                    matInput
-                    type="email"
-                    formControlName="email"
-                />
-                <mat-error *ngIf="fc['email'].touched
-                               && fc['email'].invalid"
-                >Correct email, please</mat-error>
-            </mat-form-field>
-
-            <mat-form-field
-                appearance="fill"
-                floatLabel="auto"
-                class="contact-form-field contact-form-field_bold"
-            >
-                <mat-label>Lorem</mat-label>
-                <input
-                    matInput
-                    type="text"
-                    formControlName="question"
-                />
-            </mat-form-field>
-
-            <button class="contact-form-btn" type="submit">Send</button>
-        </form>
+        <app-question-form></app-question-form>
     </section>
 </div>

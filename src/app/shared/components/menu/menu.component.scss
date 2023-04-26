@@ -47,3 +47,33 @@ li {
     }
 }
 
+.nav {
+    &-checkbox {
+        display: none;
+    }
+
+    &-button {
+        //background-color: $color-white;
+        height: 7rem;
+        width: 7rem;
+        position: fixed;
+        top: 6rem;
+        right: 6rem;
+        //border-radius: 50%;
+        z-index: 2000;
+        //box-shadow: 0 1rem 3rem rgba($color-black, .1);
+        text-align: center;
+        cursor: pointer;
+
+        //@include respond(tap-portrait) {
+        //    top: 4rem;
+        //    right: 4rem;
+        //}
+        //
+        //@include respond(phone) {
+        //    top: 3rem;
+        //    right: 3rem;
+        //}
+    }
+}
+

@@ -1,31 +1,51 @@
 <ul *ngIf="full$ | async; else burger">
     <li (click)="redirectTo('home')">{{ 'home' | translate }}</li>
-    <li (click)="scrollto('about-us')">{{ 'about-us' | translate }}</li>
-    <!-- <li (click)="scrollto('event')">{{ 'events' | translate }}</li> -->
-    <li (click)="scrollto('faq')">{{ 'faq' | translate }}</li>
+    <li (click)="redirectTo('about-us')">{{ 'about-us' | translate }}</li>
+     <li (click)="redirectTo('careers')">{{ 'CAREERS' | translate }}</li>
+    <li (click)="redirectTo('blog')">{{ 'BLOG' | translate }}</li>
     <li (click)="redirectTo('contacts')">{{ 'contacts' | translate }}</li>
 </ul>
 
-<div class="menu-wrap" *ngIf="full$ | async; else burger">
-    <div
-        class="menu-item"
-        *ngFor="let item of menuItems"
-    >
-
-    </div>
-</div>
+<!--<div class="menu-wrap" *ngIf="full$ | async; else burger">-->
+<!--    <div-->
+<!--        class="menu-item"-->
+<!--        *ngFor="let item of menuItems"-->
+<!--    >-->
+<!--        -->
+<!--    </div>-->
+<!--</div>-->
 
 <ng-template #burger>
     <img *ngIf="!shown; else expanded" src="assets/svg/burger.svg" alt="burger-menu" (click)="toggleShown()">
 
     <ng-template #expanded>
-        <img src="assets/svg/Close-dark.svg" alt="burger-menu" (click)="toggleShown()">
+<!--        <img src="assets/svg/Close-dark.svg" alt="burger-menu" (click)="toggleShown()">-->
         <ul class="vertical">
             <li class="text-center" (click)="scrollto('home')">{{ 'home' | translate }}</li>
             <li class="text-center" (click)="scrollto('about-us')">{{ 'about-us' | translate }}</li>
-            <!-- <li class="text-center" (click)="scrollto('event')">{{ 'events' | translate }}</li> -->
+            <li (click)="redirectTo('careers')">{{ 'careers' | translate }}</li>
             <li class="text-center" (click)="scrollto('faq')">{{ 'faq' | translate }}</li>
             <li class="text-center" (click)="scrollto('contacts')">{{ 'contacts' | translate }}</li>
         </ul>
     </ng-template>
+</ng-template>
+
+<ng-template #burgerMenu>
+    <div class="nav">
+        <input type="checkbox" class="nav-checkbox" id="navi-toggle">
+
+        <label for="navi-toggle" class="nav-button">
+            <span class="nav-icon"></span>
+        </label>
+
+        <nav class="nav-menu">
+            <ul class="nav-menu-list">
+                <li class="nav-item" (click)="redirectTo('home')">{{ 'home' | translate }}</li>
+                <li class="nav-item" (click)="redirectTo('about-us')">{{ 'about-us' | translate }}</li>
+                <li class="nav-item" (click)="redirectTo('careers')">{{'CAREERS' | translate }}</li>
+                <li class="nav-item" (click)="redirectTo('blog')">{{'BLOG' | translate}}</li>
+                <li class="nav-item" (click)="redirectTo('contacts')">{{ 'contacts' | translate }}</li>
+            </ul>
+        </nav>
+    </div>
 </ng-template>

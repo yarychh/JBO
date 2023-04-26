@@ -11,20 +11,6 @@ import { StateService } from '../../services/state.service';
 export class MenuComponent {
     public full$ = new BehaviorSubject<boolean>(true);
     public shown = false;
-    public menuItems = [
-        {
-            name: 'home',
-            url: '/home'
-        },
-        {
-            name: 'about-us',
-            url: '/about-us'
-        },
-        {
-            name: 'careers',
-            url: '/careers'
-        }
-    ]
 
     constructor(private state: StateService,
                 private router: Router) {
