@@ -8,6 +8,7 @@
 
 @import 'scss/variables';
 @import 'scss/typography';
+@import 'scss/mixins';
 
 @font-face {
     font-family: 'Gilroy';
@@ -84,7 +85,15 @@ body {
 }
 
 .content-wrapper {
-    margin: 0 4.625rem  ;
+    margin: 0 4.625rem;
+
+    @include respondTo(phone) {
+        margin: 0 1rem;
+    }
+
+    @include respondTo(big-desktop) {
+        margin: 0 16rem;
+    }
 }
 
 .blue {

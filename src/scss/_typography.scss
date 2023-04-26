@@ -1,4 +1,7 @@
 @import 'variables';
+@import 'mixins';
+
+// HEADINGS
 
 h1, h2, h3, h4 ,h5 {
     font-family: $font-heading;
@@ -6,8 +9,57 @@ h1, h2, h3, h4 ,h5 {
     padding: 0;
 }
 
+h2 {
+    font-size: 2.5rem;
+    font-weight: 400;
+
+    @include respondTo(phone) {
+        font-size: 1.875rem;
+    }
+}
+
+// TEXT
+
 p {
     font-family: $font-basic;
     margin: 0;
     padding: 0;
+}
+
+// Heading Sections Styling
+
+.heading {
+    width: 100%;
+    display: flex;
+    align-self: center;
+    justify-content: flex-end;
+
+    @include respondTo(phone) {
+        @include flex(col, center);
+    }
+
+    h1 {
+        display: flex;
+        font-size: 3.125rem;
+        align-self: center;
+
+        @include respondTo(phone) {
+            align-self: flex-start;
+            font-size: 1.875rem;
+            font-weight: 400;
+        }
+    }
+
+    img {
+        margin: 1rem 0 2rem 3rem;
+        align-self: flex-end;
+        border-radius: 6rem;
+        @include shadowOnHover;
+
+        @include respondTo(phone) {
+            width: 16rem;
+            margin: 1rem 0 1rem 2rem;
+            border-radius: 2rem;
+        }
+    }
 }
