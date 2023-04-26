@@ -1,0 +1,46 @@
+<h2>Вопросы?</h2>
+<form [formGroup]="contactFormGroup" (submit)="submitQuestionsForm(contactFormGroup)">
+    <mat-form-field
+        appearance="fill"
+        class="question-form-field"
+    >
+        <mat-label>Name</mat-label>
+        <input
+            matInput
+            type="text"
+            formControlName="name"
+        />
+    </mat-form-field>
+
+    <mat-form-field
+        class="question-form-field"
+        appearance="fill"
+    >
+        <mat-label>Email</mat-label>
+        <input
+            matInput
+            type="email"
+            formControlName="email"
+        >
+        <mat-error
+            class="red"
+            *ngIf="fc['email'].touched
+                && fc['email'].invalid"
+        >Correct email, please
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field
+        appearance="fill"
+        class="question-form-field question-form-field_bold"
+    >
+        <mat-label>Lorem ipsum dolor sit amet</mat-label>
+        <input
+            matInput
+            type="text"
+            formControlName="question"
+        />
+    </mat-form-field>
+
+    <button class="form-btn" type="submit">Send</button>
+</form>

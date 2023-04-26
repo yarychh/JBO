@@ -1,0 +1,27 @@
+@import '../../../styles';
+
+.faq-page {
+    @include flex(col, center);
+
+    & > * {
+        margin-bottom: 5rem;
+    }
+
+    .questions {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+
+        @include respondTo(phone) {
+            gap: 1rem;
+        }
+
+        & > * {
+            text-transform: uppercase;
+        }
+    }
+
+    .question-form {
+        width: 100%;
+    }
+}

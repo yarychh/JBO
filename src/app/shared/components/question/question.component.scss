@@ -2,34 +2,34 @@
 
 .accordion-container {
     display: grid;
-    grid-template-columns: 68px 1fr;
-    column-gap: 5.2rem;
+    grid-template-columns: 4% 1fr;
+    column-gap: 2.1rem;
 
-    @media (max-width:750px) {
-        grid-template-columns: 45px 1fr;
-        column-gap: 3rem;
-    }
-
-    @media (max-width:500px) {
-        column-gap: 2rem;
+    @include respondTo(phone) {
+        column-gap: 1rem;
     }
 
     .qa {
         color: $black;
         max-width: max-content;
 
-        &.dark {
-            color: $white !important;
-        }
-
         .question {
+            padding-bottom: 1.75rem;
             transform: translateY(calc(35px - 50%));
             font-family: $font-heading;
             font-size: 1.563rem;
             transition: all .25s ease-out;
             cursor: pointer;
 
-            &.shown {
+            &:nth-of-type(3) {
+                padding-bottom: 0;
+            }
+
+            @include respondTo(phone) {
+                padding-bottom: -1rem;
+            }
+
+                &.shown {
                 transform: translateY(0);
             }
 
@@ -69,22 +69,12 @@
 }
 
 .icon {
-    height: 4.375rem;
-    width: 4.375rem;
+    height: 2.375rem;
+    width: 2.375rem;
 
-    @media (max-width: 750px) {
-        height: 55px;
-        width: 55px;
-    }
-
-    @media (max-width: 650px) {
-        height: 50px;
-        width: 50px;
-    }
-
-    @media (max-width: 500px) {
-        height: 45px;
-        width: 45px;
+    @include respondTo(phone) {
+        height: 1rem;
+        width: 1rem;
     }
 }
 
@@ -92,17 +82,6 @@
     position: relative;
     width: 100%;
     height: 100%;
-
-    &.dark {
-
-        &:before,
-        &:after {
-            content: "";
-            position: absolute;
-            background-color: $white;
-            transition: transform 0.25s ease-in-out;
-        }
-    }
 
     &:before,
     &:after {
@@ -114,46 +93,56 @@
 
     &:before {
         top: 0;
-        left: calc(50% - 5px);
-        width: 10px;
+        left: calc(50% - .25rem);
+        width: .5rem;
         height: 100%;
 
-        @media (max-width: 750px) {
-            width: 9px;
-            left: calc(50% - 4.5px);
+        @include respondTo(phone) {
+            width: .25rem;
+            left: calc(50% - .125rem);
         }
 
-        @media (max-width: 650px) {
-            width: 8px;
-            left: calc(50% - 4px);
-        }
-
-        @media (max-width: 500px) {
-            width: 7px;
-            left: calc(50% - 3.5px);
-        }
+        //@media (max-width: 750px) {
+        //    width: 9px;
+        //    left: calc(50% - 4.5px);
+        //}
+        //
+        //@media (max-width: 650px) {
+        //    width: 8px;
+        //    left: calc(50% - 4px);
+        //}
+        //
+        //@media (max-width: 500px) {
+        //    width: 7px;
+        //    left: calc(50% - 3.5px);
+        //}
     }
 
     &:after {
-        top: calc(50% - 5px);
+        top: calc(50% - .25rem);
         left: 0;
         width: 100%;
-        height: 10px;
+        height: .5rem;
 
-        @media (max-width: 750px) {
-            height: 9px;
-            top: calc(50% - 4.5px);
+        @include respondTo(phone) {
+            height: .25rem;
+            top: calc(50% - .125rem);
         }
 
-        @media (max-width: 650px) {
-            height: 8px;
-            top: calc(50% - 4px);
-        }
-
-        @media (max-width: 500px) {
-            height: 7px;
-            top: calc(50% - 3.5px);
-        }
+        //@media (max-width: 750px) {
+        //    height: 9px;
+        //    top: calc(50% - 4.5px);
+        //}
+        //
+        //@media (max-width: 650px) {
+        //    height: 8px;
+        //    top: calc(50% - 4px);
+        //}
+        //
+        //@media (max-width: 500px) {
+        //    height: 7px;
+        //    top: calc(50% - 3.5px);
+        //}
     }
 
     &.shown {

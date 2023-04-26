@@ -1,0 +1,75 @@
+@import '../../../../styles';
+
+:host {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    @include respondTo(phone) {
+        @include flex(col, center);
+    }
+}
+
+h2 {
+    align-self: center;
+
+    @include respondTo(phone) {
+        align-self: flex-start;
+    }
+}
+
+form {
+    width: 52rem;
+    @include flex(col, start);
+    gap: 3rem;
+
+    @include respondTo(phone) {
+        max-width: 22rem;
+    }
+
+    .form-btn {
+        width: 100%;
+        padding: 1.25rem 24.5rem;
+        margin: .75rem 0;
+        background-color: $blue;
+        color: $white;
+        border-radius: 3.75rem;
+        border: none;
+        @include smallShadow;
+
+        @include respondTo(phone) {
+            align-self: center;
+            padding: 1.25rem 7.5rem;
+        }
+    }
+}
+
+.question-form {
+    &-field {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        font-weight: 500;
+        border-bottom: 1.5px solid $black;
+        position: relative;
+
+        input {
+            border: none;
+
+            &:focus-visible {
+                outline: none;
+            }
+        }
+
+        mat-error {
+            position: absolute;
+            bottom: -2rem;
+        }
+
+        &_bold {
+            font-weight: 700;
+            border-bottom: 3px solid $black;
+        }
+    }
+}

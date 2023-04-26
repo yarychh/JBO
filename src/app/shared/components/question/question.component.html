@@ -1,17 +1,17 @@
 <div class="accordion-container">
 
     <div (click)="shown = !shown" class="icon">
-        <div class="plus-minus" [class.shown]="shown" [class.dark]="isDark"></div>
+        <div class="plus-minus" [class.shown]="shown"></div>
     </div>
 
-    <div class="qa" [class.dark]="isDark">
+    <div class="qa">
         <h3
             (click)="shown = !shown"
             class="question"
             [class.shown]="shown"
         >{{ question }}</h3>
         <p
-            class="answer mb-0"
+            class="answer"
             [class.shown]="shown"
         >{{ answer }}</p>
     </div>

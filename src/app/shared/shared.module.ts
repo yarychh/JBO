@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatInputModule } from "@angular/material/input";
 import { RouterLinkWithHref } from "@angular/router";
 import { SwitchComponent } from './components/switch/switch.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -11,6 +13,7 @@ import { FlowPillComponent } from './components/flow-pill/flow-pill.component';
 import { EventComponent } from './components/event/event.component';
 import { QuestionComponent } from './components/question/question.component';
 import { TranslateModule } from '@ngx-translate/core';
+import { QuestionFormComponent } from './components/question-form/question-form.component';
 
 @NgModule({
     declarations: [
@@ -22,8 +25,9 @@ import { TranslateModule } from '@ngx-translate/core';
         FlowPillComponent,
         EventComponent,
         QuestionComponent,
+        QuestionFormComponent,
     ],
-    imports: [CommonModule, FormsModule, ReactiveFormsModule, TranslateModule, RouterLinkWithHref],
+    imports: [CommonModule, FormsModule, ReactiveFormsModule, TranslateModule, RouterLinkWithHref, MatFormFieldModule, MatInputModule],
     exports: [
         SwitchComponent,
         FooterComponent,
@@ -33,6 +37,7 @@ import { TranslateModule } from '@ngx-translate/core';
         FlowPillComponent,
         EventComponent,
         QuestionComponent,
+        QuestionFormComponent,
     ],
 })
 export class SharedModule {}

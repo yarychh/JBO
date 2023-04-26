@@ -1,1 +1,18 @@
-<p>fuck-you works!</p>
+<div class="faq-page content-wrapper">
+    <section class="heading">
+        <h1>FAQ</h1>
+        <img src="assets/img/fuck-u-img.png" alt="FAQ-img">
+    </section>
+
+    <section class="questions">
+        <app-question question="{{ 'question-1' | translate }}" answer="{{ 'answer-1' | translate }}"></app-question>
+        <app-question question="{{ 'question-2' | translate }}" answer="{{ 'answer-2' | translate }}"></app-question>
+        <app-question question="{{ 'question-3' | translate }}" answer="{{ 'answer-3' | translate }}"></app-question>
+        <app-question question="{{ 'question-4' | translate }}" answer="{{ 'answer-4' | translate }}"></app-question>
+        <app-question question="{{ 'question-5' | translate }}" answer="{{ 'answer-5' | translate }}"></app-question>
+    </section>
+
+    <section class="question-form">
+        <app-question-form></app-question-form>
+    </section>
+</div>
