@@ -45,6 +45,10 @@ li {
     &:active {
         filter: invert(1);
     }
+
+    .active {
+        filter: invert(1);
+    }
 }
 
 .nav {

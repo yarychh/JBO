@@ -5,8 +5,13 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    margin-right: 1rem;
 
     @include respondTo(phone) {
+        @include flex(col, center);
+    }
+
+    @include respondTo(tab-portrait) {
         @include flex(col, center);
     }
 }
@@ -17,6 +22,15 @@ h2 {
     @include respondTo(phone) {
         align-self: flex-start;
     }
+
+
+    @include respondTo(tab-portrait) {
+        font-size: 1.875rem;
+    }
+
+    @include respondTo(tab-landscape) {
+        font-size: 2.25rem;
+    }
 }
 
 form {
@@ -25,7 +39,15 @@ form {
     gap: 3rem;
 
     @include respondTo(phone) {
-        max-width: 22rem;
+        max-width: 20rem;
+    }
+
+    @include respondTo(tab-portrait) {
+        max-width: 30rem;
+    }
+
+    @include respondTo(tab-landscape) {
+        max-width: 40rem;
     }
 
     .form-btn {
@@ -41,6 +63,14 @@ form {
         @include respondTo(phone) {
             align-self: center;
             padding: 1.25rem 7.5rem;
+        }
+
+        @include respondTo(tab-portrait) {
+            padding: 1.25rem 5rem;
+        }
+
+        @include respondTo(tab-landscape) {
+            padding: 1.25rem 3rem;
         }
     }
 }

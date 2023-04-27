@@ -38,6 +38,11 @@ p {
         @include flex(col, center);
     }
 
+
+    @include respondTo(tab-portrait) {
+        @include flex(col, center);
+    }
+
     h1 {
         display: flex;
         font-size: 3.125rem;
@@ -57,6 +62,12 @@ p {
         @include shadowOnHover;
 
         @include respondTo(phone) {
+            width: 16rem;
+            margin: 1rem 0 1rem 2rem;
+            border-radius: 2rem;
+        }
+
+        @include respondTo(tab-portrait) {
             width: 16rem;
             margin: 1rem 0 1rem 2rem;
             border-radius: 2rem;

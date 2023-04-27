@@ -22,9 +22,9 @@ export class QuestionFormComponent implements OnInit {
 
     public initForm(): void {
         this.contactFormGroup = new FormGroup({
-            name: new FormControl('', [Validators.required]),
-            email: new FormControl('', [Validators.required, Validators.email]),
-            question: new FormControl('', [Validators.required])
+            name: new FormControl(null, [Validators.required]),
+            email: new FormControl(null, [Validators.required, Validators.email]),
+            question: new FormControl(null, [Validators.required])
         })
     }
 

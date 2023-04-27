@@ -1,19 +1,10 @@
 <ul *ngIf="full$ | async; else burger">
     <li (click)="redirectTo('home')">{{ 'home' | translate }}</li>
     <li (click)="redirectTo('about-us')">{{ 'about-us' | translate }}</li>
-     <li (click)="redirectTo('careers')">{{ 'CAREERS' | translate }}</li>
+    <li (click)="redirectTo('careers')">{{ 'CAREERS' | translate }}</li>
     <li (click)="redirectTo('blog')">{{ 'BLOG' | translate }}</li>
     <li (click)="redirectTo('contacts')">{{ 'contacts' | translate }}</li>
 </ul>
-
-<!--<div class="menu-wrap" *ngIf="full$ | async; else burger">-->
-<!--    <div-->
-<!--        class="menu-item"-->
-<!--        *ngFor="let item of menuItems"-->
-<!--    >-->
-<!--        -->
-<!--    </div>-->
-<!--</div>-->
 
 <ng-template #burger>
     <img *ngIf="!shown; else expanded" src="assets/svg/burger.svg" alt="burger-menu" (click)="toggleShown()">
