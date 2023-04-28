@@ -34,42 +34,52 @@ p {
     align-self: center;
     justify-content: flex-end;
 
-    @include respondTo(phone) {
-        @include flex(col, center);
-    }
-
-
-    @include respondTo(tab-portrait) {
-        @include flex(col, center);
+    @include respondTo(tab-landscape) {
+        @include flex(col, start);
     }
 
     h1 {
         display: flex;
         font-size: 3.125rem;
+        padding-left: 3rem;
         align-self: center;
 
-        @include respondTo(phone) {
+        @include respondTo(tab-landscape) {
             align-self: flex-start;
+        }
+
+        @include respondTo(tab-portrait) {
+            padding-left: 1rem;
+            font-size: 2.5rem;
+        }
+
+        @include respondTo(phone) {
             font-size: 1.875rem;
             font-weight: 400;
         }
     }
 
     img {
-        margin: 1rem 0 2rem 3rem;
+        margin: 1rem 0 0 3rem;
         align-self: flex-end;
         border-radius: 6rem;
         @include shadowOnHover;
 
-        @include respondTo(phone) {
-            width: 16rem;
-            margin: 1rem 0 1rem 2rem;
+        @include respondTo(tab-landscape) {
+            width: 42rem;
+            margin: 1rem 0 0 2rem;
             border-radius: 2rem;
         }
 
         @include respondTo(tab-portrait) {
+            width: 25rem;
+            margin: 1rem 0 0 2rem;
+            border-radius: 2rem;
+        }
+
+        @include respondTo(phone) {
             width: 16rem;
-            margin: 1rem 0 1rem 2rem;
+            margin: 1rem 0 0 2rem;
             border-radius: 2rem;
         }
     }

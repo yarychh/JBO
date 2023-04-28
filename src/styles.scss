@@ -21,28 +21,36 @@
     src: url('./assets/gilroy/Gilroy-SemiBold.ttf');
     font-weight: 400;
 }
-
-@font-face {
-    font-family: 'StereoGothic';
-    src: url('./assets/stereo-gothic/Stereo\ Gothic\ 800.ttf');
-}
-
-// variables
-
-$font-heading: 'Unbounded', cursive;;
-$font-basic: "Gilroy";
-
-//colors
-
-$blue: #00A3FF;
-$grey: #F0F0F0;
-$white: #FFFFFF;
-$white-20: rgba($white, .2);
-$black: #000000;
-
-$blur: blur(85px);
+//
+//@font-face {
+//    font-family: 'StereoGothic';
+//    src: url('./assets/stereo-gothic/Stereo\ Gothic\ 800.ttf');
+//}
+//
+//// variables
+//
+//$font-heading: 'Unbounded', cursive;;
+//$font-basic: "Gilroy";
+//
+////colors
+//
+//$blue: #00A3FF;
+//$grey: #F0F0F0;
+//$white: #FFFFFF;
+//$white-20: rgba($white, .2);
+//$black: #000000;
+//
+//$blur: blur(85px);
 
 // basic reset
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
 
 html,
 body {
@@ -70,22 +78,14 @@ body {
         border-radius: 10px;
         background: #ccc;
     }
-
-    &.dark {
-        background-color: $black;
-
-        &::-webkit-scrollbar-track {
-            -webkit-box-shadow: inset 0 0 6px rgba(#fff, 0.3);
-        }
-
-        &::-webkit-scrollbar-thumb {
-            background: #5A5A5A;
-        }
-    }
 }
 
 .content-wrapper {
     margin: 0 4.625rem;
+
+    @include respondTo(tab-portrait) {
+        margin: 0 3rem;
+    }
 
     @include respondTo(phone) {
         margin: 0 1rem;

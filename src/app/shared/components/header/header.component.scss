@@ -4,6 +4,15 @@ header {
     display: flex;
     margin: 0 4.625rem;
     padding: 2.5rem 0;
+    justify-content: space-between;
+
+    @include respondTo(tab-portrait) {
+        margin: 0 3rem;
+    }
+
+    @include respondTo(phone) {
+        margin: 0 1.25rem;
+    }
 
     .switch-box {
         display: flex;
@@ -16,25 +25,25 @@ header {
         }
     }
 
-    .lang {
+    .menu-box {
+        @include flex(row, center);
+        gap: 1.25rem;
 
-        &-box {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
+        .lang {
 
-        &-select {
-            font-size: 1.25rem;
-            -webkit-appearance: none;
-            -moz-appearance: none;
+            &-box {
+                display: flex;
+                align-items: center;
+                gap: 0.75rem;
+            }
+
+            &-select {
+                font-size: 1.25rem;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+            }
         }
     }
-}
-
-.dark {
-    background-color: $black;
-    color: $white;
 }
 
 #lang {

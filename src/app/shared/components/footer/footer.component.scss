@@ -7,10 +7,16 @@
 footer, .footer {
     display: grid;
     margin: 5.75rem 4.75rem 0 4.75rem;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 25% 17% 25%;
+
+    @include respondTo(tab-portrait) {
+        grid-template-columns: 1fr 1fr;
+        column-gap: 6rem;
+    }
 
     @include respondTo(phone) {
         @include flex(col, start);
+        gap: 3rem;
     }
 
     div {

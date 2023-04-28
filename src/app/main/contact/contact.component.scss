@@ -10,33 +10,61 @@
     .socials {
         width: 100%;
         display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
         gap: 2.25rem;
 
-        @include respondTo(phone) {
-            @include flex(col, center);
-            gap: 1.5rem;
+        @include respondTo(tab-landscape) {
+            flex-wrap: wrap;
         }
+        //
+        //@include respondTo(tab-portrait) {
+        //    @include flex(col, center);
+        //    gap: 1.5rem;
+        //}
 
         .pillow {
-            width: 25.375rem;
-            border: 2px solid $black;
-            border-radius: 3.75rem;
             text-align: center;
-            @include shadowOnHover;
 
-            @include respondTo(phone) {
-                width: 20rem;
-                border: 1px solid $black;
+            @include respondTo(tab-landscape) {
+                &:nth-of-type(3) {
+                    align-self: center;
+                }
             }
 
             a {
+                width: 25rem;
                 display: block;
-                padding: 1.3125rem 3.5rem;
+                padding: 1.3125rem 0;
                 text-decoration: none;
+
+                border: 2px solid $black;
+                border-radius: 3.75rem;
                 color: $black;
                 font-size: 1.25rem;
                 font-weight: 500;
+                @include shadowOnHover;
+
+                @media (max-width: 88.75rem) { // 1420px
+                    width: 20rem;
+
+                    h2 {
+                        font-size: 2rem;
+                    }
+                }
+
+
+                @include respondTo(tab-landscape) {
+                    width: 18rem;
+
+                    h2 {
+                        font-size: 2rem;
+                    }
+                }
+
+                @include respondTo(phone) {
+                    max-width: 22rem;
+                    border: 1px solid $black;
+                }
             }
         }
     }

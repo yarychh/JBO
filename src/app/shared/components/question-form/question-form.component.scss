@@ -7,10 +7,6 @@
     justify-content: space-between;
     margin-right: 1rem;
 
-    @include respondTo(phone) {
-        @include flex(col, center);
-    }
-
     @include respondTo(tab-portrait) {
         @include flex(col, center);
     }
@@ -18,18 +14,21 @@
 
 h2 {
     align-self: center;
-
-    @include respondTo(phone) {
-        align-self: flex-start;
-    }
-
-
-    @include respondTo(tab-portrait) {
-        font-size: 1.875rem;
-    }
+    padding-right: 2rem;
 
     @include respondTo(tab-landscape) {
         font-size: 2.25rem;
+    }
+
+    @include respondTo(tab-portrait) {
+        font-size: 1.875rem;
+        align-self: flex-start;
+        margin-bottom: 1rem;
+    }
+
+    @include respondTo(phone) {
+        align-self: flex-start;
+        margin-bottom: 1rem;
     }
 }
 
@@ -38,16 +37,13 @@ form {
     @include flex(col, start);
     gap: 3rem;
 
-    @include respondTo(phone) {
-        max-width: 20rem;
-    }
-
     @include respondTo(tab-portrait) {
-        max-width: 30rem;
+        width: 100%;
+        align-self: flex-start;
     }
 
-    @include respondTo(tab-landscape) {
-        max-width: 40rem;
+    @include respondTo(phone) {
+        max-width: 22rem;
     }
 
     .form-btn {
@@ -60,17 +56,17 @@ form {
         border: none;
         @include smallShadow;
 
-        @include respondTo(phone) {
-            align-self: center;
-            padding: 1.25rem 7.5rem;
+        @include respondTo(tab-landscape) {
+            padding: 1.25rem 3rem;
         }
 
         @include respondTo(tab-portrait) {
             padding: 1.25rem 5rem;
         }
 
-        @include respondTo(tab-landscape) {
-            padding: 1.25rem 3rem;
+        @include respondTo(phone) {
+            align-self: center;
+            padding: 1.25rem 7.5rem;
         }
     }
 }
@@ -92,7 +88,7 @@ form {
             }
         }
 
-        mat-error {
+        .error {
             position: absolute;
             bottom: -2rem;
         }

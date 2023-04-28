@@ -1,7 +1,6 @@
 <h2>Вопросы?</h2>
 <form [formGroup]="contactFormGroup" (submit)="submitQuestionsForm(contactFormGroup)">
-    <mat-form-field
-        appearance="fill"
+    <div
         class="question-form-field"
     >
         <mat-label>Name</mat-label>
@@ -10,28 +9,27 @@
             type="text"
             formControlName="name"
         />
-    </mat-form-field>
+    </div>
 
-    <mat-form-field
+    <div
         class="question-form-field"
-        appearance="fill"
     >
-        <mat-label>Email</mat-label>
+        <label for="email">Email</label>
         <input
             matInput
             type="email"
+            id="email"
             formControlName="email"
         >
-        <mat-error
-            class="red"
+        <span
+            class="error red"
             *ngIf="fc['email'].touched
                 && fc['email'].invalid"
         >Correct email, please
-        </mat-error>
-    </mat-form-field>
+        </span>
+    </div>
 
-    <mat-form-field
-        appearance="fill"
+    <div
         class="question-form-field question-form-field_bold"
     >
         <mat-label>Lorem ipsum dolor sit amet</mat-label>
@@ -40,7 +38,7 @@
             type="text"
             formControlName="question"
         />
-    </mat-form-field>
+    </div>
 
-        <button  class="form-btn" type="submit">Send</button>
+    <button class="form-btn" type="submit">Send</button>
 </form>

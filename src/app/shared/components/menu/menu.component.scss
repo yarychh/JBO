@@ -1,53 +1,39 @@
 @import "/src/styles.scss";
 
-:host{
+:host {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-ul {
+.full-menu {
     list-style: none;
     display: flex;
-    padding: 0;
-    margin: 0 2rem;
+    margin-bottom: 0;
 
-    &.vertical{
-        list-style: none;
-        display: flex;
-        flex-direction: column;
-        // align-items: center;
-        // justify-content: center;
-        padding: 0;
-    }
-}
+    &-item {
+        margin: 0;
+        padding: .42rem 1rem;
+        border-radius: 30px;
+        border: 1px solid $black;
+        color: $black;
+        background-color: $white;
+        transition: all 0.3s;
+        font-size: 1rem;
+        font-weight: 500;
+        cursor: pointer;
 
-img{
-    cursor: pointer;
-}
+        &:hover {
+            filter: invert(1);
+        }
 
-li {
-    margin: 0;
-    padding: .42rem 1rem;
-    border-radius: 30px;
-    border: 1px solid $black;
-    color: $black;
-    background-color: $white;
-    transition: all 0.3s;
-    font-size: 1rem;
-    font-weight: 500;
-    cursor: pointer;
+        &:active {
+            filter: invert(1);
+        }
 
-    &:hover {
-        filter: invert(1);
-    }
-
-    &:active {
-        filter: invert(1);
-    }
-
-    .active {
-        filter: invert(1);
+        .active {
+            filter: invert(1);
+        }
     }
 }
 
@@ -56,28 +42,132 @@ li {
         display: none;
     }
 
-    &-button {
-        //background-color: $color-white;
-        height: 7rem;
-        width: 7rem;
+    &-background {
+        height: 6rem;
+        width: 6rem;
+        border-radius: 50%;
         position: fixed;
-        top: 6rem;
-        right: 6rem;
-        //border-radius: 50%;
+        top: 6.5rem;
+        right: 6.5rem;
+        background: $white;
+        z-index: -1000;
+        transition: transform 1.2s;
+    }
+
+    &-button {
+        color: black;
+        height: 3rem;
+        width: 3rem;
         z-index: 2000;
-        //box-shadow: 0 1rem 3rem rgba($color-black, .1);
         text-align: center;
         cursor: pointer;
+    }
 
-        //@include respond(tap-portrait) {
-        //    top: 4rem;
-        //    right: 4rem;
-        //}
-        //
-        //@include respond(phone) {
-        //    top: 3rem;
-        //    right: 3rem;
-        //}
+    &-menu {
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1500;
+        opacity: 0;
+        width: 0;
+        //transition: all .8s;
+
+        &-list {
+            margin-top: 10rem;
+            list-style: none;
+            text-align: center;
+            width: 90%;
+            @include flex(col, start);
+
+            .nav-item {
+                font-size: 2em;
+                font-weight: 500;
+                margin: 0;
+                padding: 1.125rem;
+                border: 2px solid black;
+                border-radius: 10rem;
+                white-space: nowrap;
+            }
+        }
+    }
+
+    // BurgerMenu Animation Functionality
+
+    &-checkbox:checked ~ &-background {
+        transform: scale(30);
+        z-index: 1000;
+    }
+
+    &-checkbox:checked ~ &-menu {
+        opacity: 1;
+        width: 100%;
+    }
+
+    // Icon
+    &-icon {
+        position: relative;
+        margin-top: 1.5rem;
+
+        &,
+        &::before,
+        &::after {
+            width: 2rem;
+            height: 2px;
+            background-color: $black;
+            display: inline-block;
+        }
+
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            transition: all .3s;
+        }
+
+        &::before {
+            top: -.6rem;
+        }
+
+        &::after {
+            top: .6rem;
+        }
+    }
+
+    &-button:hover &-icon:before {
+        top: -.75rem;
+    }
+
+    &-button:hover &-icon:after {
+        top: .75rem;
+    }
+
+    &-checkbox:checked + &-button &-icon {
+        background-color: transparent;
+    }
+
+    &-checkbox:checked + &-button &-icon::before {
+        top: 4rem;
+        left: calc(100% - 8.25rem);
+        transform: rotate(-135deg);
+        position: fixed;
+
+        @include respondTo(phone) {
+            top: 4rem;
+            left: calc(100% - 6.5rem);
+        }
+    }
+
+    &-checkbox:checked + &-button &-icon::after {
+        top: 4rem;
+        left: calc(100% - 8.25rem);
+        transform: rotate(135deg);
+        position: fixed;
+
+        @include respondTo(phone) {
+            top: 4rem;
+            left: calc(100% - 6.5rem);
+        }
     }
 }
-
