@@ -4,6 +4,7 @@
     display: grid;
     grid-template-columns: 4% 1fr;
     column-gap: 2.1rem;
+    align-items: center;
 
     @include respondTo(phone) {
         column-gap: 1rem;
@@ -14,8 +15,6 @@
         max-width: max-content;
 
         .question {
-            padding-bottom: 1.75rem;
-            transform: translateY(calc(35px - 50%));
             font-family: $font-heading;
             font-size: 1.563rem;
             transition: all .25s ease-out;
@@ -33,13 +32,8 @@
                 transform: translateY(0);
             }
 
-            @media (max-width: 750px) {
-                transform: translateY(calc(27.5px - 50%));
-            }
-
             @media (max-width: 650px) {
                 font-size: 1.25rem;
-                transform: translateY(calc(25px - 50%));
             }
 
             @media (max-width: 550px) {
@@ -48,7 +42,6 @@
 
             @media (max-width: 500px) {
                 font-size: 0.875rem;
-                transform: translateY(calc(22.5px - 50%));
             }
         }
 
@@ -71,6 +64,11 @@
 .icon {
     height: 2.375rem;
     width: 2.375rem;
+
+    @include respondTo(tab-portrait) {
+        height: 1.75rem;
+        width: 1.75rem;
+    }
 
     @include respondTo(phone) {
         height: 1rem;
@@ -97,25 +95,15 @@
         width: .5rem;
         height: 100%;
 
+        @include respondTo(tab-portrait) {
+            width: .3rem;
+            left: calc(50% - .15rem);
+        }
+
         @include respondTo(phone) {
             width: .25rem;
             left: calc(50% - .125rem);
         }
-
-        //@media (max-width: 750px) {
-        //    width: 9px;
-        //    left: calc(50% - 4.5px);
-        //}
-        //
-        //@media (max-width: 650px) {
-        //    width: 8px;
-        //    left: calc(50% - 4px);
-        //}
-        //
-        //@media (max-width: 500px) {
-        //    width: 7px;
-        //    left: calc(50% - 3.5px);
-        //}
     }
 
     &:after {
@@ -123,6 +111,11 @@
         left: 0;
         width: 100%;
         height: .5rem;
+
+        @include respondTo(tab-portrait) {
+            height: .3rem;
+            top: calc(50% - .15rem);
+        }
 
         @include respondTo(phone) {
             height: .25rem;

@@ -1,0 +1,22 @@
+@import 'src/styles';
+
+.privacy-page {
+    h1, h5 {
+        margin: 2rem 0;
+    }
+
+    .list {
+        @include flex(col, start);
+        list-style: $blue;
+        color: $blue;
+        padding-bottom: 3rem;
+
+        &-item {
+            a {
+                color: $blue;
+                text-decoration: none;
+                font-weight: 700;
+            }
+        }
+    }
+}

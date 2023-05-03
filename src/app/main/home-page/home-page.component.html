@@ -3,45 +3,332 @@
         <div class="greeting-box-text">
             <h1>AFFILIATE MARKETING NETWORK</h1>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>
+            <button class="greeting-box-btn">
+                Get started
+            </button>
         </div>
 
         <div class="greeting-box-video">
-            // video
+            <video [autoplay]="true" [muted]="true" [loop]="true" playsinline>
+                <source src="assets/video/Frame 41303_3.mp4" type="video/mp4">
+                Your browser is not supporting video tag!
+            </video>
         </div>
     </section>
 
     <section class="info-card">
         <div class="info-card-box">
-            <div class="info-card-box-card">
-                <h3></h3>
-                <p></p>
+            <div class="first-line">
+                <div class="info-card-box-card">
+                    <h3>Best support</h3>
+                    <p>
+                        Our support works even at night to be always in touch for you <3
+                    </p>
+                </div>
+
+                <div class="wrap">
+                    <div class="info-card-box-card">
+                        <h3>Trusted brokers</h3>
+                        <p>
+                            We only work with trusted brokers
+                        </p>
+                    </div>
+
+                    <div class="info-card-box-card">
+                        <h3>CPA rates</h3>
+                        <p>
+                            High CPA rates and payouts without hold
+                        </p>
+                    </div>
+                </div>
+
+                <div class="info-card-box-card">
+                    <h3>Monetize your traffic</h3>
+                    <p>
+                        Only the best and exclusive crypto offers so you can monetize your traffic
+                    </p>
+                </div>
             </div>
 
-            <div class="info-card-box-card">
-                <h3></h3>
-                <p></p>
-            </div>
+            <div class="second-line">
+                <div class="info-card-box-card">
+                    <h3>Updated info</h3>
+                    <p>
+                        Always up-to-date information on converting offers broker
+                    </p>
+                </div>
 
-            <div class="info-card-box-card">
-                <h3></h3>
-                <p></p>
-            </div>
-
-            <div class="info-card-box-card">
-                <h3></h3>
-                <p></p>
-            </div>
-
-            <div class="info-card-box-card">
-                <h3></h3>
-                <p></p>
-            </div>
-
-            <div class="info-card-box-card">
-                <h3></h3>
-                <p></p>
+                <div class="info-card-box-card">
+                    <h3>Clean design</h3>
+                    <p>
+                        Our designers create high-converting creatives and landing pages
+                    </p>
+                </div>
             </div>
         </div>
     </section>
 
+    <section class="stats">
+        <div class="stats-heading">
+            <h2>JBOmarketing can help you with affiliate marketing</h2>
+
+            <img src="assets/img/home-page-start-img.png" alt="Start Working">
+
+            <div class="stats-heading-btn">
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                </p>
+                <button type="button">Start working</button>
+            </div>
+        </div>
+
+        <div class="stats-container" *ngIf="statisticsList?.length && !isDark">
+            <a class="arr" (click)="slidePrev('statistics')">
+                &larr;
+            </a>
+            <swiper
+                #statistics
+                [slidesPerView]="1"
+                [spaceBetween]="40"
+                [centeredSlides]="false"
+                [loop]="true"
+                [autoHeight]="true"
+                [breakpoints]="statsBreakpoints"
+                class="my-swiper"
+            >
+                <ng-template *ngFor="let stat of statisticsList" swiperSlide>
+                    <div class="swiper-slide-container">
+                        <div class="stats-box">
+                            <div class="stats-box-card">
+                                <div class="stats-box-card-head">
+                                    <div class="logo">
+                                        <img [src]="stat.imgURL" alt="Statistics-card Background">
+                                        <h5>{{ stat.title }}</h5>
+                                    </div>
+
+                                    <div class="countries">
+                                        <ng-container *ngFor="let geo of stat.geo">
+                                            <img *ngIf="geo === 'ua' || geo === 'sp' || geo === 'pt'; else otherGeo"
+                                                 [src]="'assets/img/' + geo + '.svg'" [alt]="geo">
+                                            <ng-template #otherGeo>
+                                                <img [src]="'assets/img/' + geo + '.png'" width="36" height="36"
+                                                     [alt]="geo">
+                                            </ng-template>
+                                        </ng-container>
+                                    </div>
+                                </div>
+
+                                <div class="stats-box-card-info">
+                                    <div class="cr">
+                                        <span class="cr">CR:</span>
+                                        <span class="percent">{{ stat.percentage }}</span>
+                                    </div>
+                                    <div class="cpa">
+                                        <span class="cr">CPA:</span>
+                                        <span class="numbers">{{ stat.cost }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+            </swiper>
+            <a class="arr" (click)="slidePrev('statistics')">
+                &rarr;
+            </a>
+            <div class="stats-arrows down">
+                <a class="arr" (click)="slidePrev('statistics')">
+                    &larr;
+                </a>
+                <a class="arr" (click)="slideNext('statistics')">
+                    &rarr;
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="features-heading">
+            <h2>Our features</h2>
+            <button class="big-screen-btn" type="button">Sign up now</button>
+        </div>
+
+        <div class="features-cards">
+            <div class="affiliates">
+                <h4>Affiliates</h4>
+            </div>
+
+            <div class="advertisers">
+                <h4>
+                    Advertisers &
+                    <br>
+                    Networks
+                </h4>
+            </div>
+        </div>
+
+        <button class="sm-screen-btn">Sign up now</button>
+    </section>
+
+    <section class="text-block">
+        <div class="text-block-text">
+            <h2>TEXT BLOCK</h2>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                deserunt mollit anim id est laborum.
+            </p>
+        </div>
+        <img src="assets/img/home-text-img-1.png" alt="Text-img">
+    </section>
+
+    <section class="text-block">
+        <div class="text-block-text">
+            <h2>TEXT BLOCK</h2>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                deserunt mollit anim id est laborum.
+            </p>
+        </div>
+        <img src="assets/img/home-text-img-2.png" alt="Text-img">
+    </section>
+
+    <section class="interactive">
+        <div class="interactive-card">
+            <div class="interactive-card-box">
+                <h1>
+                    JBOmarketing can help you with affiliate marketing
+                </h1>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                    aliquip ex ea commodo consequat.
+                    <br><br>
+                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                    pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+                    anim id est laborum.
+                </p>
+
+                <button class="interactive-card-btn" type="button">Start working</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq">
+        <img src="assets/img/home-faq-img.png" alt="FAQ-img">
+
+        <section class="questions">
+            <app-question question="{{ 'question-1' | translate }}"
+                          answer="{{ 'answer-1' | translate }}"></app-question>
+            <app-question question="{{ 'question-2' | translate }}"
+                          answer="{{ 'answer-2' | translate }}"></app-question>
+            <app-question question="{{ 'question-3' | translate }}"
+                          answer="{{ 'answer-3' | translate }}"></app-question>
+            <app-question question="{{ 'question-4' | translate }}"
+                          answer="{{ 'answer-4' | translate }}"></app-question>
+            <app-question question="{{ 'question-5' | translate }}"
+                          answer="{{ 'answer-5' | translate }}"></app-question>
+        </section>
+    </section>
+
+    <!--    <section class="partners"></section>-->
+    <!--    <section class="partners"></section>-->
+
+    <section
+        class="events"
+        *ngIf="eventsList?.length"
+    >
+        <div class="events-heading">
+            <h2 [class.dark]="isDark">{{ 'events' | translate }}</h2>
+            <div class="events-heading-arrows">
+                <a class="arr" (click)="slidePrev('events')">
+                    &larr;
+                </a>
+                <a class="arr" (click)="slideNext('events')">
+                    &rarr;
+                </a>
+            </div>
+        </div>
+
+        <div class="events-container">
+            <swiper
+                #swiperEvents
+                [slidesPerView]="1"
+                [spaceBetween]="40"
+                [loop]="true"
+                [centeredSlides]="false"
+                [autoHeight]="true"
+                [breakpoints]="eventsBreakpoints"
+                class="my-swiper"
+            >
+                <ng-template *ngFor="let i of eventsList" swiperSlide>
+                    <div class="swiper-slide-container">
+                        <app-event [event]="i" [lang]="currentLang"></app-event>
+                    </div>
+                </ng-template>
+            </swiper>
+        </div>
+        <div class="events-heading-arrows down">
+            <a class="arr" (click)="slidePrev('events')">
+                &larr;
+            </a>
+            <a class="arr" (click)="slideNext('events')">
+                &rarr;
+            </a>
+        </div>
+    </section>
+
+    <section class="reviews">
+        <h2>Reviews</h2>
+        <div class="reviews-container">
+            <a class="arr" (click)="slidePrev('reviews')">
+                &larr;
+            </a>
+            <div class="review" *ngIf="reviewList?.length">
+                <swiper
+                    #reviews
+                    [slidesPerView]="1"
+                    [centeredSlides]="true"
+                    [loop]="true"
+                    [autoHeight]="true"
+                    class="my-swiper"
+                >
+                    <ng-template *ngFor="let i of reviewList; trackBy: trackByIndex" swiperSlide>
+                        <div class="swiper-slide-container">
+                            <div class="review-box" [class.dark]="isDark">
+                                <div class="logo">
+                                    <img [src]="i.imgURL" [alt]="i.title" width="146" height="146">
+                                </div>
+                                <div class="text">
+                                    <h4>{{ i.title }}</h4>
+                                    <p>{{ i.review }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-template>
+                </swiper>
+            </div>
+
+            <a class="arr" (click)="slideNext('reviews')">
+                &rarr;
+            </a>
+        </div>
+        <div class="reviews-arrows down">
+            <a class="arr" (click)="slidePrev('reviews')">
+                &larr;
+            </a>
+            <a class="arr" (click)="slideNext('reviews')">
+                &rarr;
+            </a>
+        </div>
+    </section>
+
+    <section class="blog">
+        <h2>{{ 'blog' | translate}}</h2>
+    </section>
 </div>

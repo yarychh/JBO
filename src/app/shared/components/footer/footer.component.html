@@ -1,55 +1,47 @@
-<div class="footer-wrap">
-    <footer>
-        <div class="footer-logo">
-            <img src="assets/svg/JBOLogo.svg" alt="JBO-logo">
-            <p>&#169; COPYRIGHT 2023</p>
-        </div>
+<footer>
+    <div class="footer-logo">
+        <img
+            src="assets/svg/JBOLogo.svg"
+            [routerLink]="'/about-us'"
+            alt="JBO-logo">
+        <p>&#169; COPYRIGHT 2023</p>
+    </div>
 
-        <div class="footer-social">
-            <h5>FOLLOW US</h5>
-            <a
-                href="mailto:info@jbomarketing.space"
-                target="_blank"
-            >
-                jbo@gmail.com
-            </a>
-            <span class="icons-box">
+    <div class="footer-social">
+        <h5>FOLLOW US</h5>
+        <a
+            href="mailto:info@jbomarketing.space"
+            target="_blank"
+        >jbo@gmail.com
+        </a>
+        <span class="icons-box">
             <a
                 href="https://t.me/jbomarketing"
                 target="_blank"
-            >
-                <img src="assets/svg/insta.svg" alt="Instagram">
+            ><img src="assets/svg/telega.svg" alt="Telegram">
             </a>
             <a
                 href="https://www.linkedin.com/company/jbo-marketing/"
                 target="_blank"
-            >
-                <img src="assets/svg/linkedin.svg" alt="LinkedIn">
-            </a>
-            <a
-                href="https://t.me/jbomarketing"
-                target="_blank"
-            >
-                <img src="assets/svg/telega.svg" alt="Telegram">
+            ><img src="assets/svg/linkedin.svg" alt="LinkedIn">
             </a>
         </span>
-        </div>
+    </div>
 
-        <div class="footer-pages">
-            <h5>PAGES</h5>
-            <a [routerLink]="['about-us']">About us</a>
-            <a [routerLink]="['blog']">Blog</a>
-            <a [routerLink]="['contacts']">Contact</a>
-        </div>
+    <div class="footer-pages">
+        <h5>PAGES</h5>
+        <a [routerLink]="['about-us']">About us</a>
+        <a [routerLink]="['blog']">Blog</a>
+        <a [routerLink]="['contacts']">Contact</a>
+    </div>
 
-        <div class="footer-info">
-            <h5>INFO</h5>
-            <a href="">Publishers</a>
-            <a href="">Advertisers</a>
-            <a href="">Privacy policy</a>
-            <a href="">Cookies policy</a>
-            <a href="">Terms and Conditions</a>
-            <a [routerLink]="['faq']">FAQ</a>
-        </div>
-    </footer>
-</div>
+    <div class="footer-info">
+        <h5>INFO</h5>
+        <a href="">Publishers</a>
+        <a href="">Advertisers</a>
+        <a [routerLink]="['privacy']">Privacy policy</a>
+        <a [routerLink]="['privacy']">Cookies policy</a>
+        <a [routerLink]="['privacy']">Terms and Conditions</a>
+        <a [routerLink]="['faq']">FAQ</a>
+    </div>
+</footer>

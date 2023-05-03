@@ -3,8 +3,8 @@
 .contact-page {
     @include flex(col, center);
 
-    & > * {
-        margin-bottom: 5rem;
+    & > *:not(:last-of-type) {
+        margin-bottom: 8rem;
     }
 
     .socials {

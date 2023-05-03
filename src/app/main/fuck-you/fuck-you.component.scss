@@ -3,22 +3,8 @@
 .faq-page {
     @include flex(col, center);
 
-    & > * {
+    & > *:not(:last-of-type) {
         margin-bottom: 5rem;
-    }
-
-    .questions {
-        display: flex;
-        flex-direction: column;
-        gap: 2rem;
-
-        @include respondTo(phone) {
-            gap: 1rem;
-        }
-
-        & > * {
-            text-transform: uppercase;
-        }
     }
 
     .question-form {

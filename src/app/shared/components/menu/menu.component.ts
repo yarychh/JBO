@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from "@angular/router";
+import { Router } from "@angular/router";
 import { BehaviorSubject, fromEvent } from 'rxjs';
 import { StateService } from '../../services/state.service';
 
@@ -13,14 +13,12 @@ export class MenuComponent implements OnInit {
     public shown = false;
 
     constructor(private state: StateService,
-                private router: Router,
-                private activatedRoute: ActivatedRoute) {
+                private router: Router) {
         this.burger();
         fromEvent(window, 'resize').subscribe(() => this.burger());
     }
 
     ngOnInit() {
-        console.log(this.activatedRoute.url)
     }
 
     public burger(): void {
@@ -31,11 +29,6 @@ export class MenuComponent implements OnInit {
 
     public toggleShown(): void {
         this.shown = !this.shown;
-    }
-
-    public scrollto(id: string): void {
-        const element = document.getElementById(id);
-        element?.scrollIntoView();
     }
 
     public redirectTo(pageName: string): void {

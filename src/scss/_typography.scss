@@ -3,7 +3,7 @@
 
 // HEADINGS
 
-h1, h2, h3, h4 ,h5 {
+h1, h2, h3, h4, h5 {
     font-family: $font-heading;
     margin: 0;
     padding: 0;
@@ -34,29 +34,11 @@ p {
     align-self: center;
     justify-content: flex-end;
 
-    @include respondTo(tab-landscape) {
-        @include flex(col, start);
-    }
-
     h1 {
         display: flex;
         font-size: 3.125rem;
         padding-left: 3rem;
         align-self: center;
-
-        @include respondTo(tab-landscape) {
-            align-self: flex-start;
-        }
-
-        @include respondTo(tab-portrait) {
-            padding-left: 1rem;
-            font-size: 2.5rem;
-        }
-
-        @include respondTo(phone) {
-            font-size: 1.875rem;
-            font-weight: 400;
-        }
     }
 
     img {
@@ -64,20 +46,42 @@ p {
         align-self: flex-end;
         border-radius: 6rem;
         @include shadowOnHover;
+    }
 
-        @include respondTo(tab-landscape) {
+    @include respondTo(tab-landscape) {
+        @include flex(col, start);
+
+        h1 {
+            align-self: flex-start;
+        }
+
+        img {
             width: 42rem;
             margin: 1rem 0 0 2rem;
             border-radius: 2rem;
         }
+    }
 
-        @include respondTo(tab-portrait) {
+    @include respondTo(tab-portrait) {
+        h1 {
+            padding-left: 1rem;
+            font-size: 2.5rem;
+        }
+
+        img {
             width: 25rem;
             margin: 1rem 0 0 2rem;
             border-radius: 2rem;
         }
+    }
 
-        @include respondTo(phone) {
+    @include respondTo(phone) {
+        h1 {
+            font-size: 1.875rem;
+            font-weight: 400;
+        }
+
+        img {
             width: 16rem;
             margin: 1rem 0 0 2rem;
             border-radius: 2rem;

@@ -6,13 +6,8 @@ const routes: Routes = [
     {
         path: '',
         pathMatch: 'full',
-        redirectTo: 'about-us'
+        redirectTo: 'home'
     },
-    // {
-    //     path: 'main',
-    //     loadChildren: () =>
-    //         import('./main/main.module').then((m) => m.MainModule),
-    // },
     {
         path: 'home',
         component: HomePageComponent,

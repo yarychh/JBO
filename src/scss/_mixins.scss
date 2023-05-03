@@ -31,7 +31,7 @@
 // Standard Styling Features
 
 @mixin shadowOnHover {
-    transition: .3s;
+    transition: .3s all;
 
     &:hover {
         transform: translateY(-.5rem);
@@ -49,11 +49,24 @@
     }
 }
 
+@mixin scaleOnHover {
+    transition: .3s all;
+
+    &:hover {
+        transform: scale(1.1);
+        box-shadow: 0 1rem 2rem rgba($black, .2);
+    }
+}
+
 @mixin flex($direction, $align) {
     display: flex;
 
     @if ($direction == row) {
         flex-direction: row;
+    }
+
+    @if ($direction == row-rev) {
+        flex-direction: row-reverse;
     }
 
     @if ($direction == col) {
@@ -74,5 +87,30 @@
 
     @if ($align == end) {
         align-items: flex-end;
+    }
+}
+
+@mixin button($size) {
+    width: 100%;
+    font-size: 1.25rem;
+    color: $white;
+    background: $blue;
+    border: none;
+    border-radius: 10rem;
+    @include smallShadow;
+
+    &:hover {
+        @include shadowOnHover;
+    }
+
+    @if($size == s) {
+        padding: 1.25rem;
+    }
+
+    @if($size == m) {
+        padding: 1.25rem 5rem;
+    }
+    @if($size == xl) {
+        padding: 1.25rem 7.25rem;
     }
 }

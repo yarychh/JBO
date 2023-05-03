@@ -1,1 +1,9 @@
+@import 'src/styles';
 
+.wrapper {
+    min-height: calc(100vh - 36rem);
+
+    @include respondTo(tab-portrait) {
+        min-height: calc(100vh - 45.875rem);
+    }
+}
