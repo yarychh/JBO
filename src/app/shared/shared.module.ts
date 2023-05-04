@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatFormFieldModule } from "@angular/material/form-field";
-import { MatInputModule } from "@angular/material/input";
 import { RouterLink, RouterLinkWithHref } from "@angular/router";
 import { SwitchComponent } from './components/switch/switch.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -29,7 +27,7 @@ import { BlogCardComponent } from './components/blog-card/blog-card.component';
         QuestionFormComponent,
         BlogCardComponent,
     ],
-    imports: [CommonModule, FormsModule, ReactiveFormsModule, TranslateModule, RouterLinkWithHref, MatFormFieldModule, MatInputModule, RouterLink],
+    imports: [CommonModule, FormsModule, ReactiveFormsModule, TranslateModule, RouterLinkWithHref, RouterLink],
     exports: [
         SwitchComponent,
         FooterComponent,
@@ -42,4 +40,5 @@ import { BlogCardComponent } from './components/blog-card/blog-card.component';
         QuestionFormComponent,
     ],
 })
-export class SharedModule {}
+export class SharedModule {
+}

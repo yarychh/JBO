@@ -101,6 +101,7 @@
 
     &:hover {
         @include shadowOnHover;
+        background: $hoverBlue;
     }
 
     @if($size == s) {

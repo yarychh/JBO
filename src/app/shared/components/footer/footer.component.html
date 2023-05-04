@@ -37,11 +37,29 @@
 
     <div class="footer-info">
         <h5>INFO</h5>
-        <a href="">Publishers</a>
-        <a href="">Advertisers</a>
-        <a [routerLink]="['privacy']">Privacy policy</a>
-        <a [routerLink]="['privacy']">Cookies policy</a>
-        <a [routerLink]="['privacy']">Terms and Conditions</a>
-        <a [routerLink]="['faq']">FAQ</a>
+        <a
+            [routerLink]="['/affiliate']"
+            (click)="scrollToTop()"
+        >Publishers</a>
+        <a
+            [routerLink]=" ['advertiser']"
+            (click)="scrollToTop()"
+        >Advertisers</a>
+        <a
+            [routerLink]="['/privacy']"
+            (click)="scrollToTop()"
+        >Privacy policy</a>
+        <a
+            [routerLink]="['/privacy']"
+            (click)="scrollToTop()"
+        >Cookies policy</a>
+        <a
+            [routerLink]="['/privacy']"
+            (click)="scrollToTop()"
+        >Terms and Conditions</a>
+        <a
+            [routerLink]="['/faq']"
+            (click)="scrollToTop()"
+        >FAQ</a>
     </div>
 </footer>

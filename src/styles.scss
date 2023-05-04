@@ -73,6 +73,8 @@ body {
     }
 }
 
+// Color Styling
+
 .blue {
     color: $blue;
 }
@@ -85,110 +87,141 @@ body {
     color: $white;
 }
 
+
 /* REUSABLE SECTIONS STYLING */
 
 // Text-Block ( Text - Img ) Section Styling
 
-.text-block {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+.text-block-wrap {
+    width: 100%;
+    @include flex(col, center);
+    gap: 6rem;
 
-    &:nth-of-type(even) {
-        .text-block-text {
-            margin-left: 2.5rem;
-            grid-column: 2;
-            grid-row: 1;
+    .text-block {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 3.125rem;
+        justify-items: center;
 
-            h2 {
-                text-align: start;
+        &:nth-child(even) {
+            .text-block-text {
+                //margin-left: 2.5rem;
+                grid-column: 2;
+                grid-row: 1;
+
+                p {
+                    place-self: start;
+                }
+            }
+
+            img {
+                grid-column: 1;
+                grid-row: 1;
             }
         }
 
-        img {
-            grid-column: 1;
-            grid-row: 1;
-        }
-    }
-
-    &-text {
-        align-self: center;
-        margin-right: 3.125rem;
-        min-width: 40%;
-
-        h2 {
-            text-align: end;
-            place-self: end;
-            margin: 3.75rem 0;
-        }
-
-        p {
-            font-size: 1rem;
-            font-weight: 500;
-            margin-bottom: 1rem;
-        }
-    }
-
-    img {
-        height: 40rem;
-        border-radius: 6rem;
-        @include shadowOnHover;
-    }
-
-    @include respondTo(tab-landscape) {
         &-text {
-            margin-right: 2.5rem;
-
-            h2 {
-                margin: 2rem 0;
-            }
-        }
-
-        img {
-            width: 100%;
+            align-self: center;
+            @include flex(col, center);
+            justify-content: center;
+            //margin-right: 3.125rem;
             height: 100%;
-            max-height: 30rem;
-        }
-    }
-
-    @include respondTo(tab-portrait) {
-        @include flex(col, end);
-
-        &-text {
-            padding: 0 0 1rem 0;
-            margin: 0;
+            width: 100%;
+            min-width: 40%;
 
             h2 {
-                font-size: 1.875rem;
-                margin: 1rem 0;
+                place-self: end;
+                margin: 3.75rem 0;
             }
 
             p {
-                margin-bottom: 0;
+                place-self: end;
+                font-size: 1rem;
+                font-weight: 500;
+                margin-bottom: 1rem;
+                max-width: 35rem;
             }
         }
 
         img {
-            max-height: 20rem;
-            border-radius: 3rem;
+            max-height: 40rem;
+            height: 100%;
+            width: 100%;
+            border-radius: 6rem;
+            @include shadowOnHover;
         }
 
-        &:nth-of-type(even) {
-            .text-block-text {
+        @include respondTo(tab-landscape) {
+            column-gap: 2.5rem;
+
+            &-text {
+                margin-right: 2.5rem;
+                min-width: 21.5rem;
+
+                h2 {
+                    margin: 2rem 0;
+                }
+            }
+
+            img {
+                min-width: 23rem;
+                max-height: unset;
+            }
+
+            &:nth-child(even) {
+                .text-block-text {
+                    margin-right: 0;
+
+                    h2 {
+                        text-align: end;
+                    }
+                }
+            }
+        }
+
+        @include respondTo(tab-portrait) {
+            @include flex(col, center);
+            gap: 2rem;
+
+            &-text {
+                min-width: unset;
+                padding: 0 0 1rem 0;
                 margin: 0;
+
+                h2 {
+                    font-size: 1.875rem;
+                    margin: 1rem 0;
+                }
+
+                p {
+                    margin-bottom: 0;
+                }
+            }
+
+            img {
+                max-height: 20rem;
+                border-radius: 3rem;
+                max-width: unset;
+            }
+
+            &:nth-of-type(even) {
+                .text-block-text {
+                    margin: 0;
+                }
             }
         }
-    }
 
-    @include respondTo(phone) {
-        @include flex(col-rev, end);
+        @include respondTo(phone) {
+            @include flex(col-rev, end);
 
-        &-text {
-            padding: 1rem 0;
-        }
+            &-text {
+                padding: 1rem 0;
+            }
 
-        img {
-            max-height: 10rem;
-            border-radius: 2.5rem;
+            img {
+                max-height: 10rem;
+                border-radius: 2.5rem;
+            }
         }
     }
 }
@@ -274,5 +307,166 @@ body {
 
     &:hover {
         color: $black;
+    }
+}
+
+// Cards Section Styling
+.cards {
+    width: 100%;
+    @include flex(row, center);
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 2rem;
+
+    &-item {
+        padding: 1.75rem;
+        border: 2px solid $black;
+        border-radius: 3.125rem;
+        width: 19rem;
+        @include scaleOnHover;
+
+        h5 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: $blue;
+        }
+
+        h3 {
+            font-size: 1.875rem;
+            margin: 1rem 0;
+        }
+
+        p {
+            font-weight: 500;
+        }
+    }
+
+    @include respondTo(tab-landscape) {
+        display: grid;
+        grid-template-columns: 20rem 20rem;
+        grid-auto-rows: 12.5rem;
+        gap: 2rem;
+    }
+
+    @include respondTo(tab-portrait) {
+        display: flex;
+
+        &-item {
+            width: unset;
+            min-width: 20rem;
+
+            &:nth-of-type(even) {
+                margin-left: auto;
+            }
+
+            &:nth-of-type(odd) {
+                margin-right: auto;
+            }
+        }
+    }
+}
+
+// User Card Section (Advertiser / Affiliate (Publisher))
+
+.user-card {
+    width: 100%;
+    min-height: 31.25rem;
+    display: grid;
+    grid-template-columns: repeat( auto-fill, 70% 30%);
+
+    .heading {
+        width: 100%;
+        max-width: 90vw;
+        flex-wrap: wrap;
+    }
+
+    &-text {
+        width: 100%;
+        height: 100%;
+        min-width: 55rem;
+        background: $white;
+        padding: 3.125rem;
+        border: 2px solid $black;
+        border-radius: 3.125rem;
+        @include flex(col, start);
+        justify-content: space-around;
+        z-index: 100;
+
+        h1 {
+            max-width: 60%;
+            margin-bottom: 2.5rem;
+        }
+
+        p {
+            font-weight: 500;
+            margin-bottom: 2rem;
+        }
+
+        button {
+            @include button(s);
+        }
+    }
+
+    img {
+        width: 100%;
+        height: 100%;
+        min-width: 20rem;
+        min-height: 31.25rem;
+        border-radius: 3.125rem;
+        @include shadowOnHover;
+        object-fit: cover;
+    }
+
+    @include respondTo(tab-landscape) {
+        @include flex(col, center);
+        min-height: 0;
+
+        &-text {
+            width: 100%;
+            min-width: 0;
+        }
+
+        img {
+            display: none;
+        }
+    }
+
+    @include respondTo(phone) {
+        @include flex(col, center);
+
+        &-text {
+            width: 100%;
+            min-width: calc(100vw - 2rem);
+            padding: 1.75rem;
+
+            h1 {
+                max-width: none;
+            }
+        }
+
+        img {
+            height: 10rem;
+            min-height: 0;
+            max-height: 10rem;
+        }
+    }
+}
+
+// Join Section Styling
+
+.join {
+    width: 100%;
+    text-align: center;
+    @include flex(col, center);
+    gap: 2.5rem;
+
+    p {
+        max-width: 56.25rem;
+        font-weight: 500;
+    }
+
+    button {
+        @include button(m);
+        max-width: 30rem;
     }
 }

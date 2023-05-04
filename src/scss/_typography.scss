@@ -31,18 +31,19 @@ p {
 .heading {
     width: 100%;
     display: flex;
-    align-self: center;
-    justify-content: flex-end;
+    justify-content: space-between;
+    flex-wrap: wrap;
 
     h1 {
         display: flex;
         font-size: 3.125rem;
         padding-left: 3rem;
+        text-transform: uppercase;
         align-self: center;
     }
 
     img {
-        margin: 1rem 0 0 3rem;
+        margin: 1rem 0 0 auto;
         align-self: flex-end;
         border-radius: 6rem;
         @include shadowOnHover;
@@ -58,7 +59,7 @@ p {
         img {
             width: 42rem;
             margin: 1rem 0 0 2rem;
-            border-radius: 2rem;
+            border-radius: 4rem;
         }
     }
 
@@ -83,8 +84,6 @@ p {
 
         img {
             width: 16rem;
-            margin: 1rem 0 0 2rem;
-            border-radius: 2rem;
         }
     }
 }

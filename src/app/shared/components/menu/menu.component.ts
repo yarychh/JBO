@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from "@angular/router";
+import { NavigationEnd, Router } from "@angular/router";
 import { BehaviorSubject, fromEvent } from 'rxjs';
 import { StateService } from '../../services/state.service';
 
@@ -10,12 +10,44 @@ import { StateService } from '../../services/state.service';
 })
 export class MenuComponent implements OnInit {
     public full$ = new BehaviorSubject<boolean>(true);
+    public activeMenuItem$ = new BehaviorSubject<boolean>(false);
+    public currentRoute: string = '';
     public shown = false;
+
+    public menuItems = [
+        {
+            name: 'home',
+            url: '/home',
+        },
+        {
+            name: 'about-us',
+            url: '/about-us',
+        },
+        {
+            name: 'careers',
+            url: '/careers',
+        },
+        {
+            name: 'blog',
+            url: '/blog',
+        },
+        {
+            name: 'contacts',
+            url: '/contacts',
+        },
+    ]
 
     constructor(private state: StateService,
                 private router: Router) {
-        this.burger();
         fromEvent(window, 'resize').subscribe(() => this.burger());
+        this.burger();
+
+        this.router.events.subscribe((event) => {
+            if (event instanceof NavigationEnd) {
+                window.scrollTo(0, 0);
+                this.currentRoute = event.url;
+            }
+        });
     }
 
     ngOnInit() {
@@ -32,9 +64,19 @@ export class MenuComponent implements OnInit {
     }
 
     public redirectTo(pageName: string): void {
-        this.router.navigate(['', pageName]);
+        const checkbox = document.getElementById('navi-toggle');
+        if (checkbox != null) checkbox.click();
+
+        this.router.navigate(['', pageName]).then(() => this.getActiveTab(pageName));
     }
 
-    public getActiveTab(): void {
+    public getActiveTab(pageName: string): void {
+        '/' + pageName === this.currentRoute
+            ? this.activeMenuItem$.next(true)
+            : this.activeMenuItem$.next(false);
+    }
+
+    public index(index: number) {
+        return index;
     }
 }

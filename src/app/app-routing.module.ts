@@ -13,9 +13,14 @@ const routes: Routes = [
         component: HomePageComponent,
     },
     {
-        path: 'affiliate',
+        path: 'advertiser',
         loadComponent: () =>
             import('./main/advertiser/advertiser.component').then((c) => c.AdvertiserComponent),
+    },
+    {
+        path: 'affiliate',
+        loadComponent: () =>
+            import('./main/affiliate/affiliate.component').then((c) => c.AffiliateComponent),
     },
     {
         path: 'about-us',

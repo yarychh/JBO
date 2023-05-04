@@ -1,0 +1,15 @@
+@import 'src/styles';
+
+.advertiser-page {
+    & > *:not(:last-of-type) {
+        margin-bottom: 8rem;
+
+        @include respondTo(tab-portrait) {
+            margin-bottom: 6rem;
+        }
+
+        @include respondTo(phone) {
+            margin-bottom: 4rem;
+        }
+    }
+}

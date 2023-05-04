@@ -2,39 +2,16 @@
     *ngIf="full$ | async; else burgerMenu"
     class="full-menu"
 >
-    <li class="full-menu-item" (click)="redirectTo('home')">{{ 'home' | translate }}</li>
-    <li class="full-menu-item" (click)="redirectTo('about-us')">{{ 'about-us' | translate }}</li>
-    <li class="full-menu-item" (click)="redirectTo('careers')">{{ 'CAREERS' | translate }}</li>
-    <li class="full-menu-item" (click)="redirectTo('blog')">{{ 'BLOG' | translate }}</li>
-    <li class="full-menu-item" (click)="redirectTo('contacts')">{{ 'contacts' | translate }}</li>
+    <ng-container
+        *ngFor="let item of menuItems; trackBy: index"
+    >
+        <li
+            class="full-menu-item"
+            [style.filter]="item.url === this.currentRoute ? 'invert(1)' : ''"
+            (click)="redirectTo(item.name)"
+        >{{ item.name | translate }}</li>
+    </ng-container>
 </ul>
-
-<!--<ng-template #burger>-->
-<!--    <div-->
-<!--        *ngIf="!shown; else expanded"-->
-<!--        class="burger"-->
-<!--        (click)="toggleShown()"-->
-<!--    >-->
-<!--        <input type="checkbox" class="nav-checkbox" id="navi-toggle">-->
-
-<!--        <label for="navi-toggle" class="nav-button">-->
-<!--            <span class="nav-icon">&nbsp;</span>-->
-<!--        </label>-->
-<!--    </div>-->
-<!--</ng-template>-->
-
-<!--<ng-template #expanded>-->
-<!--    &lt;!&ndash;        <img src="assets/svg/Close-dark.svg" alt="burger-menu" (click)="toggleShown()">&ndash;&gt;-->
-<!--    <div class="expanded-menu">-->
-<!--        <ul class="vertical">-->
-<!--            <li class="text-center" (click)="scrollto('home')">{{ 'home' | translate }}</li>-->
-<!--            <li class="text-center" (click)="scrollto('about-us')">{{ 'about-us' | translate }}</li>-->
-<!--            <li (click)="redirectTo('careers')">{{ 'CAREERS' | translate }}</li>-->
-<!--            <li class="text-center" (click)="scrollto('faq')">{{ 'faq' | translate }}</li>-->
-<!--            <li class="text-center" (click)="scrollto('contacts')">{{ 'contacts' | translate }}</li>-->
-<!--        </ul>-->
-<!--    </div>-->
-<!--</ng-template>-->
 
 <ng-template #burgerMenu>
     <div class="nav">
@@ -48,11 +25,15 @@
 
         <nav class="nav-menu">
             <ul class="nav-menu-list">
-                <li class="nav-item" (click)="redirectTo('home')">{{ 'home' | translate }}</li>
-                <li class="nav-item" (click)="redirectTo('about-us')">{{ 'about-us' | translate }}</li>
-                <li class="nav-item" (click)="redirectTo('careers')">{{'CAREERS' | translate }}</li>
-                <li class="nav-item" (click)="redirectTo('blog')">{{'BLOG' | translate}}</li>
-                <li class="nav-item" (click)="redirectTo('contacts')">{{ 'contacts' | translate }}</li>
+                <ng-container
+                    *ngFor="let item of menuItems; trackBy: index"
+                >
+                    <li
+                        class="nav-item"
+                        [style.filter]="item.url === this.currentRoute ? 'invert(1)' : ''"
+                        (click)="redirectTo(item.name)"
+                    >{{ item.name | translate }}</li>
+                </ng-container>
             </ul>
         </nav>
     </div>
