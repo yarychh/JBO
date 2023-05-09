@@ -288,6 +288,10 @@ body {
     gap: 2rem;
 
     @include respondTo(tab-portrait) {
+        gap: 1.5rem;
+    }
+
+    @include respondTo(phone) {
         gap: 0;
     }
 
@@ -468,5 +472,95 @@ body {
     button {
         @include button(m);
         max-width: 30rem;
+    }
+}
+
+.partners-wrap {
+    width: 100vw;
+    @include flex(col, start);
+    gap: 6rem;
+
+    .partners {
+        h2 {
+            margin-bottom: 2.5rem;
+        }
+
+        .slider {
+            height: auto;
+            margin: auto;
+            position: relative;
+            width: 100vw;
+            overflow: hidden;
+            display: flex;
+            place-items: center;
+
+            .slide-track {
+                display: flex;
+                align-items: center;
+
+                &-heading {
+                    & * {
+                        white-space: nowrap;
+                        margin: 0 4rem;
+                    }
+                }
+
+                &-hero {
+                    &:hover {
+                        animation-play-state: paused;
+                    }
+
+                    & * {
+                        white-space: nowrap;
+                        margin: 0 3rem;
+
+                        &:hover {
+                            fill: $blue;
+                        }
+                    }
+                }
+            }
+
+            svg:hover {
+                & > * {
+                    fill: $blue;
+                }
+
+                g > * {
+                    fill: $blue;
+                }
+            }
+        }
+
+        &-media {
+            .slider {
+                .slide-track {
+                    animation: slidingLeft 45s linear infinite;
+
+                    @keyframes slidingLeft {
+                        to {
+                            transform: translateX(-50%);
+                        }
+                    }
+                }
+            }
+        }
+
+        &-tech {
+            .slider {
+                .slide-track {
+                    animation: slidingRight 45s linear infinite;
+
+                    @keyframes slidingRight {
+                        from {
+                            transform: translateX(-50%);
+                        }
+                        to {
+                            transform: translateX(0);
+                        }
+                    }
+                }
+            }
+        }
     }
 }

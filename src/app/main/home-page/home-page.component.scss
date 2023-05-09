@@ -280,6 +280,11 @@
                                 height: 3.75rem;
                             }
                         }
+
+                        .countries {
+                            @include flex(row, center);
+                            gap: .75rem;
+                        }
                     }
 
                     &-info {
@@ -519,15 +524,19 @@
         border: 2px solid $black;
         border-radius: 3.25rem;
 
+        .questions {
+            height: 32rem;
+        }
+
         img {
             border-radius: 3.25rem;
         }
 
         @include respondTo(tab-portrait) {
-            padding: 1.5rem;
+            padding: 1.75rem;
 
             .questions {
-                gap: 1rem;
+                height: unset;
             }
 
             img {
@@ -553,6 +562,13 @@
 
         &-container {
             margin-right: -4.625rem;
+            max-width: calc(100vh - 1rem);
+        }
+
+        @media only screen and (max-width: 730px) {
+            &-container {
+                margin-right: 0;
+            }
         }
 
         @include respondTo(phone) {
@@ -571,10 +587,6 @@
                         }
                     }
                 }
-            }
-
-            &-container {
-                margin-right: 0;
             }
         }
 
@@ -635,11 +647,13 @@
         @include respondTo(tab-portrait) {
             &-container {
                 display: flex;
+                width: 100%;
 
                 .review {
-                    align-self: center;
-                    max-width: 90vw;
+                    width: 100%;
+                    max-width: none;
                     max-height: none;
+                    align-self: center;
 
                     &-box {
                         gap: 1rem;

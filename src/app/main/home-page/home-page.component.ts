@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from "@angular/router";
 import { TranslateModule } from "@ngx-translate/core";
 import { firstValueFrom } from "rxjs";
 import { SwiperComponent, SwiperModule } from "swiper/angular";
@@ -12,7 +13,7 @@ import { SharedModule } from "../../shared/shared.module";
 @Component({
     selector: 'app-home-page',
     standalone: true,
-    imports: [CommonModule, SharedModule, TranslateModule, SwiperModule],
+    imports: [CommonModule, SharedModule, TranslateModule, SwiperModule, RouterLink],
     templateUrl: './home-page.component.html',
     styleUrls: ['./home-page.component.scss']
 })
@@ -29,8 +30,10 @@ export class HomePageComponent implements OnInit {
     public currentLang: string = 'en';
 
     public eventsBreakpoints = {
-        600: {slidesPerView: 1},
-        730: {slidesPerView: 1.4},
+        730: {
+            slidesPerView: 1,
+            centeredSlides: true
+        },
         1000: {
             slidesPerView: 2.4,
             spaceBetween: 32

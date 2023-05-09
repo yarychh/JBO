@@ -43,6 +43,11 @@ const routes: Routes = [
             import('./main/privacy-doc/privacy-doc.component').then((c) => c.PrivacyDocComponent),
     },
     {
+        path: 'careers',
+        loadComponent: () =>
+            import('./main/careers/careers.component').then((c) => c.CareersComponent),
+    },
+    {
         path: '**',
         redirectTo: '/home',
     }
