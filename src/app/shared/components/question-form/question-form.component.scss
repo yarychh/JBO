@@ -12,23 +12,31 @@
     }
 }
 
-h2 {
-    align-self: center;
-    padding-right: 2rem;
+.heading {
+    h2 {
+        align-self: center;
+        padding-right: 2rem;
+        margin-bottom: 1rem;
 
-    @include respondTo(tab-landscape) {
-        font-size: 2.25rem;
+        @include respondTo(tab-landscape) {
+            font-size: 2.25rem;
+        }
+
+        @include respondTo(tab-portrait) {
+            font-size: 1.875rem;
+            align-self: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        @include respondTo(phone) {
+            align-self: flex-start;
+            margin-bottom: 1rem;
+        }
     }
 
-    @include respondTo(tab-portrait) {
-        font-size: 1.875rem;
-        align-self: flex-start;
+    p {
         margin-bottom: 1rem;
-    }
 
-    @include respondTo(phone) {
-        align-self: flex-start;
-        margin-bottom: 1rem;
     }
 }
 

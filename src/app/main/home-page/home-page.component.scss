@@ -562,7 +562,6 @@
 
         &-container {
             margin-right: -4.625rem;
-            max-width: calc(100vh - 1rem);
         }
 
         @media only screen and (max-width: 730px) {
@@ -587,6 +586,10 @@
                         }
                     }
                 }
+            }
+
+            &-container {
+                max-width: calc(100vh - 1rem);
             }
         }
 

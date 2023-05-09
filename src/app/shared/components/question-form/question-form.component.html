@@ -1,12 +1,18 @@
-<h2>Вопросы?</h2>
+<div class="heading">
+    <h2>{{ heading | translate }}</h2>
+    <ng-container *ngIf="subHeading">
+        <p>{{ subHeading | translate }}</p>
+    </ng-container>
+</div>
 <form [formGroup]="contactFormGroup" (submit)="submitQuestionsForm(contactFormGroup)">
     <div
         class="question-form-field"
     >
-        <mat-label>Name</mat-label>
+        <label for="name">Name</label>
         <input
             matInput
             type="text"
+            id="name"
             formControlName="name"
         />
     </div>
@@ -32,13 +38,18 @@
     <div
         class="question-form-field question-form-field_bold"
     >
-        <mat-label>Lorem ipsum dolor sit amet</mat-label>
+        <label for="question">Lorem ipsum dolor sit amet</label>
         <input
             matInput
             type="text"
+            id="question"
             formControlName="question"
         />
     </div>
+
+    <ng-container *ngIf="withUpload">
+        <button (click)="showDragDrop()">&#43; Add your CV</button>
+    </ng-container>
 
     <button class="form-btn" type="submit">Send</button>
 </form>
