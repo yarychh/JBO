@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from "@angular/forms";
-import { FirestoreService } from "../../services/firestore.service";
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FirestoreService } from '../../services/firestore.service';
 
 @Component({
     selector: 'app-question-form',
@@ -9,13 +9,14 @@ import { FirestoreService } from "../../services/firestore.service";
 })
 export class QuestionFormComponent implements OnInit {
     @Input() public heading: string = 'QUESTIONS?';
-    @Input() public subHeading?: string = '';
-    @Input() public withUpload?: boolean = false;
+    @Input() public subHeading: string = '';
+    @Input() public withUpload: boolean = false;
+    @Input() public uploadBtnName: string = '';
 
-    public contactFormGroup!: FormGroup;
+    public formGroup!: FormGroup;
 
-    public get fc() {
-        return this.contactFormGroup.controls;
+    get fc() {
+        return this.formGroup.controls;
     }
 
     constructor(private firestore: FirestoreService) {
@@ -26,7 +27,7 @@ export class QuestionFormComponent implements OnInit {
     }
 
     public initForm(): void {
-        this.contactFormGroup = new FormGroup({
+        this.formGroup = new FormGroup({
             name: new FormControl(null, [Validators.required]),
             email: new FormControl(null, [Validators.required, Validators.email]),
             question: new FormControl(null, [Validators.required]),
@@ -34,12 +35,15 @@ export class QuestionFormComponent implements OnInit {
         })
     }
 
-    public submitQuestionsForm(fg: FormGroup): void {
+    public submitForm(fg: FormGroup): void {
+        const fd = {
+
+        }
+        console.log(fg.value)
+
         if (fg.invalid) return;
-        this.firestore.submitForm(fg.value).then(() => fg.reset())
-    }
-
-    showDragDrop() {
-
+        this.withUpload
+            ? this.firestore.submitCVForm(fg.value)
+            : this.firestore.submitQuestionForm(fg.value);
     }
 }

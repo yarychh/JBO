@@ -2,13 +2,11 @@ import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { firstValueFrom } from 'rxjs';
-import { IEvent } from 'src/app/shared/constants/event.interface';
-import { IReview } from 'src/app/shared/constants/review.interface';
-import { IStats } from 'src/app/shared/constants/stats.interface';
 import { FirestoreService } from 'src/app/shared/services/firestore.service';
 import { StateService } from 'src/app/shared/services/state.service';
 import SwiperCore, { Keyboard, Virtual } from 'swiper';
 import { SwiperComponent } from 'swiper/angular';
+import { IEvent, IReview, IStats } from "../../shared/constants/firebase.interface";
 
 SwiperCore.use([Keyboard, Virtual]);
 

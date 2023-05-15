@@ -48,6 +48,11 @@ const routes: Routes = [
             import('./main/careers/careers.component').then((c) => c.CareersComponent),
     },
     {
+        path: 'blog',
+        loadComponent: () =>
+            import('./main/blog/blog.component').then((c) => c.BlogComponent),
+    },
+    {
         path: '**',
         redirectTo: '/home',
     }

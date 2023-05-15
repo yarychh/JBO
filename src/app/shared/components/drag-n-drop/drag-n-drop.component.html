@@ -1,0 +1,35 @@
+<div class="btn-wrap">
+    <button class="add-btn" (click)="showDragDrop(); cd.detectChanges()">
+        <span>&#43;</span>
+        <span>{{ label }}</span>
+    </button>
+    <div
+        *ngIf="files.length"
+        class="added-file"
+    >
+
+    </div>
+</div>
+
+<ng-container
+    *ngIf="clicked"
+ >
+    <div class="dnd-wrap">
+        <div class="drop-box" dnd (fileDropped)="handleDrop($event)">
+            <input
+                #fileDropRef
+                type="file"
+                id="fileDropRef"
+                [style.display]="clicked ? 'unset' : 'none'"
+                multiple
+                (change)="handleBrowse($event)"
+            />
+            <h1>{{ 'Drop files here' | translate }}</h1>
+            <p>PDF / JPEG / JPG / PNG</p>
+            <p>or</p>
+            <label for="fileDropRef">
+                Browse it
+            </label>
+        </div>
+    </div>
+</ng-container>

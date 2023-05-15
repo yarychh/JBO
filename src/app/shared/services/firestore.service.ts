@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, DocumentReference } from '@angular/fire/compat/firestore';
 import { Observable } from 'rxjs';
-import { IEvent } from '../constants/event.interface';
-import { IReview } from '../constants/review.interface';
-import { IStats } from '../constants/stats.interface';
+import { IArticle, IEvent, IReview, IStats } from '../constants/firebase.interface';
 
 @Injectable({
     providedIn: 'root',
@@ -27,6 +25,24 @@ export class FirestoreService {
         return this._firestore
             .collection('statistics')
             .valueChanges() as Observable<IStats[]>;
+    }
+
+    public getBlogArticles(): Observable<IArticle[]> {
+        return this._firestore
+            .collection('blog-articles')
+            .valueChanges() as Observable<IArticle[]>
+    }
+
+    public submitCVForm(fd: FormData): Promise<any> {
+        return this._firestore
+            .collection('careers')
+            .add(fd);
+    }
+
+    public submitQuestionForm(fd: FormData): Promise<any> {
+        return this._firestore
+            .collection('questions')
+            .add(fd);
     }
 
     public submitForm(data: any): Promise<DocumentReference<unknown>> {

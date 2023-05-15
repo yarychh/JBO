@@ -1,6 +1,6 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { IEvent } from '../../constants/event.interface';
+import { IEvent } from "../../constants/firebase.interface";
 import { StateService } from '../../services/state.service';
 
 @Component({

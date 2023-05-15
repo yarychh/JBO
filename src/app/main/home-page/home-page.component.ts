@@ -4,9 +4,7 @@ import { RouterLink } from "@angular/router";
 import { TranslateModule } from "@ngx-translate/core";
 import { firstValueFrom } from "rxjs";
 import { SwiperComponent, SwiperModule } from "swiper/angular";
-import { IEvent } from "../../shared/constants/event.interface";
-import { IReview } from "../../shared/constants/review.interface";
-import { IStats } from "../../shared/constants/stats.interface";
+import { IArticle, IEvent, IReview, IStats } from "../../shared/constants/firebase.interface";
 import { FirestoreService } from "../../shared/services/firestore.service";
 import { SharedModule } from "../../shared/shared.module";
 
@@ -18,9 +16,10 @@ import { SharedModule } from "../../shared/shared.module";
     styleUrls: ['./home-page.component.scss']
 })
 export class HomePageComponent implements OnInit {
-    public eventsList?: IEvent[];
-    public reviewList?: IReview[];
-    public statisticsList?: IStats[];
+    public eventsList: IEvent[] = [];
+    public reviewList: IReview[] = [];
+    public statisticsList: IStats[]= [];
+    public articlesList: IArticle[] = [];
 
     @ViewChild('reviews', {static: false}) reviews?: SwiperComponent;
     @ViewChild('statistics', {static: false}) statistics?: SwiperComponent;
@@ -54,6 +53,7 @@ export class HomePageComponent implements OnInit {
         this.eventsList = await firstValueFrom(this.firestore.getEvents());
         this.reviewList = await firstValueFrom(this.firestore.getReviews());
         this.statisticsList = await firstValueFrom(this.firestore.getStats());
+        this.articlesList = await firstValueFrom(this.firestore.getBlogArticles());
     }
 
     public slideNext(identifier: string): void {
@@ -88,7 +88,7 @@ export class HomePageComponent implements OnInit {
         }
     }
 
-    public trackByIndex(index: number) {
+    public index(index: number) {
         return index;
     }
 }

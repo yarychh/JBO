@@ -4,7 +4,7 @@
         <p>{{ subHeading | translate }}</p>
     </ng-container>
 </div>
-<form [formGroup]="contactFormGroup" (submit)="submitQuestionsForm(contactFormGroup)">
+<form [formGroup]="formGroup" (submit)="submitForm(formGroup)">
     <div
         class="question-form-field"
     >
@@ -48,7 +48,10 @@
     </div>
 
     <ng-container *ngIf="withUpload">
-        <button (click)="showDragDrop()">&#43; Add your CV</button>
+        <app-drag-n-drop
+            [label]="uploadBtnName"
+
+        ></app-drag-n-drop>
     </ng-container>
 
     <button class="form-btn" type="submit">Send</button>

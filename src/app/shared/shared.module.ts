@@ -13,6 +13,8 @@ import { QuestionComponent } from './components/question/question.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { QuestionFormComponent } from './components/question-form/question-form.component';
 import { BlogCardComponent } from './components/blog-card/blog-card.component';
+import { DragNDropComponent } from './components/drag-n-drop/drag-n-drop.component';
+import { DragNDropDirective } from "./directives/drag-n-drop.directive";
 
 @NgModule({
     declarations: [
@@ -26,6 +28,8 @@ import { BlogCardComponent } from './components/blog-card/blog-card.component';
         QuestionComponent,
         QuestionFormComponent,
         BlogCardComponent,
+        DragNDropComponent,
+        DragNDropDirective,
     ],
     imports: [CommonModule, FormsModule, ReactiveFormsModule, TranslateModule, RouterLinkWithHref, RouterLink],
     exports: [
@@ -38,6 +42,7 @@ import { BlogCardComponent } from './components/blog-card/blog-card.component';
         EventComponent,
         QuestionComponent,
         QuestionFormComponent,
+        BlogCardComponent,
     ],
 })
 export class SharedModule {

@@ -7,7 +7,7 @@
     >
         <li
             class="full-menu-item"
-            [style.filter]="item.url === this.currentRoute ? 'invert(1)' : ''"
+            [class.active]="item.url === this.currentRoute"
             (click)="redirectTo(item.name)"
         >{{ item.name | translate }}</li>
     </ng-container>

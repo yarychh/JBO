@@ -564,3 +564,12 @@ body {
         }
     }
 }
+
+// Blog Articles Section
+.articles {
+    width: 100%;
+    @include flex(row, center);
+    flex-wrap: wrap;
+    gap: 2.5rem;
+    justify-content: space-between;
+}

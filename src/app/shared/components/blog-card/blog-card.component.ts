@@ -1,15 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-blog-card',
-  templateUrl: './blog-card.component.html',
-  styleUrls: ['./blog-card.component.scss']
+    selector: 'app-blog-card',
+    templateUrl: './blog-card.component.html',
+    styleUrls: ['./blog-card.component.scss']
 })
 export class BlogCardComponent implements OnInit {
+    @Input() public title!: string;
+    @Input() public text!: string;
+    @Input() public date!: string;
+    @Input() public views!: string;
 
-  constructor() { }
+    constructor() {
+    }
 
-  ngOnInit(): void {
-  }
-
+    ngOnInit(): void {
+    }
 }

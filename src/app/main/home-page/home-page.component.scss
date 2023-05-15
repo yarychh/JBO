@@ -298,6 +298,10 @@
                             border: 1px solid $white;
                             border-radius: 2rem;
                             @include flex(col, start);
+
+                            .numbers {
+                                font-size: 1.25rem;
+                            }
                         }
                     }
                 }
@@ -509,8 +513,8 @@
 
             &-box {
                 background: linear-gradient(
-                        rgba(0, 0, 0, 0.3),
-                        rgba(0, 0, 0, 0.3)
+                        rgba(0, 0, 0, 0.5),
+                        rgba(0, 0, 0, 0.25)
                 );
             }
         }
@@ -702,5 +706,11 @@
     .blog {
         width: 100%;
         @include flex(col, start);
+        gap: 2.5rem;
+
+        h2 {
+            text-transform: uppercase;
+            margin-bottom: 2.5rem;
+        }
     }
 }
