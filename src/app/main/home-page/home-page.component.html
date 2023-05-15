@@ -446,7 +446,7 @@
     <section class="reviews">
         <h2>Reviews</h2>
         <div class="reviews-container">
-            <a class="arr" (click)="slidePrev('reviews')">
+            <a class="arr" (click)="slideNext('reviews')">
                 &larr;
             </a>
             <div class="review" *ngIf="reviewList?.length">
@@ -473,16 +473,15 @@
                     </ng-template>
                 </swiper>
             </div>
-
-            <a class="arr" (click)="slideNext('reviews')">
+            <a class="arr" (click)="slidePrev('reviews')">
                 &rarr;
             </a>
         </div>
         <div class="reviews-arrows down">
-            <a class="arr" (click)="slidePrev('reviews')">
+            <a class="arr" (click)="slideNext('reviews')">
                 &larr;
             </a>
-            <a class="arr" (click)="slideNext('reviews')">
+            <a class="arr" (click)="slidePrev('reviews')">
                 &rarr;
             </a>
         </div>
