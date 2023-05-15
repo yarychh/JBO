@@ -7,9 +7,8 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class BlogCardComponent implements OnInit {
     @Input() public title!: string;
-    @Input() public text!: string;
+    @Input() public text?: string;
     @Input() public date!: string;
-    @Input() public views!: string;
 
     constructor() {
     }

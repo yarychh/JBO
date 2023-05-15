@@ -25,6 +25,8 @@
         font-size: 1.25rem;
         @include shadowOnHover;
         z-index: 999;
+        text-decoration: none;
+
     }
 
     &-name {

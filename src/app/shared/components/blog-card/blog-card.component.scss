@@ -5,14 +5,14 @@
 }
 
 .article-card {
-    min-width: 25rem;
+    min-width: 22rem;
     background: $white;
     border: 1px solid $black;
     border-radius: 2rem;
     padding: 1.25rem;
 
     img {
-
+        width: 100%;
     }
 
     &-info {
@@ -35,6 +35,7 @@
         p.text {
             @include flex(row, center);
             justify-content: space-between;
+            text-overflow: ellipsis;
             width: 22.75rem;
         }
 
@@ -46,6 +47,8 @@
 
     button {
         @include button(s);
+        box-shadow: none;
+        @include scaleOnHover;
         padding: 0;
         width: 3rem;
         height: 3rem;

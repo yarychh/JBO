@@ -57,6 +57,7 @@
             transition: all .25s ease-in;
 
             &.shown {
+                text-transform: none;
                 height: auto;
                 color: inherit;
             }
