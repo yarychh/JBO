@@ -1,7 +1,7 @@
 <footer>
     <div class="footer-logo">
         <img
-            src="assets/svg/JBOLogo.svg"
+            src="assets/svg/{{ isDark ? 'JBO-logo-dark' : 'JBOLogo' }}.svg"
             [routerLink]="'/about-us'"
             alt="JBO-logo">
         <p>&#169; COPYRIGHT 2023</p>
@@ -30,9 +30,11 @@
 
     <div class="footer-pages">
         <h5>PAGES</h5>
+        <a [routerLink]="['home']">Home</a>
+        <a [routerLink]="['careers']">Careers</a>
         <a [routerLink]="['about-us']">About us</a>
         <a [routerLink]="['blog']">Blog</a>
-        <a [routerLink]="['contacts']">Contact</a>
+        <a [routerLink]="['contacts']">Contacts</a>
     </div>
 
     <div class="footer-info">

@@ -3,16 +3,16 @@
 .home-page {
     @include flex(col, center);
 
-    & > *:not(:last-of-type) {
-        margin-bottom: 6rem;
+    &>*:not(:last-of-type) {
+        margin-bottom: 8rem;
     }
 
     .greeting-box {
         width: 100%;
         display: grid;
-        grid-template-columns: calc(50% - 4rem) calc(50% - 4rem);
+        grid-template-columns: 1fr 1fr;
         column-gap: 3rem;
-        margin-top: 2rem;
+        margin-top: 6rem;
 
         @include respondTo(tab-landscape) {
             @include flex(col-rev, center);
@@ -28,10 +28,10 @@
             }
 
             h1 {
+                text-transform: uppercase;
                 text-align: end;
                 font-size: 3.25rem;
                 font-weight: 400;
-                margin: 6rem auto 0;
 
                 @include respondTo(tab-portrait) {
                     font-size: 2.5rem;
@@ -48,7 +48,7 @@
                 font-size: 1.25rem;
                 font-weight: 500;
                 padding-right: 2rem;
-                align-self: flex-start;
+                text-align: left;
 
                 @include respondTo(tab-landscape) {
                     padding-right: 0;
@@ -81,24 +81,17 @@
         }
 
         &-video {
+            display: flex;
+            align-items: center;
+
             video {
-                width: 36rem;
-                height: 36rem;
-                max-width: 45rem;
-                max-height: 45rem;
+                width: 100%;
+                height: 75%;
                 object-fit: cover;
                 border-radius: 6rem;
-                @include shadowOnHover;
-                @include smallShadow;
 
                 @include respondTo(big-desktop) {
-                    width: 100%;
-                }
-
-                @include respondTo(tab-landscape) {
-                    width: 100%;
-                    height: 60%;
-                    max-width: 100%;
+                    height: 100%;
                 }
 
                 @include respondTo(tab-portrait) {
@@ -143,18 +136,18 @@
                 gap: 1.75rem;
             }
 
-            .first-line, .second-line {
+            .first-line,
+            .second-line {
                 width: 100%;
             }
 
             &-card {
                 width: 100%;
                 height: 100%;
-                color: $white;
-                border: 1px solid $white;
+                color: #fff;
+                border: 1px solid #fff;
                 border-radius: 2rem;
                 padding: 1.5rem;
-                @include shadowOnHover;
 
                 h3 {
                     font-size: 1.875rem;
@@ -173,7 +166,8 @@
                 gap: 1rem;
             }
 
-            .first-line, .second-line {
+            .first-line,
+            .second-line {
                 @include flex(col, center);
                 gap: 1rem;
             }
@@ -214,7 +208,6 @@
             img {
                 height: 18.25rem;
                 border-radius: 4.25rem;
-                @include smallShadow;
 
                 @include respondTo(big-desktop) {
                     height: 24rem;
@@ -232,7 +225,7 @@
                     max-width: 24rem;
                 }
 
-                button {
+                a {
                     @include button(xl);
                     max-width: 24rem;
                 }
@@ -253,13 +246,13 @@
 
             .stats-box {
                 &-card {
-                    color: $white;
+                    color: #fff;
                     background-image: url(~src/assets/img/home-stats-bg.png);
                     height: 12.5rem;
                     max-width: 35rem;
                     background-size: cover;
                     background-position: center;
-                    border: 1px solid $white;
+                    border: 1px solid #fff;
                     border-radius: 2rem;
                     padding: 1rem;
                     @include flex(col, start);
@@ -285,7 +278,7 @@
                             @include flex(row, center);
                             gap: .75rem;
 
-                            & > * {
+                            &>* {
                                 height: 1.25rem;
                                 width: 1.25rem;
                             }
@@ -297,14 +290,15 @@
                         @include flex(row, center);
                         gap: 2rem;
 
-                        & > * {
+                        &>* {
                             width: 100%;
                             padding: 1rem;
-                            border: 1px solid $white;
+                            border: 1px solid #fff;
                             border-radius: 2rem;
                             @include flex(col, start);
 
-                            .percent, .numbers {
+                            .percent,
+                            .numbers {
                                 font-size: 1.25rem;
                                 font-weight: 500;
                             }
@@ -395,12 +389,12 @@
                         }
 
                         &-info {
-                            & > * {
+                            &>* {
                                 width: calc(100% - 2rem);
                             }
                         }
 
-                        & > * {
+                        &>* {
                             @include flex(col, start);
                             gap: 1rem;
                         }
@@ -443,12 +437,13 @@
         &-cards {
             @include flex(row, center);
             gap: 2.5rem;
-            color: $white;
+            color: #fff;
 
-            & > * {
+            &>* {
                 width: 100%;
                 height: 23.25rem;
                 border-radius: 5.25rem;
+                border: 1px solid $black;
                 display: flex;
                 @include smallShadow;
                 @include shadowOnHover;
@@ -488,7 +483,7 @@
                 @include flex(col, center);
                 margin-bottom: 2.5rem;
 
-                & > * {
+                &>* {
                     height: 18rem;
                     border-radius: 3.75rem;
                 }
@@ -500,7 +495,7 @@
 
             @include respondTo(phone) {
                 &-cards {
-                    & > * {
+                    &>* {
                         border-radius: 2.5rem;
                         max-height: 14.25rem;
                     }
@@ -514,6 +509,7 @@
 
         &-card {
             background-image: url(~src/assets/img/home-interactive-bg.png);
+
             @include respondTo(tab-portrait) {
                 background-position: -20%;
             }
@@ -573,13 +569,9 @@
 
         &-container {
             margin-right: -4.625rem;
+            margin-left: -4.625rem;
         }
 
-        @media only screen and (max-width: 730px) {
-            &-container {
-                margin-right: 0;
-            }
-        }
 
         @include respondTo(phone) {
             &-heading {
@@ -607,6 +599,7 @@
         @include respondTo(big-desktop) {
             &-container {
                 margin-right: -16rem;
+                margin-left: -16rem;
             }
         }
     }

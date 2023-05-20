@@ -6,7 +6,6 @@
 @import 'swiper/scss/navigation';
 @import 'swiper/scss/pagination';
 
-@import 'scss/variables';
 @import 'scss/typography';
 @import 'scss/mixins';
 
@@ -30,14 +29,29 @@
     box-sizing: inherit;
 }
 
+:root {
+    --background-color: white;
+    --text-color: black;
+}
+
+.dark {
+    --background-color: black;
+    --text-color: white;
+}
+
+@import 'scss/variables';
+
 html,
 body {
-    height: 100%;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: "Gilroy", sans-serif;
     font-weight: 300;
+
+    background-color: var(--background-color);
+    color: var(--text-color);
+    overflow-x: hidden;
 }
 
 body {
@@ -57,19 +71,28 @@ body {
     }
 }
 
+input{
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
 .content-wrapper {
     margin: 0 4.625rem;
-
-    @include respondTo(tab-portrait) {
-        margin: 0 3rem;
-    }
 
     @include respondTo(phone) {
         margin: 0 1rem;
     }
 
+    @include respondTo(tab-portrait) {
+        margin: 0 3rem;
+    }
+
+    @include respondTo(tab-landscape) {
+        margin: 0 7rem;
+    }
+
     @include respondTo(big-desktop) {
-        margin: 0 16rem;
+        margin: 0 10rem;
     }
 }
 
@@ -106,6 +129,10 @@ img {
         grid-template-columns: 1fr 1fr;
         column-gap: 3.125rem;
         justify-items: center;
+
+        .text-block-text>p {
+            font-size: 1.25rem;
+        }
 
         &:nth-child(even) {
             .text-block-text {
@@ -151,7 +178,6 @@ img {
             height: 100%;
             width: 100%;
             border-radius: 6rem;
-            @include shadowOnHover;
         }
 
         @include respondTo(tab-landscape) {
@@ -236,7 +262,7 @@ img {
     background-size: cover;
     padding: 2.5rem;
     border-radius: 6.25rem;
-    color: $white;
+    color: #fff;
 
     &-box {
         width: 40rem;
@@ -298,7 +324,7 @@ img {
         gap: 0;
     }
 
-    & > * {
+    &>* {
         text-transform: uppercase;
     }
 }
@@ -330,7 +356,12 @@ img {
         border: 2px solid $black;
         border-radius: 3.125rem;
         width: 19rem;
-        @include scaleOnHover;
+        transition: all .3s;
+
+        &:hover {
+            scale: 1.1;
+            animation: coolBorderGrow .3s ease;
+        }
 
         h5 {
             font-size: 1rem;
@@ -379,7 +410,7 @@ img {
     width: 100%;
     min-height: 31.25rem;
     display: grid;
-    grid-template-columns: repeat( auto-fill, 70% 30%);
+    grid-template-columns: repeat(auto-fill, 70% 30%);
 
     .heading {
         width: 100%;
@@ -420,8 +451,12 @@ img {
         min-width: 20rem;
         min-height: 31.25rem;
         border-radius: 3.125rem;
-        @include shadowOnHover;
         object-fit: cover;
+    }
+
+    &-btn {
+        @include button(xl);
+        text-align: center;
     }
 
     @include respondTo(tab-landscape) {
@@ -472,7 +507,7 @@ img {
         font-weight: 500;
     }
 
-    button {
+    a {
         @include button(m);
         max-width: 30rem;
     }
@@ -525,11 +560,11 @@ img {
             }
 
             svg:hover {
-                & > * {
+                &>* {
                     fill: $blue;
                 }
 
-                g > * {
+                g>* {
                     fill: $blue;
                 }
             }
@@ -558,6 +593,7 @@ img {
                         from {
                             transform: translateX(-50%);
                         }
+
                         to {
                             transform: translateX(0);
                         }

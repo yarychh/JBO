@@ -3,26 +3,32 @@
 // Adaptive breakpoints
 
 @mixin respondTo($breakpoint) {
-    @if $breakpoint == phone {
-        @media only screen and (max-width: 31.25em) { // 500px
+    @if $breakpoint ==phone {
+        @media only screen and (max-width: 31.25em) {
+            // 500px
             @content
         }
     }
-    @if $breakpoint == tab-portrait {
-        @media only screen and (max-width: 56.25em) { // 900px
+
+    @if $breakpoint ==tab-portrait {
+        @media only screen and (max-width: 56.25em) {
+            // 900px
             @content
         }
     }
-    @if $breakpoint == tab-landscape {
-        @media only screen and (max-width: 75em) { // < 1200px
+
+    @if $breakpoint ==tab-landscape {
+        @media only screen and (max-width: 75em) {
+            // < 1200px
             @content
         }
     }
 
     // general styles will be applied in this range
 
-    @if $breakpoint == big-desktop {
-        @media only screen and (min-width: 112.5em) { // > 1800px
+    @if $breakpoint ==big-desktop {
+        @media only screen and (min-width: 112.5em) {
+            // > 1800px
             @content
         }
     }
@@ -61,31 +67,31 @@
 @mixin flex($direction, $align) {
     display: flex;
 
-    @if ($direction == row) {
+    @if ($direction ==row) {
         flex-direction: row;
     }
 
-    @if ($direction == row-rev) {
+    @if ($direction ==row-rev) {
         flex-direction: row-reverse;
     }
 
-    @if ($direction == col) {
+    @if ($direction ==col) {
         flex-direction: column;
     }
 
-    @if ($direction == col-rev) {
+    @if ($direction ==col-rev) {
         flex-direction: column-reverse;
     }
 
-    @if ($align == start) {
+    @if ($align ==start) {
         align-items: flex-start;
     }
 
-    @if ($align == center) {
+    @if ($align ==center) {
         align-items: center;
     }
 
-    @if ($align == end) {
+    @if ($align ==end) {
         align-items: flex-end;
     }
 }
@@ -95,25 +101,44 @@
 @mixin button($size) {
     width: 100%;
     font-size: 1.25rem;
-    color: $white;
+    color: #fff;
     background: $blue;
     border: none;
     border-radius: 10rem;
+    text-decoration: none;
+    font-weight: 400;
     @include smallShadow;
 
     &:hover {
         @include shadowOnHover;
+        color: #fff;
         background: $hoverBlue;
     }
 
-    @if($size == s) {
+    @if($size ==s) {
         padding: 1.25rem;
     }
 
-    @if($size == m) {
+    @if($size ==m) {
         padding: 1.25rem 5rem;
     }
-    @if($size == xl) {
+
+    @if($size ==xl) {
         padding: 1.25rem 7.25rem;
+    }
+}
+
+
+@keyframes coolBorderGrow {
+    0% {
+        border: 2px solid;
+    }
+
+    25% {
+        border: 2px dashed;
+    }
+
+    75% {
+        border: 2px dotted;
     }
 }

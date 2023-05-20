@@ -46,12 +46,18 @@ export class QuestionFormComponent implements OnInit {
         })
     }
 
+    autoGrowTextZone(e: KeyboardEvent) {
+        const element = e.target as HTMLTextAreaElement;
+        element.style.height = "0px";
+        element.style.height = (element.scrollHeight + 10)+"px";
+      }
+
     public submitForm(fg: FormGroup): void {
         if (fg.invalid) return;
-        console.log()
         this.withUpload
             ? this.sendCareersLetter()
             : this.firestore.submitQuestionForm(fg.value);
+        this.fg.reset();
     }
 
     public setCvFileValue(file: File): void {

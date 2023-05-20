@@ -37,11 +37,12 @@
         class="question-form-field question-form-field_bold"
     >
         <label for="question">{{ withUpload ? 'Cover Letter' : 'Your question' }}</label>
-        <input
+        <textarea
             type="text"
             id="question"
             [formControlName]="withUpload ? 'coverLetter' : 'question'"
-        />
+            (keyup)="autoGrowTextZone($event)"
+        ></textarea>
     </div>
 
     <ng-container *ngIf="withUpload">

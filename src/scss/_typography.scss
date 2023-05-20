@@ -46,7 +46,6 @@ p {
         margin: 1rem 0 0 auto;
         align-self: flex-end;
         border-radius: 6rem;
-        @include shadowOnHover;
     }
 
     @include respondTo(tab-landscape) {
