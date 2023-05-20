@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, DocumentReference } from '@angular/fire/compat/firestore';
+// import { doc, getDoc, getDoc } from 'firebase/firestore';
 import { Observable } from 'rxjs';
 import { IArticle, IEvent, IReview, IStats } from '../constants/firebase.interface';
 
@@ -27,11 +28,17 @@ export class FirestoreService {
             .valueChanges() as Observable<IStats[]>;
     }
 
-    public getBlogArticles(): Observable<IArticle[]> {
+    public getBlogArticles(amount?: number): Observable<IArticle[]> {
         return this._firestore
             .collection('blog-articles')
             .valueChanges() as Observable<IArticle[]>
     }
+
+    // public getArticle(id: string): Observable<IArticle> {
+        // const docRef = doc(this._firestore, 'blog-articles', "SF");
+        // const docSnap = await getDoc(docRef);
+        // return this._firestore.collection('blog-articles').
+    // }
 
     public submitCVForm(fd: FormData): Promise<any> {
         return this._firestore

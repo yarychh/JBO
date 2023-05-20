@@ -452,6 +452,7 @@
                 display: flex;
                 @include smallShadow;
                 @include shadowOnHover;
+                cursor: pointer;
 
                 h4 {
                     align-self: center;

@@ -1,3 +1,5 @@
+export const JBO_EMAIL: string = 'info@jbomarketing.space';
+
 export interface IEvent {
     date: string;
     title: string;

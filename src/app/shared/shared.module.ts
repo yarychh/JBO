@@ -15,6 +15,7 @@ import { QuestionFormComponent } from './components/question-form/question-form.
 import { BlogCardComponent } from './components/blog-card/blog-card.component';
 import { DragNDropComponent } from './components/drag-n-drop/drag-n-drop.component';
 import { DragNDropDirective } from "./directives/drag-n-drop.directive";
+import { BlogArticleComponent } from '../main/blog-article/blog-article.component';
 
 @NgModule({
     declarations: [
@@ -30,6 +31,7 @@ import { DragNDropDirective } from "./directives/drag-n-drop.directive";
         BlogCardComponent,
         DragNDropComponent,
         DragNDropDirective,
+        BlogArticleComponent,
     ],
     imports: [CommonModule, FormsModule, ReactiveFormsModule, TranslateModule, RouterLinkWithHref, RouterLink],
     exports: [

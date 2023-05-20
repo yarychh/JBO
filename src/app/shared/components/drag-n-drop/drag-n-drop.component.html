@@ -1,35 +1,48 @@
 <div class="btn-wrap">
     <button class="add-btn" (click)="showDragDrop(); cd.detectChanges()">
-        <span>&#43;</span>
+        <span>&plus;</span>
         <span>{{ label }}</span>
     </button>
     <div
-        *ngIf="files.length"
+        *ngIf="file != null"
         class="added-file"
-    >
-
+    >{{ file.name }}
+        <span
+            class="close"
+            (click)="clicked = false"
+        >
+        &#x2715;
+    </span>
     </div>
 </div>
 
-<ng-container
+<div
+    class="dnd-wrap"
     *ngIf="clicked"
- >
-    <div class="dnd-wrap">
-        <div class="drop-box" dnd (fileDropped)="handleDrop($event)">
-            <input
-                #fileDropRef
-                type="file"
-                id="fileDropRef"
-                [style.display]="clicked ? 'unset' : 'none'"
-                multiple
-                (change)="handleBrowse($event)"
-            />
-            <h1>{{ 'Drop files here' | translate }}</h1>
-            <p>PDF / JPEG / JPG / PNG</p>
-            <p>or</p>
-            <label for="fileDropRef">
-                Browse it
-            </label>
-        </div>
+>
+    <div
+        class="drop-box"
+        dnd (fileDropped)="setFile($event)"
+    >
+        <input
+            #fileDropRef
+            type="file"
+            id="fileDropRef"
+            multiple
+            (change)="handleBrowse($event)"
+        />
+        <h1>{{ 'Drop files here' | translate }}</h1>
+        <p>PDF / JPEG / JPG / PNG</p>
+        <p>or</p>
+        <label for="fileDropRef">
+            Browse it
+        </label>
     </div>
-</ng-container>
+
+    <span
+        class="close"
+        (click)="clicked = false"
+    >
+        &#x2715;
+    </span>
+</div>

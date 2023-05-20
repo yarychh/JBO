@@ -4,13 +4,12 @@
         <p>{{ subHeading | translate }}</p>
     </ng-container>
 </div>
-<form [formGroup]="formGroup" (submit)="submitForm(formGroup)">
+<form [formGroup]="fg" (submit)="submitForm(fg)">
     <div
         class="question-form-field"
     >
         <label for="name">Name</label>
         <input
-            matInput
             type="text"
             id="name"
             formControlName="name"
@@ -22,7 +21,6 @@
     >
         <label for="email">Email</label>
         <input
-            matInput
             type="email"
             id="email"
             formControlName="email"
@@ -40,17 +38,18 @@
     >
         <label for="question">{{ withUpload ? 'Cover Letter' : 'Your question' }}</label>
         <input
-            matInput
             type="text"
             id="question"
-            formControlName="question"
+            [formControlName]="withUpload ? 'coverLetter' : 'question'"
         />
     </div>
 
     <ng-container *ngIf="withUpload">
         <app-drag-n-drop
             [label]="uploadBtnName"
-
+            [formGroup]="fg"
+            [formGroupName]="'cv'"
+            (fileUploaded)="setCvFileValue($event)"
         ></app-drag-n-drop>
     </ng-container>
 

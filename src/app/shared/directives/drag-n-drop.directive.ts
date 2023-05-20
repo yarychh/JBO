@@ -9,7 +9,7 @@ export class DragNDropDirective {
     }
 
 
-    @Output() fileDropped = new EventEmitter<any>();
+    @Output() fileDropped = new EventEmitter<File>();
 
     // Dragover listener
     @HostListener('dragover', ['$event'])
