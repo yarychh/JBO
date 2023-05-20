@@ -1,13 +1,12 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { JBO_EMAIL } from "../../constants/firebase.interface";
+import { JBO_EMAIL } from '../../constants/firebase.interface';
 import { FirestoreService } from '../../services/firestore.service';
-
+declare let Email: any;
 @Component({
     selector: 'app-question-form',
     templateUrl: './question-form.component.html',
     styleUrls: ['./question-form.component.scss'],
-
 })
 export class QuestionFormComponent implements OnInit {
     public JBOemail: string = JBO_EMAIL;
@@ -23,9 +22,6 @@ export class QuestionFormComponent implements OnInit {
         return this.fg.controls;
     }
 
-    constructor(private firestore: FirestoreService) {
-    }
-
     ngOnInit(): void {
         this.initForm();
         console.log(this.fg);
@@ -33,59 +29,112 @@ export class QuestionFormComponent implements OnInit {
 
     public initForm(): void {
         this.withUpload
-        ? this.fg = new FormGroup({
-            name: new FormControl(null, [Validators.required]),
-            email: new FormControl(null, [Validators.required, Validators.email]),
-            coverLetter: new FormControl(null, [Validators.required]),
-            cv: new FormControl(null, [Validators.required])
-        })
-        : this.fg = new FormGroup({
-            name: new FormControl(null, [Validators.required]),
-            email: new FormControl(null, [Validators.required, Validators.email]),
-            question: new FormControl(null, [Validators.required]),
-        })
+            ? (this.fg = new FormGroup({
+                  name: new FormControl(null, [Validators.required]),
+                  email: new FormControl(null, [
+                      Validators.required,
+                      Validators.email,
+                  ]),
+                  coverLetter: new FormControl(null, [Validators.required]),
+                  cv: new FormControl(null, [Validators.required]),
+              }))
+            : (this.fg = new FormGroup({
+                  name: new FormControl(null, [Validators.required]),
+                  email: new FormControl(null, [
+                      Validators.required,
+                      Validators.email,
+                  ]),
+                  question: new FormControl(null, [Validators.required]),
+              }));
     }
 
     autoGrowTextZone(e: KeyboardEvent) {
         const element = e.target as HTMLTextAreaElement;
-        element.style.height = "0px";
-        element.style.height = (element.scrollHeight + 10)+"px";
-      }
+        element.style.height = '0px';
+        element.style.height = element.scrollHeight + 10 + 'px';
+    }
 
-    public submitForm(fg: FormGroup): void {
-        if (fg.invalid) return;
+    public async submitForm(fg: FormGroup): Promise<void> {
+        if (fg.invalid) return Promise.resolve();
         this.withUpload
             ? this.sendCareersLetter()
-            : this.firestore.submitQuestionForm(fg.value);
-        this.fg.reset();
+            : this.sendQuestionLetter();
     }
 
     public setCvFileValue(file: File): void {
         this.fc['cv'].setValue(file);
     }
 
+    sendCareersLetter(): void {
+        const payload = {
+            name: this.fc['name'].value,
+            email: this.fc['email'].value,
+            subject: 'Careers JBOmarketing',
+            message: this.fc['coverLetter'].value,
+            attachment: this.fc['cv'].value,
+        };
 
-    sendCareersLetter() {
-        const emailSubject = 'JBOmarketing careers letter';
-        const emailBody = `${this.fc['coverLetter'].value} \n Specified Email: ${this.fc['email'].value}`;
-        const file = this.fc['cv'].value;
+        this.sendEmail(payload);
+    }
 
-        let mailToUrl = `mailto:${this.JBOemail}?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+    public sendQuestionLetter(): void {
+        const payload = {
+            name: this.fc['name'].value,
+            email: this.fc['email'].value,
+            subject: 'Question form JBOmarketing',
+            message: this.fc['question'].value,
+        };
 
-        if (file) {
-            const fileReader = new FileReader();
-            fileReader.onload = (fileLoadedEvent: any) => {
-                const fileData = fileLoadedEvent.target.result;
-                const attachment = `attachment;filename="${file.name}";base64,${fileData}`;
-                mailToUrl += `&attachment=${encodeURIComponent(attachment)}`;
+        this.sendEmail(payload);
+    }
 
-                // Open the email client
-                window.open(mailToUrl);
-            };
-            fileReader.readAsDataURL(file);
-        } else {
-            // Open the email client without the file attachment
-            window.open(mailToUrl);
+    public async sendEmail(payload: {
+        name: string;
+        email: string;
+        subject: string;
+        message: string;
+        attachment?: File;
+    }): Promise<void> {
+        let attachments;
+        if (payload.attachment) {
+            const toBase64 = (file: File) =>
+                new Promise((resolve, reject) => {
+                    const reader = new FileReader();
+                    reader.readAsDataURL(file);
+                    reader.onload = () => resolve(reader.result);
+                    reader.onerror = reject;
+                });
+            attachments = [{
+                name: payload.attachment.name,
+                data: await toBase64(payload.attachment)
+            }];
         }
+
+        Email.send({
+            Host: 'smtp.elasticemail.com',
+            Username: 'info@jbomarketing.space',
+            Password: '70342287F4F66AEE0622B5D28D0E75349393',
+            To: 'odarka@jbomarketing.space',
+            From: 'odarka@jbomarketing.space',
+            Subject: payload.subject,
+            Body: `
+            <b>From:</b>
+
+            <br>
+            ${payload.name}
+
+            <br>
+
+            <b>Message content:</b>
+
+            <br>
+            ${payload.message}
+
+            `,
+            Attachments: attachments,
+        }).then(() => {
+            this.fg.reset();
+            this.withUpload = false;
+        });
     }
 }

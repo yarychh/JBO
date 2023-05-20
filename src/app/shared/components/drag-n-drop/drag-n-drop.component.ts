@@ -1,30 +1,31 @@
 import {
     ChangeDetectorRef,
     Component,
-    ElementRef, EventEmitter, Input,
-    OnInit, Output,
-    ViewChild
+    ElementRef,
+    EventEmitter,
+    Input,
+    OnInit,
+    Output,
+    ViewChild,
 } from '@angular/core';
-import { FormGroup } from "@angular/forms";
+import { FormGroup } from '@angular/forms';
 
 @Component({
     selector: ' app-drag-n-drop',
     templateUrl: './drag-n-drop.component.html',
-    styleUrls: ['./drag-n-drop.component.scss']
+    styleUrls: ['./drag-n-drop.component.scss'],
 })
 export class DragNDropComponent implements OnInit {
     @Input() public label: string = 'Add your file';
     @Input() public formGroup?: FormGroup;
     @Input() public controlName?: string;
 
-    @ViewChild('fileDropRef', {static: false}) fileDropEl!: ElementRef;
+    @ViewChild('fileDropRef', { static: false }) fileDropEl!: ElementRef;
 
     @Output() public fileUploaded = new EventEmitter<File>();
 
-    onChange: (newValue: File) => void = () => {
-    };
-    onTouch: () => void = () => {
-    };
+    onChange: (newValue: File) => void = () => {};
+    onTouch: () => void = () => {};
 
     public file?: File;
     public clicked: boolean = false;
@@ -33,11 +34,9 @@ export class DragNDropComponent implements OnInit {
         return this.formGroup?.controls;
     }
 
-    constructor(public cd: ChangeDetectorRef) {
-    }
+    constructor(public cd: ChangeDetectorRef) {}
 
-    ngOnInit(): void {
-    }
+    ngOnInit(): void {}
 
     public setValue(file: File) {
         this.file = file;
@@ -49,11 +48,11 @@ export class DragNDropComponent implements OnInit {
     }
 
     public handleBrowse(event: Event): void {
-        const {target} = event;
+        const { target } = event;
         const fileEvent = target as HTMLInputElement;
 
         if (fileEvent.files) {
-            const file = fileEvent.files[0]
+            const file = fileEvent.files[0];
             this.setFile(file);
             this.clicked = false;
         }
@@ -70,6 +69,6 @@ export class DragNDropComponent implements OnInit {
     }
 
     public showDragDrop(): boolean {
-        return this.clicked = true;
+        return (this.clicked = true);
     }
 }

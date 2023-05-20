@@ -1,48 +1,14 @@
 <div class="btn-wrap">
-    <button class="add-btn" (click)="showDragDrop(); cd.detectChanges()">
-        <span>&plus;</span>
-        <span>{{ label }}</span>
-    </button>
-    <div
-        *ngIf="file != null"
-        class="added-file"
-    >{{ file.name }}
-        <span
-            class="close"
-            (click)="clicked = false"
-        >
-        &#x2715;
-    </span>
-    </div>
-</div>
 
-<div
-    class="dnd-wrap"
-    *ngIf="clicked"
->
-    <div
-        class="drop-box"
-        dnd (fileDropped)="setFile($event)"
-    >
-        <input
-            #fileDropRef
-            type="file"
-            id="fileDropRef"
-            multiple
-            (change)="handleBrowse($event)"
-        />
-        <h1>{{ 'Drop files here' | translate }}</h1>
-        <p>PDF / JPEG / JPG / PNG</p>
-        <p>or</p>
-        <label for="fileDropRef">
-            Browse it
-        </label>
-    </div>
+    <label *ngIf="!file" for="fileUpload" class="add-btn">
+        <input style="display: none;" type="file" id="fileUpload" placeholder="Add your CV"
+            accept=".png, .doc, .docx, .pdf," (change)="handleBrowse($event)">
+        <span>&plus;</span>{{ label }}
+    </label>
 
-    <span
-        class="close"
-        (click)="clicked = false"
-    >
-        &#x2715;
-    </span>
+    <div *ngIf="file != null" class="added-file">{{ file.name }}
+        <span class="close" (click)="file = undefined">
+            &#x2715;
+        </span>
+    </div>
 </div>
