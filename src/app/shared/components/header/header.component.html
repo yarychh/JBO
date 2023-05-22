@@ -1,8 +1,6 @@
 <header>
     <div class="switch-box">
-        <p>{{ 'affiliate' |translate }}</p>
         <app-switch [checked]="(role$ | async) === 'advertiser'" (change)="roleChange()"></app-switch>
-        <p>{{ 'advertiser' |translate }}</p>
     </div>
 
     <div class="menu-box">
