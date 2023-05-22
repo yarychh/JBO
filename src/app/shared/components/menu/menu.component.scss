@@ -16,7 +16,7 @@
         margin: 0;
         padding: .42rem 1rem;
         border-radius: 30px;
-        border: 1px solid $black;
+        border: 2px solid $black;
         color: $black;
         background-color: $white;
         transition: all 0.3s;
@@ -24,9 +24,8 @@
         font-weight: 500;
         cursor: pointer;
 
-        &:hover, &.active, &:hover &.active {
-            color: $white;
-            background: $black;
+        &:hover, &.active{
+            filter: invert(1);
         }
     }
 }

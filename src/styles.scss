@@ -85,15 +85,15 @@ textarea{
     margin: 0 4.625rem;
 
     @include respondTo(phone) {
-        margin: 0 1rem;
+        margin: 0 .5rem;
     }
 
     @include respondTo(tab-portrait) {
-        margin: 0 3rem;
+        margin: 0 1rem;
     }
 
     @include respondTo(tab-landscape) {
-        margin: 0 7rem;
+        margin: 0 3rem;
     }
 
     @include respondTo(big-desktop) {

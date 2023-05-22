@@ -20,17 +20,25 @@ export class MenuComponent implements OnInit {
             url: '/home',
         },
         {
-            name: 'about-us',
-            url: '/about-us',
-        },
-        {
             name: 'careers',
             url: '/careers',
         },
         {
-            name: 'blog',
-            url: '/blog',
+            name: 'about-us',
+            url: '/about-us',
         },
+        {
+            name: 'affiliate',
+            url: '/affiliate',
+        },
+        {
+            name: 'advertiser',
+            url: '/advertiser',
+        },
+        // {
+        //     name: 'blog',
+        //     url: '/blog',
+        // },
         {
             name: 'contacts',
             url: '/contacts',

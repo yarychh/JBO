@@ -32,7 +32,7 @@
                         class="nav-item"
                         [class.active]="item.url === this.currentRoute"
                         (click)="redirectTo(item.name)"
-                    >{{ item.name | translate }}</li>
+                    >{{ item.name | translate | uppercase }}</li>
                 </ng-container>
             </ul>
         </nav>

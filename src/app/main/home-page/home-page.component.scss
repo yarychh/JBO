@@ -16,10 +16,12 @@
 
         @include respondTo(tab-landscape) {
             @include flex(col-rev, center);
+            gap: 3rem;
             margin-top: 0;
         }
 
         &-text {
+            text-align: center;
             @include flex(col, end);
             gap: 4rem;
 
