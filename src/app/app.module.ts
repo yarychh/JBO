@@ -1,6 +1,4 @@
 import { NgModule } from '@angular/core';
-import { AngularFireStorageModule } from "@angular/fire/compat/storage";
-import { getStorage, provideStorage } from "@angular/fire/storage";
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
@@ -41,10 +39,8 @@ export function createTranslateLoader(http: HttpClient) {
         }),
         provideFirebaseApp(() => initializeApp(environment.firebase)),
         provideFirestore(() => getFirestore()),
-        provideStorage(() => getStorage()),
         AngularFireModule.initializeApp(environment.firebase),
         AngularFirestoreModule,
-        AngularFireStorageModule
     ],
     providers: [],
     bootstrap: [AppComponent],
