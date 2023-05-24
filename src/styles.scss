@@ -82,7 +82,7 @@ textarea{
 }
 
 .content-wrapper {
-    margin: 0 4.625rem;
+    margin: 0 2rem;
 
     @include respondTo(phone) {
         margin: 0 .5rem;
@@ -130,13 +130,16 @@ img {
     gap: 6rem;
 
     .text-block {
+        width: 100%;
         display: grid;
         grid-template-columns: 1fr 1fr;
         column-gap: 3.125rem;
         justify-items: center;
+        align-items: center;
 
         .text-block-text>p {
             font-size: 1.25rem;
+            white-space: pre-line;
         }
 
         &:nth-child(even) {
@@ -159,7 +162,6 @@ img {
             align-self: center;
             @include flex(col, center);
             justify-content: center;
-            //margin-right: 3.125rem;
             height: 100%;
             width: 100%;
             min-width: 40%;
@@ -246,7 +248,7 @@ img {
         }
 
         @include respondTo(phone) {
-            @include flex(col-rev, end);
+            @include flex(col-rev, center);
 
             &-text {
                 padding: 1rem 0;
@@ -265,6 +267,7 @@ img {
 .interactive-card {
     @include flex(row, start);
     background-size: cover;
+    background-position: center;
     padding: 2.5rem;
     border-radius: 6.25rem;
     color: #fff;
@@ -282,6 +285,8 @@ img {
         }
 
         p {
+            font-weight: 400;
+            font-size: 1.25rem;
             margin-bottom: 2rem;
         }
     }
@@ -319,14 +324,14 @@ img {
 .questions {
     @include flex(col, start);
     justify-content: space-between;
-    gap: 2rem;
+    gap: 3rem;
 
     @include respondTo(tab-portrait) {
         gap: 1.5rem;
     }
 
     @include respondTo(phone) {
-        gap: 0;
+        gap: 1;
     }
 
     &>* {
@@ -387,7 +392,7 @@ img {
     @include respondTo(tab-landscape) {
         display: grid;
         grid-template-columns: 20rem 20rem;
-        grid-auto-rows: 12.5rem;
+        grid-auto-rows: fit-content;
         gap: 2rem;
     }
 
@@ -436,7 +441,7 @@ img {
         z-index: 100;
 
         h1 {
-            max-width: 60%;
+            max-width: 80%;
             margin-bottom: 2.5rem;
         }
 
@@ -522,6 +527,7 @@ img {
     width: 100vw;
     @include flex(col, start);
     gap: 6rem;
+    margin-bottom: 6rem;
 
     .partners {
         h2 {

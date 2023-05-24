@@ -214,37 +214,7 @@
         </section>
     </section>
 
-    <section class="partners-wrap">
-        <div class="partners partners-media">
-            <h2 class="content-wrapper">{{ "home_partners" | translate }}</h2>
-            <div class="slider">
-                <div class="slide-track slide-track-hero">
-                    <ng-container *ngFor="let i of [1,2,3,4]">
-                        <ng-container *ngTemplateOutlet="heroMarqueeContent"></ng-container>
-                    </ng-container>
-                </div>
-            </div>
-        </div>
-
-        <!-- <div class="partners partners-tech">
-            <h2 class="content-wrapper">TECH PARTNERS</h2>
-            <div class="slider">
-                <div class="slide-track slide-track-hero">
-                    <ng-container *ngFor="let i of [1,2,3,4]">
-                        <ng-container *ngTemplateOutlet="heroMarqueeContent"></ng-container>
-                    </ng-container>
-                </div>
-            </div>
-        </div> -->
-
-        <ng-template #heroMarqueeContent>
-            <img src="assets/svg/partner-logo-1.svg" alt="logo 1">
-            <img src="assets/svg/partner-logo-2.svg" alt="logo 2">
-            <img src="assets/svg/partner-logo-3.svg" alt="logo 3">
-            <img src="assets/svg/partner-logo-4.svg" alt="logo 4">
-            <img src="assets/svg/partner-logo-5.svg" alt="logo 5">
-        </ng-template>
-    </section>
+    <app-partners></app-partners>
 
     <section
         class="events"
@@ -265,10 +235,10 @@
         <div class="events-container">
             <swiper
                 #swiperEvents
-                [slidesPerView]="1"
+                [slidesPerView]="1.5"
                 [spaceBetween]="40"
                 [loop]="true"
-                [centeredSlides]="false"
+                [centeredSlides]="true"
                 [autoHeight]="true"
                 [breakpoints]="eventsBreakpoints"
                 class="my-swiper"

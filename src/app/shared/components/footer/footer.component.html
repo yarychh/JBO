@@ -8,7 +8,7 @@
     </div>
 
     <div class="footer-social">
-        <h5>FOLLOW US</h5>
+        <h5>{{'follow-us' | translate | uppercase}}</h5>
         <a
             href="mailto:info@jbomarketing.space"
             target="_blank"
@@ -29,7 +29,7 @@
     </div>
 
     <div class="footer-pages">
-        <h5>PAGES</h5>
+        <h5>{{'pages' | translate | uppercase}}</h5>
         <a [routerLink]="['home']">{{'home' | translate}}</a>
         <a [routerLink]="['careers']">{{ 'careers' | translate}}</a>
         <a [routerLink]="['about-us']">{{ 'about-us' | translate }}</a>
@@ -46,8 +46,8 @@
         <a
             [routerLink]=" ['advertiser']"
             (click)="scrollToTop()"
-        >{{ 'advertizer' | translate }}</a>
-        <a
+        >{{ 'advertiser' | translate }}</a>
+        <!-- <a
             [routerLink]="['/privacy']"
             (click)="scrollToTop()"
         >{{ 'privacy-policy' | translate }}</a>
@@ -58,7 +58,7 @@
         <a
             [routerLink]="['/privacy']"
             (click)="scrollToTop()"
-        >{{ "terms-and-conditions" | translate}}</a>
+        >{{ "terms-and-conditions" | translate}}</a> -->
         <a
             [routerLink]="['/faq']"
             (click)="scrollToTop()"

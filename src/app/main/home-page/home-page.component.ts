@@ -7,11 +7,12 @@ import { SwiperComponent, SwiperModule } from "swiper/angular";
 import { IArticle, IEvent, IReview, IStats } from "../../shared/constants/firebase.interface";
 import { FirestoreService } from "../../shared/services/firestore.service";
 import { SharedModule } from "../../shared/shared.module";
+import { PartnersComponent } from '../partners/partners.component';
 
 @Component({
     selector: 'app-home-page',
     standalone: true,
-    imports: [CommonModule, SharedModule, TranslateModule, SwiperModule, RouterLink],
+    imports: [CommonModule, SharedModule, TranslateModule, SwiperModule, RouterLink, PartnersComponent],
     templateUrl: './home-page.component.html',
     styleUrls: ['./home-page.component.scss']
 })
@@ -30,10 +31,10 @@ export class HomePageComponent implements OnInit {
 
     public eventsBreakpoints = {
         730: {
-            slidesPerView: 1,
-            centeredSlides: true
+            slidesPerView: 1.5,
         },
         1000: {
+            centeredSlides: true,
             slidesPerView: 2.4,
             spaceBetween: 32
         },

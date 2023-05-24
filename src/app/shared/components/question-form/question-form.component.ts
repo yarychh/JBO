@@ -11,8 +11,8 @@ declare let Email: any;
 export class QuestionFormComponent implements OnInit {
     public JBOemail: string = JBO_EMAIL;
 
-    @Input() public heading: string = 'QUESTIONS?';
-    @Input() public subHeading: string = '';
+    @Input() public heading: string = 'questions_heading';
+    @Input() public subHeading: string = 'questions_subheading';
     @Input() public withUpload: boolean = false;
     @Input() public uploadBtnName: string = '';
 

@@ -12,20 +12,20 @@ import { TranslateModule } from "@ngx-translate/core";
 export class AffiliateComponent implements OnInit {
     public affiliateCards = [
         {
-            head: 'Best support',
-            text: 'Our support works even at night to be always in touch for you <3'
+            head: 'affiliate_feature-1_heading',
+            text: 'affiliate_feature-1_subheading'
         },
         {
-            head: 'Best support',
-            text: 'Our support works even at night to be always in touch for you <3'
+            head: 'affiliate_feature-2_heading',
+            text: 'affiliate_feature-2_subheading'
         },
         {
-            head: 'Best support',
-            text: 'Our support works even at night to be always in touch for you <3'
+            head: 'affiliate_feature-3_heading',
+            text: 'affiliate_feature-3_subheading'
         },
         {
-            head: 'Best support',
-            text: 'Our support works even at night to be always in touch for you <3'
+            head: 'affiliate_feature-4_heading',
+            text: 'affiliate_feature-4_subheading'
         }
     ]
 

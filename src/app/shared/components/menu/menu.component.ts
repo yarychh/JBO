@@ -20,14 +20,6 @@ export class MenuComponent implements OnInit {
             url: '/home',
         },
         {
-            name: 'careers',
-            url: '/careers',
-        },
-        {
-            name: 'about-us',
-            url: '/about-us',
-        },
-        {
             name: 'affiliate',
             url: '/affiliate',
         },
@@ -39,6 +31,14 @@ export class MenuComponent implements OnInit {
         //     name: 'blog',
         //     url: '/blog',
         // },
+        {
+            name: 'careers',
+            url: '/careers',
+        },
+        {
+            name: 'about-us',
+            url: '/about-us',
+        },
         {
             name: 'contacts',
             url: '/contacts',

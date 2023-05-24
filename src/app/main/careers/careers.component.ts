@@ -11,9 +11,9 @@ import { SharedModule } from "../../shared/shared.module";
     styleUrls: ['./careers.component.scss']
 })
 export class CareersComponent implements OnInit {
-    public formHeading: string = 'Be a part of our team';
-    public formSubHeading: string = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt';
-    public fileBtnName: string = 'Add your CV';
+    public formHeading: string = 'careers_heading';
+    public formSubHeading: string = 'careers_subheading';
+    public fileBtnName: string = 'careers_file-btn';
 
     constructor() {
     }
