@@ -62,6 +62,10 @@
             transition: all .25s ease-out;
             text-transform: none;
 
+            @include respondTo(phone) {
+                font-weight: 300;
+            }
+
             &.shown {
                 height: auto;
                 color: inherit;
