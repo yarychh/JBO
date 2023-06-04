@@ -27,10 +27,10 @@ export class MenuComponent implements OnInit {
             name: 'advertiser',
             url: '/advertiser',
         },
-        // {
-        //     name: 'blog',
-        //     url: '/blog',
-        // },
+        {
+            name: 'blog',
+            url: '/blog',
+        },
         {
             name: 'careers',
             url: '/careers',

@@ -7,8 +7,10 @@ export interface IEvent {
 
 export interface IArticle {
     title: string;
+    image: string;
+    subtitle: string;
     text: string;
-    views: string;
+    id: string;
     date: string;
 }
 

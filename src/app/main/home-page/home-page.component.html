@@ -296,20 +296,22 @@
         </div>
     </section>
 
-    <!-- <section
+    <section
         *ngIf="articlesList.length"
         class="blog"
     >
-        <h2>{{ 'blog' | translate}}</h2>
+        <h2>{{ 'recommended' | translate}}</h2>
         <div class="articles">
             <ng-container
                 *ngFor="let item of articlesList; trackBy: index"
             >
                 <app-blog-card
+                    [id]="item.id"
                     [title]="item.title"
-                    [date]="item.date"
-                ></app-blog-card>
-            </ng-container>
+                    [image]="item.image"
+                    [subtitle]="item.subtitle"
+                    ></app-blog-card>
+                </ng-container>
         </div>
-    </section> -->
+    </section>
 </div>

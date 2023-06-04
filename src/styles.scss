@@ -619,8 +619,26 @@ img {
 // Blog Articles Section
 .articles {
     width: 100%;
-    @include flex(row, center);
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
     gap: 2.5rem;
-    justify-content: space-between;
+
+    &>*{
+        grid-column: span 2;
+    }
+
+    @include respondTo(tab-landscape) {
+        grid-template-columns:repeat(4, 1fr);
+        justify-content: center;
+        &>*:nth-last-child(1):nth-child(odd) {
+            grid-column: 2 / span 2;
+        }
+    }
+
+    @include respondTo(tab-portrait) {
+        grid-template-columns: repeat(2, 1fr);
+        &>*:nth-last-child(1):nth-child(odd) {
+            grid-column: span 2;
+        }
+    }
 }

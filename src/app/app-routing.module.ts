@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomePageComponent } from "./main/home-page/home-page.component";
+import { BlogArticleComponent } from './main/blog-article/blog-article.component';
 
 const routes: Routes = [
     {
@@ -51,6 +52,10 @@ const routes: Routes = [
         path: 'blog',
         loadComponent: () =>
             import('./main/blog/blog.component').then((c) => c.BlogComponent),
+    },
+    {
+        path: 'article/:id',
+        component: BlogArticleComponent
     },
     {
         path: '**',
