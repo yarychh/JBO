@@ -1,8 +1,11 @@
 <div class="article-page content-wrapper">
-    <div class="article-heading">
-        <img src="assets/img/event-mock-img.png" alt="Event Mock Img">
-        <p>{{ article?.date || '21.01.21' }}</p>
+    <section class="article-heading">
+        <img [src]="article?.image" alt="Event Mock Img">
         <h1>{{article?.title || 'HEADING' }}</h1>
-        <h3>{{article?.text || 'TEXT TEXT TEXT' }}</h3>
+    </section>
+    <div>
+        <h3>{{ article?.date || '21.01.21' }}</h3>
+        <h3>{{ article?.subtitle || 'SUBTITLE' }}</h3>
+        <p>{{article?.text || 'TEXT TEXT TEXT' }}</p>
     </div>
 </div>

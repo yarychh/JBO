@@ -5,12 +5,16 @@
     </section>
 
     <section class="articles">
-        <ng-container *ngFor="let item of articlesList; trackBy: index">
+        <ng-container *ngFor="let item of articlesList">
             <app-blog-card
+                [id]="item.id"
+                [image]="item.image"
                 [title]="item.title"
-                [text]="item.text"
+                [subtitle]="item.subtitle"
                 [date]="item.date"
-            ></app-blog-card>
-        </ng-container>
+                ></app-blog-card>
+            </ng-container>
     </section>
+
+    <button *ngIf="canLoadMore | async" type="button" (click)="loadMoreArticles()">{{ "load-more" | translate }}</button>
 </div>

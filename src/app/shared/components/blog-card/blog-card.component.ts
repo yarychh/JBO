@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-blog-card',
@@ -7,12 +8,19 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class BlogCardComponent implements OnInit {
     @Input() public title!: string;
-    @Input() public text?: string;
+    @Input() public id!: string;
+    @Input() public subtitle!: string;
     @Input() public date!: string;
+    @Input() public image!: string;
 
-    constructor() {
+    constructor(private router: Router) {
     }
 
     ngOnInit(): void {
+        console.log(this.image);
+    }
+
+    goToArticle(): void {
+        this.router.navigate(['article', encodeURI(this.id)]);
     }
 }

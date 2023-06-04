@@ -1,30 +1,42 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from "@angular/router";
-import { TranslateModule } from "@ngx-translate/core";
-import { firstValueFrom } from "rxjs";
-import { SwiperComponent, SwiperModule } from "swiper/angular";
-import { IArticle, IEvent, IReview, IStats } from "../../shared/constants/firebase.interface";
-import { FirestoreService } from "../../shared/services/firestore.service";
-import { SharedModule } from "../../shared/shared.module";
+import { RouterLink } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
+import { firstValueFrom } from 'rxjs';
+import { SwiperComponent, SwiperModule } from 'swiper/angular';
+import {
+    IArticle,
+    IEvent,
+    IReview,
+    IStats,
+} from '../../shared/constants/firebase.interface';
+import { FirestoreService } from '../../shared/services/firestore.service';
+import { SharedModule } from '../../shared/shared.module';
 import { PartnersComponent } from '../partners/partners.component';
 
 @Component({
     selector: 'app-home-page',
     standalone: true,
-    imports: [CommonModule, SharedModule, TranslateModule, SwiperModule, RouterLink, PartnersComponent],
+    imports: [
+        CommonModule,
+        SharedModule,
+        TranslateModule,
+        SwiperModule,
+        RouterLink,
+        PartnersComponent,
+    ],
     templateUrl: './home-page.component.html',
-    styleUrls: ['./home-page.component.scss']
+    styleUrls: ['./home-page.component.scss'],
 })
 export class HomePageComponent implements OnInit {
     public eventsList: IEvent[] = [];
     public reviewList: IReview[] = [];
-    public statisticsList: IStats[]= [];
+    public statisticsList: IStats[] = [];
     public articlesList: IArticle[] = [];
 
-    @ViewChild('reviews', {static: false}) reviews?: SwiperComponent;
-    @ViewChild('statistics', {static: false}) statistics?: SwiperComponent;
-    @ViewChild('swiperEvents', {static: false}) events?: SwiperComponent;
+    @ViewChild('reviews', { static: false }) reviews?: SwiperComponent;
+    @ViewChild('statistics', { static: false }) statistics?: SwiperComponent;
+    @ViewChild('swiperEvents', { static: false }) events?: SwiperComponent;
 
     public isDark?: boolean;
     public currentLang: string = 'en';
@@ -36,19 +48,18 @@ export class HomePageComponent implements OnInit {
         1000: {
             centeredSlides: true,
             slidesPerView: 2.4,
-            spaceBetween: 32
+            spaceBetween: 32,
         },
-        1700: {slidesPerView: 2.5}
+        1700: { slidesPerView: 2.5 },
     };
 
     public statsBreakpoints = {
-        500: {slidesPerView: 1},
-        900: {slidesPerView: 2},
-        1800: {slidesPerView: 3}
-    }
+        500: { slidesPerView: 1 },
+        900: { slidesPerView: 2 },
+        1800: { slidesPerView: 3 },
+    };
 
-    constructor(private firestore: FirestoreService) {
-    }
+    constructor(private firestore: FirestoreService) {}
 
     async ngOnInit(): Promise<void> {
         this.eventsList = await firstValueFrom(this.firestore.getEvents());
