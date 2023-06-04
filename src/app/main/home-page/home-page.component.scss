@@ -710,7 +710,6 @@
     .blog {
         width: 100%;
         @include flex(col, start);
-        gap: 2.5rem;
 
         h2 {
             margin-bottom: 2.5rem;
