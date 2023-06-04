@@ -99,7 +99,7 @@
 // buttons of different sizes (width)
 
 @mixin button($size) {
-    width: 100%;
+    width: fit-content;
     font-size: 1.25rem;
     color: #fff;
     background: $blue;

@@ -150,6 +150,12 @@
                 border: 1px solid #fff;
                 border-radius: 2rem;
                 padding: 1.5rem;
+                transition: all .3s ease;
+
+                &:hover {
+                    scale: 1.05;
+                    animation: coolBorderGrow .3s ease;
+                }
 
                 h3 {
                     font-size: 1.875rem;
@@ -434,7 +440,6 @@
 
             .big-screen-btn {
                 @include button(m);
-                max-width: 17rem;
             }
         }
 
