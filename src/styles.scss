@@ -366,6 +366,7 @@ img {
         border: 2px solid $black;
         border-radius: 3.125rem;
         width: 19rem;
+        min-width: min-content;
         transition: all .3s;
 
         &:hover {
@@ -392,7 +393,6 @@ img {
     @include respondTo(tab-landscape) {
         display: grid;
         grid-template-columns: 20rem 20rem;
-        grid-auto-rows: fit-content;
         gap: 2rem;
     }
 

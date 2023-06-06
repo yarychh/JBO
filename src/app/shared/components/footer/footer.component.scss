@@ -7,10 +7,12 @@
 footer, .footer {
     display: grid;
     margin: 5.75rem 4.75rem 0 4.75rem;
-    grid-template-columns: 1fr 25% 17% 25%;
+    grid-template-columns: 1fr minmax(min-content, 25%) 17% 25%;
+    gap: 1rem;
 
     div {
         max-width: 220px;
+        min-width: min-content;
     }
 
     & > * {
