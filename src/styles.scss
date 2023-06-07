@@ -356,8 +356,8 @@ img {
 // Cards Section Styling
 .cards {
     width: 100%;
-    @include flex(row, center);
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     justify-content: space-around;
     gap: 2rem;
 
@@ -381,7 +381,7 @@ img {
         }
 
         h3 {
-            font-size: 1.875rem;
+            font-size: 1.5rem;
             margin: 1rem 0;
         }
 
@@ -390,17 +390,18 @@ img {
         }
     }
 
-    @include respondTo(tab-landscape) {
-        display: grid;
-        grid-template-columns: 20rem 20rem;
-        gap: 2rem;
+    @media (max-width: 1530px) {
+        grid-template-columns: 1fr 1fr;
+        justify-items: center;
     }
 
     @include respondTo(tab-portrait) {
         display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
 
         &-item {
-            width: unset;
+            width: 100%;
             min-width: 20rem;
 
             &:nth-of-type(even) {
