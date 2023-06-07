@@ -62,7 +62,7 @@ export class MenuComponent implements OnInit {
     }
 
     public burger(): void {
-        document.documentElement.clientWidth < 972
+        document.documentElement.clientWidth < 1025
             ? this.full$.next(false)
             : this.full$.next(true);
     }

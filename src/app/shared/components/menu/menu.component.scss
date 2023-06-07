@@ -12,6 +12,7 @@
     margin-bottom: 0;
 
     &-item {
+        min-width: max-content;
         text-transform: uppercase;
         margin: 0;
         padding: .42rem 1rem;
