@@ -10,6 +10,12 @@ footer, .footer {
     grid-template-columns: 1fr minmax(min-content, 25%) 17% 25%;
     gap: 1rem;
 
+    .icons-box{
+        &.dark {
+            filter: invert(1);
+        }
+    }
+
     div {
         max-width: 220px;
         min-width: min-content;
