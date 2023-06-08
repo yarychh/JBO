@@ -1,22 +1,40 @@
-<ul *ngIf="full$ | async; else burger">
-    <li [class.dark]="isDark" (click)="scrollto('home')">{{ 'home' | translate }}</li>
-    <li [class.dark]="isDark" (click)="scrollto('about-us')">{{ 'about-us' | translate }}</li>
-    <!-- <li [class.dark]="isDark" (click)="scrollto('event')">{{ 'events' | translate }}</li> -->
-    <li [class.dark]="isDark" (click)="scrollto('faq')">{{ 'faq' | translate }}</li>
-    <li [class.dark]="isDark" (click)="scrollto('contacts')">{{ 'contacts' | translate }}</li>
+<ul
+    *ngIf="full$ | async; else burgerMenu"
+    class="full-menu"
+>
+    <ng-container
+        *ngFor="let item of menuItems; trackBy: index"
+    >
+        <li
+            class="full-menu-item"
+            [class.active]="item.url === this.currentRoute"
+            (click)="redirectTo(item.name)"
+        >{{ item.name | translate }}</li>
+    </ng-container>
 </ul>
 
-<ng-template #burger>
-    <img *ngIf="!shown; else expanded" [src]="isDark ? 'assets/svg/burger-white.svg' : 'assets/svg/burger.svg'" alt="burger-menu" (click)="toggleShown()">
+<ng-template #burgerMenu>
+    <div class="nav">
+        <input type="checkbox" class="nav-checkbox" id="navi-toggle">
 
-    <ng-template #expanded>
-        <img [src]="isDark ? 'assets/svg/Close-white.svg' : 'assets/svg/Close-dark.svg'" alt="burger-menu" class="mb-3" (click)="toggleShown()">
-        <ul class="vertical">
-            <li [class.dark]="isDark" class="text-center" (click)="scrollto('home')">{{ 'home' | translate }}</li>
-            <li [class.dark]="isDark" class="text-center" (click)="scrollto('about-us')">{{ 'about-us' | translate }}</li>
-            <!-- <li [class.dark]="isDark" class="text-center" (click)="scrollto('event')">{{ 'events' | translate }}</li> -->
-            <li [class.dark]="isDark" class="text-center" (click)="scrollto('faq')">{{ 'faq' | translate }}</li>
-            <li [class.dark]="isDark" class="text-center" (click)="scrollto('contacts')">{{ 'contacts' | translate }}</li>
-        </ul>
-    </ng-template>
+        <label for="navi-toggle" class="nav-button">
+            <span class="nav-icon">&nbsp;</span>
+        </label>
+
+        <div class="nav-background"></div>
+
+        <nav class="nav-menu">
+            <ul class="nav-menu-list">
+                <ng-container
+                    *ngFor="let item of menuItems; trackBy: index"
+                >
+                    <li
+                        class="nav-item"
+                        [class.active]="item.url === this.currentRoute"
+                        (click)="redirectTo(item.name)"
+                    >{{ item.name | translate | uppercase }}</li>
+                </ng-container>
+            </ul>
+        </nav>
+    </div>
 </ng-template>

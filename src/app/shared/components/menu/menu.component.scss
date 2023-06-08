@@ -1,50 +1,177 @@
 @import "/src/styles.scss";
 
-:host{
+:host {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-ul {
+.full-menu {
     list-style: none;
     display: flex;
-    padding: 0;
+    margin-bottom: 0;
 
-    &.vertical{
-        list-style: none;
-        display: flex;
-        flex-direction: column;
-        // align-items: center;
-        // justify-content: center;
-        padding: 0;
+    &-item {
+        min-width: max-content;
+        text-transform: uppercase;
+        margin: 0;
+        padding: .42rem 1rem;
+        border-radius: 30px;
+        border: 2px solid $black;
+        color: $black;
+        background-color: $white;
+        transition: all 0.3s;
+        font-size: 1rem;
+        font-weight: 500;
+        cursor: pointer;
+
+        &:hover, &.active{
+            filter: invert(1);
+        }
     }
 }
 
-img{
-    cursor: pointer;
-}
-
-li {
-    margin: 0;
-    padding: 10px;
-    border-radius: 30px;
-    border: 1px solid $black;
-    color: $black;
-    background-color: $white;
-    transition: all 0.3s;
-    font-size: 1rem;
-    font-weight: 500;
-    cursor: pointer;
-
-    &:hover {
-        filter: invert(1);
+.nav {
+    &-checkbox {
+        display: none;
     }
 
-    &.dark {
-        border: 1px solid $white;
-        color: $white;
-        background-color: $black;
+    &-background {
+        height: 6rem;
+        width: 6rem;
+        border-radius: 50%;
+        position: fixed;
+        top: 6.5rem;
+        right: 6.5rem;
+        background: $white;
+        z-index: -1000;
+        transition: transform 1.2s;
+    }
+
+    &-button {
+        color: black;
+        height: 3rem;
+        width: 3rem;
+        z-index: 2000;
+        text-align: center;
+        cursor: pointer;
+    }
+
+    &-menu {
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1500;
+        display: none;
+        width: 0;
+        //transition: all .8s;
+
+        &-list {
+            margin-top: 10rem;
+            list-style: none;
+            text-align: center;
+            width: 90%;
+            @include flex(col, start);
+
+            .nav-item {
+                text-transform: uppercase;
+                margin-bottom: -1px;
+                padding: .3rem 1.25rem;
+                font-size: 2em;
+                color: $black;
+                background-color: $white;
+                font-weight: 500;
+                border: 1px solid black;
+                border-radius: 10rem;
+                white-space: nowrap;
+                cursor: pointer;
+                transition: all 0.3s;
+
+                &:hover, &.active {
+                    color: $white;
+                    background: $black;
+                }
+            }
+        }
+    }
+
+    // BurgerMenu Animation Functionality
+
+    &-checkbox:checked ~ &-background {
+        transform: scale(30);
+        z-index: 1000;
+    }
+
+    &-checkbox:checked ~ &-menu {
+        display: unset;
+        width: 100%;
+    }
+
+    // Icon
+    &-icon {
+        position: relative;
+        margin-top: 1.5rem;
+
+        &,
+        &::before,
+        &::after {
+            width: 2rem;
+            height: 2px;
+            background-color: $black;
+            display: inline-block;
+        }
+
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            transition: all .3s;
+        }
+
+        &::before {
+            top: -.6rem;
+        }
+
+        &::after {
+            top: .6rem;
+        }
+    }
+
+    &-button:hover &-icon:before {
+        top: -.75rem;
+    }
+
+    &-button:hover &-icon:after {
+        top: .75rem;
+    }
+
+    &-checkbox:checked + &-button &-icon {
+        background-color: transparent;
+    }
+
+    &-checkbox:checked + &-button &-icon::before {
+        top: 4rem;
+        left: calc(100% - 8.25rem);
+        transform: rotate(-135deg);
+        position: fixed;
+
+        @include respondTo(phone) {
+            top: 4rem;
+            left: calc(100% - 6.5rem);
+        }
+    }
+
+    &-checkbox:checked + &-button &-icon::after {
+        top: 4rem;
+        left: calc(100% - 8.25rem);
+        transform: rotate(135deg);
+        position: fixed;
+
+        @include respondTo(phone) {
+            top: 4rem;
+            left: calc(100% - 6.5rem);
+        }
     }
 }
-

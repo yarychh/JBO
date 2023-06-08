@@ -1,0 +1,15 @@
+<div class="careers-page content-wrapper">
+    <section class="heading">
+        <h1>{{ 'careers' | translate }}</h1>
+        <img src="assets/img/careers-heading-img.png" alt="Careers Img">
+    </section>
+
+    <section class="contact-form">
+        <app-question-form
+            [heading]="formHeading"
+            [subHeading]="formSubHeading"
+            [withUpload]="true"
+            [uploadBtnName]="fileBtnName"
+        ></app-question-form>
+    </section>
+</div>

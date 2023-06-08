@@ -1,0 +1,11 @@
+<div class="article-card">
+    <img src="{{ image }}" alt="Event Mock Img">
+    <div class="article-card-info">
+        <div class="article-card-text">
+            <h2>{{ title }}</h2>
+            <p class="text">{{ subtitle }}</p>
+            <p *ngIf="date?.length" class="stats">{{ date }}</p>
+        </div>
+        <button (click)="goToArticle()" type="button">&rarr;</button>
+    </div>
+</div>

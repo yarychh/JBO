@@ -1,5 +1,4 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { UntypedFormControl } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { Observable } from 'rxjs';
 import { Role } from '../../constants/role.enum';
@@ -25,10 +24,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
     public get role$(): Observable<Role> {
         return this.state.getRole();
-    }
-
-    public get isDark(): boolean {
-        return this.state.isDark;
     }
 
     public selected(lang: string): boolean {

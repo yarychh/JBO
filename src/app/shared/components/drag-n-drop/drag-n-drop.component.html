@@ -1,0 +1,14 @@
+<div class="btn-wrap">
+
+    <label *ngIf="!file" for="fileUpload" class="add-btn">
+        <input style="display: none;" type="file" id="fileUpload" placeholder="Add your CV"
+            accept=".png, .doc, .docx, .pdf," (change)="handleBrowse($event)">
+        <span>&plus;</span>{{ label }}
+    </label>
+
+    <div *ngIf="file != null" class="added-file">{{ file.name }}
+        <span class="close" (click)="file = undefined">
+            &#x2715;
+        </span>
+    </div>
+</div>

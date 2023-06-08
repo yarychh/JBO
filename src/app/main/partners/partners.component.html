@@ -1,0 +1,41 @@
+<section class="partners-wrap">
+    <div class="partners partners-media">
+        <h2 class="content-wrapper">{{ "partners" | translate }}</h2>
+        <div class="slider">
+            <div class="slide-track slide-track-hero">
+                <ng-container *ngFor="let i of [1,2,3,4]">
+                    <ng-container *ngTemplateOutlet="heroMarqueeContent"></ng-container>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div class="partners partners-tech">
+        <h2 class="content-wrapper">TECH PARTNERS</h2>
+        <div class="slider">
+            <div class="slide-track slide-track-hero">
+                <ng-container *ngFor="let i of [1,2,3,4]">
+                    <ng-container *ngTemplateOutlet="heroMarqueeContent"></ng-container>
+                </ng-container>
+            </div>
+        </div>
+    </div> -->
+
+    <ng-template #heroMarqueeContent>
+        <a target="_blank" href="https://partnerkin.com/">
+            <img  src="assets/svg/partner-logo-1.svg" alt="logo 1">
+        </a>
+        <a href="https://binom.org/" target="_blank">
+            <img src="assets/svg/partner-logo-2.svg" alt="logo 2">
+        </a>
+        <a href="https://keitaro.io/" target="_blank">
+            <img src="assets/svg/partner-logo-3.svg" alt="logo 3">
+        </a>
+        <a href="https://trafficcardinal.com/" target="_blank">
+            <img src="assets/svg/partner-logo-4.svg" alt="logo 4">
+        </a>
+        <a href="https://swanker.club/" target="_blank">
+            <img src="assets/svg/partner-logo-5.svg" alt="logo 5">
+        </a>
+    </ng-template>
+</section>

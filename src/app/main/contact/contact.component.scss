@@ -1,0 +1,80 @@
+@import '../../../styles';
+
+.contact-page {
+    @include flex(col, center);
+
+    & > *:not(:last-of-type) {
+        margin-bottom: 8rem;
+    }
+
+    .socials {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        gap: 2.25rem;
+
+        @include respondTo(tab-landscape) {
+            flex-wrap: wrap;
+        }
+        //
+        //@include respondTo(tab-portrait) {
+        //    @include flex(col, center);
+        //    gap: 1.5rem;
+        //}
+
+        .pillow {
+            text-align: center;
+
+            @include respondTo(tab-landscape) {
+                &:nth-of-type(3) {
+                    align-self: center;
+                }
+            }
+
+            a {
+                width: 25rem;
+                display: block;
+                padding: 1.3125rem 0;
+                text-decoration: none;
+
+                border: 2px solid $black;
+                border-radius: 3.75rem;
+                color: $black;
+                font-size: 1.25rem;
+                font-weight: 500;
+                transition: all .3s ease;
+
+                &:hover {
+                    scale: 1.05;
+                    animation: coolBorderGrow .3s ease;
+                }
+
+                @media (max-width: 88.75rem) { // 1420px
+                    width: 20rem;
+
+                    h2 {
+                        font-size: 2rem;
+                    }
+                }
+
+
+                @include respondTo(tab-landscape) {
+                    width: 18rem;
+
+                    h2 {
+                        font-size: 2rem;
+                    }
+                }
+
+                @include respondTo(phone) {
+                    max-width: 22rem;
+                    border: 1px solid $black;
+                }
+            }
+        }
+    }
+
+    .contact-form {
+        width: 100%;
+    }
+}

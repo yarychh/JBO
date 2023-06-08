@@ -1,0 +1,18 @@
+@import 'src/styles';
+@import 'src/scss/mixins';
+
+.blog-page {
+
+    & > *:not(:last-of-type) {
+        margin-bottom: 6rem;
+    }
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    button{
+        margin-top: 3rem;
+        @include button(m);
+    }
+}

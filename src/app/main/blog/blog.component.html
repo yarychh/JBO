@@ -1,0 +1,20 @@
+<div class="blog-page content-wrapper">
+    <section class="heading">
+        <h1>{{ 'blog' | translate }}</h1>
+        <img src="assets/img/blog-heading-img.png" alt="Blog Img">
+    </section>
+
+    <section class="articles">
+        <ng-container *ngFor="let item of articlesList">
+            <app-blog-card
+                [id]="item.id"
+                [image]="item.image"
+                [title]="item.title"
+                [subtitle]="item.subtitle"
+                [date]="item.date"
+                ></app-blog-card>
+            </ng-container>
+    </section>
+
+    <button *ngIf="canLoadMore | async" type="button" (click)="loadMoreArticles()">{{ "load-more" | translate }}</button>
+</div>

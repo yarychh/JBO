@@ -1,0 +1,317 @@
+<div class="home-page content-wrapper">
+    <section class="greeting-box">
+        <div class="greeting-box-text">
+            <h1>{{ 'home_heading' | translate }}</h1>
+            <p>{{ 'home_subheading' | translate }}</p>
+            <a
+                class="greeting-box-btn"
+                target="_blank"
+                href="https://panel.jbomarketing.com/auth/affiliate?cpn=jbo"
+            >{{ 'home_heading-btn' | translate }}</a>
+        </div>
+
+        <div class="greeting-box-video">
+            <video [autoplay]="true" [muted]="true" [loop]="true" playsinline="true">
+                <source src="assets/video/Frame_41303.mp4" type="video/mp4" />
+                Your browser is not supporting video tag!
+            </video>
+        </div>
+    </section>
+
+    <section class="info-card">
+        <div class="info-card-box">
+            <div class="first-line">
+                <div class="info-card-box-card">
+                    <h3>{{ "home_feature-tile-1_heading" | translate }}</h3>
+                    <p>{{ "home_feature-tile-1_subheading" | translate }}</p>
+                </div>
+
+                <div class="wrap">
+                    <div class="info-card-box-card">
+                        <h3>{{ "home_feature-tile-2_heading" | translate }}</h3>
+                        <p>{{ "home_feature-tile-2_subheading" | translate }}</p>
+                    </div>
+
+                    <div class="info-card-box-card">
+                        <h3>{{ "home_feature-tile-3_heading" | translate }}</h3>
+                        <p>{{ "home_feature-tile-3_subheading" | translate }}</p>
+                    </div>
+                </div>
+
+                <div class="info-card-box-card">
+                    <h3>{{ "home_feature-tile-4_heading" | translate }}</h3>
+                    <p>{{ "home_feature-tile-4_subheading" | translate }}</p>
+                </div>
+            </div>
+
+            <div class="second-line">
+                <div class="info-card-box-card">
+                    <h3>{{ "home_feature-tile-5_heading" | translate }}</h3>
+                    <p>{{ "home_feature-tile-5_subheading" | translate }}</p>
+                </div>
+
+                <div class="info-card-box-card">
+                    <h3>{{ "home_feature-tile-6_heading" | translate }}</h3>
+                    <p>{{ "home_feature-tile-6_subheading" | translate }}</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats">
+        <div class="stats-heading">
+            <h2>{{ "home_stats-heading" | translate }}</h2>
+
+            <img src="assets/img/home-page-start-img.png" alt="Start Working">
+
+            <div class="stats-heading-btn">
+                <p>{{ "home_stats-subheading" | translate }}</p>
+                <a
+                    type="button"
+                    target="_blank"
+                    href="https://panel.jbomarketing.com/auth/affiliate?cpn=jbo"
+                >{{ "home_stats-btn" | translate }}</a>
+            </div>
+        </div>
+
+        <div class="stats-container" *ngIf="statisticsList?.length && !isDark">
+            <a class="arr" (click)="slidePrev('statistics')">
+                &larr;
+            </a>
+            <swiper
+                #statistics
+                [slidesPerView]="1"
+                [spaceBetween]="40"
+                [centeredSlides]="false"
+                [loop]="true"
+                [autoHeight]="true"
+                [breakpoints]="statsBreakpoints"
+                class="my-swiper"
+            >
+                <ng-template *ngFor="let stat of statisticsList" swiperSlide>
+                    <div class="swiper-slide-container">
+                        <div class="stats-box">
+                            <div class="stats-box-card">
+                                <div class="stats-box-card-head">
+                                    <div class="logo">
+                                        <img [src]="stat.imgURL" alt="Statistics-card Background">
+                                        <h5>{{ stat.title }}</h5>
+                                    </div>
+
+                                    <div class="countries">
+                                        <ng-container *ngFor="let geo of stat.geo">
+                                            <img *ngIf="geo === 'ua' || geo === 'sp' || geo === 'pt'; else otherGeo"
+                                                 [src]="'assets/img/' + geo + '.svg'" [alt]="geo">
+                                            <ng-template #otherGeo>
+                                                <img [src]="'assets/img/' + geo + '.png'" width="36" height="36"
+                                                     [alt]="geo">
+                                            </ng-template>
+                                        </ng-container>
+                                    </div>
+                                </div>
+
+                                <div class="stats-box-card-info">
+                                    <div class="cr">
+                                        <span class="cr">CR:</span>
+                                        <span class="percent">{{ stat.percentage }}</span>
+                                    </div>
+                                    <div class="cpa">
+                                        <span class="cr">CPA:</span>
+                                        <span class="numbers">{{ stat.cost }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+            </swiper>
+            <a class="arr" (click)="slideNext('statistics')">
+                &rarr;
+            </a>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="features-heading">
+            <h2>{{ "home_features-heading" | translate }}</h2>
+            <a
+                class="big-screen-btn"
+                type="button"
+                target="_blank"
+                href="https://panel.jbomarketing.com/auth/affiliate?cpn=jbo"
+            >{{ "home_features-heading-btn" | translate }}</a>
+        </div>
+
+        <div class="features-cards">
+            <div
+                class="affiliates"
+                [routerLink]="['/affiliate']"
+            ><h4>{{ "home_feature-affiliate" | translate }}</h4>
+            </div>
+
+            <div
+                class="advertisers"
+                [routerLink]="['/advertiser']"
+            ><h4>{{ "home_feature-advertiser" | translate }}</h4>
+            </div>
+        </div>
+
+        <a
+            class="sm-screen-btn"
+            target="_blank"
+            href="https://panel.jbomarketing.com/auth/affiliate?cpn=jbo"
+        >{{ "home_feature-btn" | translate }}</a>
+    </section>
+
+    <section class="text-block-wrap">
+        <div class="text-block">
+            <div class="text-block-text">
+                <h2>{{ "home_text-block-1_heading" | translate }}</h2>
+                <p>{{ "home_text-block-1_subheading" | translate }}</p>
+            </div>
+            <img src="assets/img/home-text-img-1.png" alt="Text-img">
+        </div>
+
+        <div class="text-block">
+            <div class="text-block-text">
+                <h2>{{ "home_text-block-2_heading" | translate }}</h2>
+                <p>{{ "home_text-block-2_subheading" | translate }}</p>
+            </div>
+            <img src="assets/img/home-text-img-2.png" alt="Text-img">
+        </div>
+    </section>
+
+    <section class="interactive">
+        <div class="interactive-card">
+            <div class="interactive-card-box">
+                <h1>{{ "home_text-block-3_heading" | translate }}</h1>
+                <p>{{ "home_text-block-3_subheading" | translate }}</p>
+
+                <a
+                    class="interactive-card-btn"
+                    target="_blank"
+                    type="button"
+                    href="https://panel.jbomarketing.com/auth/affiliate?cpn=jbo"
+                >{{ "home_text-block-3_btn" | translate }}</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq">
+        <img src="assets/img/home-faq-img.png" alt="FAQ-img">
+
+        <section class="questions">
+            <app-question question="{{ 'question-1' | translate }}"
+                          answer="{{ 'answer-1' | translate }}"></app-question>
+            <app-question question="{{ 'question-2' | translate }}"
+                          answer="{{ 'answer-2' | translate }}"></app-question>
+            <app-question question="{{ 'question-3' | translate }}"
+                          answer="{{ 'answer-3' | translate }}"></app-question>
+            <app-question question="{{ 'question-4' | translate }}"
+                          answer="{{ 'answer-4' | translate }}"></app-question>
+            <app-question question="{{ 'question-5' | translate }}"
+                          answer="{{ 'answer-5' | translate }}"></app-question>
+        </section>
+    </section>
+
+    <app-partners></app-partners>
+
+    <section
+        class="events"
+        *ngIf="eventsList?.length"
+    >
+        <div class="events-heading">
+            <h2 [class.dark]="isDark">{{ 'events' | translate }}</h2>
+            <div class="events-heading-arrows">
+                <a class="arr" (click)="slidePrev('events')">
+                    &larr;
+                </a>
+                <a class="arr" (click)="slideNext('events')">
+                    &rarr;
+                </a>
+            </div>
+        </div>
+
+        <div class="events-container">
+            <swiper
+                #swiperEvents
+                [slidesPerView]="1.5"
+                [spaceBetween]="40"
+                [loop]="true"
+                [centeredSlides]="true"
+                [autoHeight]="true"
+                [breakpoints]="eventsBreakpoints"
+                class="my-swiper"
+            >
+                <ng-template *ngFor="let i of eventsList" swiperSlide>
+                    <div class="swiper-slide-container">
+                        <app-event [event]="i" [lang]="currentLang"></app-event>
+                    </div>
+                </ng-template>
+            </swiper>
+        </div>
+    </section>
+
+    <section class="reviews">
+        <h2>{{ 'reviews' | translate }}</h2>
+        <div class="reviews-container">
+            <a class="arr" (click)="slideNext('reviews')">
+                &larr;
+            </a>
+            <div class="review" *ngIf="reviewList?.length">
+                <swiper
+                    #reviews
+                    [slidesPerView]="1"
+                    [centeredSlides]="true"
+                    [loop]="true"
+                    [autoHeight]="true"
+                    class="my-swiper"
+                >
+                    <ng-template *ngFor="let i of reviewList; trackBy: index" swiperSlide>
+                        <div class="swiper-slide-container">
+                            <div class="review-box" [class.dark]="isDark">
+                                <div class="logo">
+                                    <img [src]="i.imgURL" [alt]="i.title" width="146" height="146">
+                                </div>
+                                <div class="text">
+                                    <h4>{{ i.title }}</h4>
+                                    <p>{{ i.review }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-template>
+                </swiper>
+            </div>
+            <a class="arr" (click)="slidePrev('reviews')">
+                &rarr;
+            </a>
+        </div>
+        <div class="reviews-arrows down">
+            <a class="arr" (click)="slideNext('reviews')">
+                &larr;
+            </a>
+            <a class="arr" (click)="slidePrev('reviews')">
+                &rarr;
+            </a>
+        </div>
+    </section>
+
+    <section
+        *ngIf="articlesList.length"
+        class="blog"
+    >
+        <h2>{{ 'recommended' | translate}}</h2>
+        <div class="articles">
+            <ng-container
+                *ngFor="let item of articlesList; trackBy: index"
+            >
+                <app-blog-card
+                    [id]="item.id"
+                    [title]="item.title"
+                    [image]="item.image"
+                    [subtitle]="item.subtitle"
+                    ></app-blog-card>
+                </ng-container>
+        </div>
+    </section>
+</div>

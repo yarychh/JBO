@@ -1,31 +1,67 @@
-<ng-container *ngIf="isDark; else light">
-    <footer id="contacts" class="pb-0 dark">
-        <section class="link-box-dark mb-3">
-            <a target="_blank" href="https://t.me/jbomarketing">TELEGRAM</a>
-            <a target="_blank" href="https://www.linkedin.com/company/jbo-marketing/">LINKEDIN</a>
-            <a href="mailto:info@jbomarketing.space" class="email">info@jbomarketing.space</a>
-        </section>
+<footer>
+    <div class="footer-logo">
+        <img
+            src="assets/svg/{{ isDark ? 'JBO-logo-dark' : 'JBOLogo' }}.svg"
+            [routerLink]="'/about-us'"
+            alt="JBO-logo">
+        <p>&#169; COPYRIGHT 2023</p>
+    </div>
 
-        <div class="logo">
-            <img src="assets/svg/Group 42620JBO-logo-dark.svg" height="58" width="156" alt="JBO logo">
-        </div>
+    <div class="footer-social">
+        <h5>{{'follow-us' | translate | uppercase}}</h5>
+        <a
+            href="mailto:info@jbomarketing.space"
+            target="_blank"
+        >info@jbomarketing.space
+        </a>
+        <span class="icons-box" [class.dark]="isDark">
+            <a
+                href="https://t.me/jbomarketing"
+                target="_blank"
+            ><img src="assets/svg/telega.svg" alt="Telegram">
+            </a>
+            <a
+                href="https://www.linkedin.com/company/jbo-marketing/"
+                target="_blank"
+            ><img src="assets/svg/linkedin.svg" alt="LinkedIn">
+            </a>
+        </span>
+    </div>
 
-        <p class="copy-dark">All rights are reserved &#169;</p>
-    </footer>
-</ng-container>
+    <div class="footer-pages">
+        <h5>{{'pages' | translate | uppercase}}</h5>
+        <a [routerLink]="['home']">{{'home' | translate}}</a>
+        <a [routerLink]="['careers']">{{ 'careers' | translate}}</a>
+        <a [routerLink]="['about-us']">{{ 'about-us' | translate }}</a>
+        <a [routerLink]="['blog']">{{ 'blog' | translate }}</a>
+        <a [routerLink]="['contacts']">{{ 'contacts' | translate }}</a>
+    </div>
 
-<ng-template #light>
-    <footer id="contacts" class="pb-0">
-        <section class="link-box mb-3">
-            <a target="_blank" href="https://t.me/jbomarketing">TELEGRAM</a>
-            <a target="_blank" href="https://www.linkedin.com/company/jbo-marketing/">LINKEDIN</a>
-            <a href="mailto:info@jbomarketing.space" class="email">info@jbomarketing.space</a>
-        </section>
-
-        <div class="logo">
-            <img src="assets/svg/JBOLogo.svg" height="58" width="156" alt="JBO logo">
-        </div>
-
-        <p class="copy">All rights are reserved &#169;</p>
-    </footer>
-</ng-template>
+    <div class="footer-info">
+        <h5>{{ 'info' | translate | uppercase }}</h5>
+        <a
+            [routerLink]="['/affiliate']"
+            (click)="scrollToTop()"
+        >{{ 'affiliate' | translate }}</a>
+        <a
+            [routerLink]=" ['advertiser']"
+            (click)="scrollToTop()"
+        >{{ 'advertiser' | translate }}</a>
+        <!-- <a
+            [routerLink]="['/privacy']"
+            (click)="scrollToTop()"
+        >{{ 'privacy-policy' | translate }}</a>
+        <a
+            [routerLink]="['/privacy']"
+            (click)="scrollToTop()"
+        >{{ "cookie-policy" | translate }}</a>
+        <a
+            [routerLink]="['/privacy']"
+            (click)="scrollToTop()"
+        >{{ "terms-and-conditions" | translate}}</a> -->
+        <a
+            [routerLink]="['/faq']"
+            (click)="scrollToTop()"
+        >{{ 'faq' | translate }}</a>
+    </div>
+</footer>

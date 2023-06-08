@@ -1,0 +1,145 @@
+@import 'variables';
+
+// Adaptive breakpoints
+
+@mixin respondTo($breakpoint) {
+    @if $breakpoint ==phone {
+        @media only screen and (max-width: 31.25em) {
+            // 500px
+            @content
+        };
+    };
+
+    @if $breakpoint ==tab-portrait {
+        @media only screen and (max-width: 56.25em) {
+            // 900px
+            @content
+        };
+    };
+
+    @if $breakpoint ==tab-landscape {
+        @media only screen and (max-width: 75em) {
+            // < 1200px
+            @content
+        };
+    };
+
+    // general styles will be applied in this range
+
+    @if $breakpoint ==big-desktop {
+        @media only screen and (min-width: 112.5em) {
+            // > 1800px
+            @content
+        };
+    };
+}
+
+// Standard Styling Features
+
+@mixin shadowOnHover {
+    transition: .3s all;
+
+    &:hover {
+        transform: translateY(-.5rem);
+        box-shadow: 0 1rem 2rem rgba($black, .2);
+    }
+}
+
+@mixin smallShadow {
+    box-shadow: 0 1rem 2rem rgba($black, .2);
+    transition: .3s all;
+
+    &:hover {
+        transform: translateY(-.25rem);
+        box-shadow: 0 1.1rem 2.2rem rgba($black, .2);
+    }
+}
+
+@mixin scaleOnHover {
+    transition: .3s all;
+
+    &:hover {
+        transform: scale(1.1);
+        box-shadow: 0 1rem 2rem rgba($black, .2);
+    }
+}
+
+@mixin flex($direction, $align) {
+    display: flex;
+
+    @if ($direction ==row) {
+        flex-direction: row;
+    }
+
+    @if ($direction ==row-rev) {
+        flex-direction: row-reverse;
+    }
+
+    @if ($direction ==col) {
+        flex-direction: column;
+    }
+
+    @if ($direction ==col-rev) {
+        flex-direction: column-reverse;
+    }
+
+    @if ($align ==start) {
+        align-items: flex-start;
+    }
+
+    @if ($align ==center) {
+        align-items: center;
+    }
+
+    @if ($align ==end) {
+        align-items: flex-end;
+    }
+}
+
+// buttons of different sizes (width)
+
+@mixin button($size) {
+    width: fit-content;
+    font-size: 1.25rem;
+    color: #fff;
+    background: $blue;
+    border: none;
+    border-radius: 10rem;
+    text-decoration: none;
+    text-align: center;
+    font-weight: 400;
+    @include smallShadow;
+
+    &:hover {
+        @include shadowOnHover;
+        color: #fff;
+        background: $hoverBlue;
+    }
+
+    @if($size ==s) {
+        padding: 1.25rem;
+    }
+
+    @if($size ==m) {
+        padding: 1.25rem 5rem;
+    }
+
+    @if($size ==xl) {
+        padding: 1.25rem 7.25rem;
+    }
+}
+
+
+@keyframes coolBorderGrow {
+    0% {
+        border: 2px solid;
+    }
+
+    25% {
+        border: 2px dashed;
+    }
+
+    75% {
+        border: 2px dotted;
+    }
+}

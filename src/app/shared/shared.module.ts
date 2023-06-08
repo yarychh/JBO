@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterLink, RouterLinkWithHref } from "@angular/router";
 import { SwitchComponent } from './components/switch/switch.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -10,6 +11,11 @@ import { FlowPillComponent } from './components/flow-pill/flow-pill.component';
 import { EventComponent } from './components/event/event.component';
 import { QuestionComponent } from './components/question/question.component';
 import { TranslateModule } from '@ngx-translate/core';
+import { QuestionFormComponent } from './components/question-form/question-form.component';
+import { BlogCardComponent } from './components/blog-card/blog-card.component';
+import { DragNDropComponent } from './components/drag-n-drop/drag-n-drop.component';
+import { DragNDropDirective } from "./directives/drag-n-drop.directive";
+import { BlogArticleComponent } from '../main/blog-article/blog-article.component';
 
 @NgModule({
     declarations: [
@@ -21,8 +27,13 @@ import { TranslateModule } from '@ngx-translate/core';
         FlowPillComponent,
         EventComponent,
         QuestionComponent,
+        QuestionFormComponent,
+        BlogCardComponent,
+        DragNDropComponent,
+        DragNDropDirective,
+        BlogArticleComponent,
     ],
-    imports: [CommonModule, FormsModule, ReactiveFormsModule, TranslateModule],
+    imports: [CommonModule, FormsModule, ReactiveFormsModule, TranslateModule, RouterLinkWithHref, RouterLink],
     exports: [
         SwitchComponent,
         FooterComponent,
@@ -32,6 +43,9 @@ import { TranslateModule } from '@ngx-translate/core';
         FlowPillComponent,
         EventComponent,
         QuestionComponent,
+        QuestionFormComponent,
+        BlogCardComponent,
     ],
 })
-export class SharedModule {}
+export class SharedModule {
+}

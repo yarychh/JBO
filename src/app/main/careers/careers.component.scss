@@ -1,0 +1,6 @@
+.careers-page {
+
+    & > *:not(:last-of-type) {
+        margin-bottom: 8rem;
+    }
+}

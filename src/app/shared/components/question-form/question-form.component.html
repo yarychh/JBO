@@ -1,0 +1,57 @@
+<div class="heading">
+    <h2>{{ heading | translate }}</h2>
+    <ng-container *ngIf="subHeading">
+        <p>{{ subHeading | translate }}</p>
+    </ng-container>
+</div>
+<form [formGroup]="fg" (submit)="submitForm(fg)">
+    <div
+        class="question-form-field"
+    >
+        <label for="name">{{ 'question-form_name' | translate }}</label>
+        <input
+            type="text"
+            id="name"
+            formControlName="name"
+        />
+    </div>
+
+    <div
+        class="question-form-field"
+    >
+        <label for="email">{{ "question-form_email" | translate }}</label>
+        <input
+            type="email"
+            id="email"
+            formControlName="email"
+        >
+        <span
+            class="error red"
+            *ngIf="fc['email'].touched
+                && fc['email'].invalid"
+        >{{ 'email-error' | translate }}</span>
+    </div>
+
+    <div
+        class="question-form-field question-form-field_bold"
+    >
+        <label for="question">{{ withUpload ? 'Cover Letter' : 'Your question' }}</label>
+        <textarea
+            type="text"
+            id="question"
+            [formControlName]="withUpload ? 'coverLetter' : 'question'"
+            (keyup)="autoGrowTextZone($event)"
+        ></textarea>
+    </div>
+
+    <ng-container *ngIf="withUpload">
+        <app-drag-n-drop
+            label="{{ uploadBtnName | translate }}"
+            [formGroup]="fg"
+            [formGroupName]="'cv'"
+            (fileUploaded)="setCvFileValue($event)"
+        ></app-drag-n-drop>
+    </ng-container>
+
+    <button class="form-btn" type="submit">{{ "question-form_submit" | translate }}</button>
+</form>

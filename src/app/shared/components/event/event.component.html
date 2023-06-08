@@ -1,7 +1,8 @@
-<div class="event" [class.dark]="isDark">
-    <img src="assets/img/event-bg.png" alt="event background" class="background">
-    <div class="event__container">
-        <h3 class="event__name py-3 mr-max" [class.dark]="isDark">{{ event.title }}</h3>
-        <h3 class="event__name align-self-end" [class.dark]="isDark">{{ event.date | date }}</h3>
+<div class="event">
+    <img class="event-background" src="assets/img/event-bg.png" alt="event background">
+    <div class="event-container">
+        <button class="event-btn">next</button>
+        <h3 class="event-name">{{ event.title }}</h3>
+        <h3 class="event-date">{{ event.date | date: 'dd.MM.YY'}}</h3>
     </div>
 </div>

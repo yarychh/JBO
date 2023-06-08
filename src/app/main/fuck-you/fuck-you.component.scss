@@ -1,0 +1,13 @@
+@import '../../../styles';
+
+.faq-page {
+    @include flex(col, center);
+
+    & > *:not(:last-of-type) {
+        margin-bottom: 5rem;
+    }
+
+    .question-form {
+        width: 100%;
+    }
+}

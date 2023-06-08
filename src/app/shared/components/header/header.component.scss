@@ -1,20 +1,51 @@
-@import "/src/styles.scss";
+@import 'src/styles';
 
-.switch-box {
+header {
     display: flex;
-    align-items: center;
-    gap: 1.1rem;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 4.625rem;
+    padding: 2.5rem 0;
+    justify-content: space-between;
 
-    @media (max-width: 400px) {
-        gap: 0.5rem;
+    .switch-box {
+        display: flex;
+        align-items: center;
+        gap: 1.1rem;
+        margin-right: auto;
     }
-}
 
-.dark {
-    background-color: $black;
-    color: $white;
+    .menu-box {
+        @include flex(row, center);
+        gap: 1.25rem;
+
+        .lang {
+
+            &-box {
+                display: flex;
+                align-items: center;
+                gap: .75rem;
+            }
+
+            &-select {
+                font-size: 1.25rem;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+            }
+        }
+    }
+
+
+    @include respondTo(tab-portrait) {
+        margin: 0 3rem;
+    }
+
+    @include respondTo(phone) {
+        margin: 0 1.25rem;
+        padding: 1.5rem 0;
+
+        .switch-box {
+            gap: .5rem
+        }
+    }
 }
 
 #lang {
@@ -27,7 +58,7 @@
         color: $white;
     }
 
-    option .dark{
+    option .dark {
         color: $black;;
     }
 }

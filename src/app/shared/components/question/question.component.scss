@@ -2,44 +2,47 @@
 
 .accordion-container {
     display: grid;
-    grid-template-columns: 68px 1fr;
-    column-gap: 5.2rem;
+    grid-template-columns: 2rem 1fr;
+    column-gap: 2.5rem;
+    align-items: center;
 
-    @media (max-width:750px) {
-        grid-template-columns: 45px 1fr;
-        column-gap: 3rem;
+    @include respondTo(tab-portrait) {
+        align-items: start;
+        column-gap: 1rem;
     }
 
-    @media (max-width:500px) {
-        column-gap: 2rem;
+    @include respondTo(phone) {
+        column-gap: 0;
     }
 
     .qa {
         color: $black;
         max-width: max-content;
 
-        &.dark {
-            color: $white !important;
-        }
-
         .question {
-            transform: translateY(calc(35px - 50%));
             font-family: $font-heading;
             font-size: 1.563rem;
             transition: all .25s ease-out;
             cursor: pointer;
 
-            &.shown {
-                transform: translateY(0);
+            &.shown{
+                margin-bottom: 1rem;
             }
 
-            @media (max-width: 750px) {
-                transform: translateY(calc(27.5px - 50%));
+            &:nth-of-type(3) {
+                padding-bottom: 0;
+            }
+
+            @include respondTo(phone) {
+                padding-bottom: -1rem;
+            }
+
+                &.shown {
+                transform: translateY(0);
             }
 
             @media (max-width: 650px) {
                 font-size: 1.25rem;
-                transform: translateY(calc(25px - 50%));
             }
 
             @media (max-width: 550px) {
@@ -48,43 +51,41 @@
 
             @media (max-width: 500px) {
                 font-size: 0.875rem;
-                transform: translateY(calc(22.5px - 50%));
             }
         }
 
         .answer {
             font-size: 1.25rem;
+            font-weight: 400;
             height: 0;
-            // transform: translateY(-105%);
             color: transparent;
-            transition: all .25s ease-in;
+            transition: all .25s ease-out;
+            text-transform: none;
+
+            @include respondTo(phone) {
+                font-weight: 300;
+            }
 
             &.shown {
                 height: auto;
                 color: inherit;
-                // transform: translateY(0);
             }
         }
     }
 }
 
 .icon {
-    height: 4.375rem;
-    width: 4.375rem;
+    height: 2.375rem;
+    width: 2.375rem;
 
-    @media (max-width: 750px) {
-        height: 55px;
-        width: 55px;
+    @include respondTo(tab-portrait) {
+        height: 1.75rem;
+        width: 1.75rem;
     }
 
-    @media (max-width: 650px) {
-        height: 50px;
-        width: 50px;
-    }
-
-    @media (max-width: 500px) {
-        height: 45px;
-        width: 45px;
+    @include respondTo(phone) {
+        height: 1rem;
+        width: 1rem;
     }
 }
 
@@ -92,17 +93,6 @@
     position: relative;
     width: 100%;
     height: 100%;
-
-    &.dark {
-
-        &:before,
-        &:after {
-            content: "";
-            position: absolute;
-            background-color: $white;
-            transition: transform 0.25s ease-in-out;
-        }
-    }
 
     &:before,
     &:after {
@@ -114,45 +104,35 @@
 
     &:before {
         top: 0;
-        left: calc(50% - 5px);
-        width: 10px;
+        left: calc(50% - .2rem);
+        width: .4rem;
         height: 100%;
 
-        @media (max-width: 750px) {
-            width: 9px;
-            left: calc(50% - 4.5px);
+        @include respondTo(tab-portrait) {
+            width: .3rem;
+            left: calc(50% - .15rem);
         }
 
-        @media (max-width: 650px) {
-            width: 8px;
-            left: calc(50% - 4px);
-        }
-
-        @media (max-width: 500px) {
-            width: 7px;
-            left: calc(50% - 3.5px);
+        @include respondTo(phone) {
+            width: .2rem;
+            left: calc(50% - .1rem);
         }
     }
 
     &:after {
-        top: calc(50% - 5px);
+        top: calc(50% - .2rem);
         left: 0;
         width: 100%;
-        height: 10px;
+        height: .4rem;
 
-        @media (max-width: 750px) {
-            height: 9px;
-            top: calc(50% - 4.5px);
+        @include respondTo(tab-portrait) {
+            height: .3rem;
+            top: calc(50% - .15rem);
         }
 
-        @media (max-width: 650px) {
-            height: 8px;
-            top: calc(50% - 4px);
-        }
-
-        @media (max-width: 500px) {
-            height: 7px;
-            top: calc(50% - 3.5px);
+        @include respondTo(phone) {
+            height: .2rem;
+            top: calc(50% - .1rem);
         }
     }
 

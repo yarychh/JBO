@@ -1,0 +1,65 @@
+<div class="advertiser-page content-wrapper">
+    <section class="heading">
+        <h1>{{ "advertiser" | translate }}</h1>
+        <img src="assets/img/advertiser-head-img.png" alt="Advertisers">
+    </section>
+
+    <section class="user-card">
+        <div class="user-card-text">
+            <h1>{{ "advertiser_heading" | translate }}</h1>
+
+            <p>{{ "advertiser_subheading" | translate }}</p>
+
+            <a
+                class="user-card-btn"
+                target="_blank"
+                type="button"
+                href="https://panel.jbomarketing.com/auth/advertiser?cpn=jbo"
+            >{{ "advertiser_btn" | translate }}</a>
+        </div>
+
+        <img src="assets/img/affiliate-card-img.png" alt="advertiser Card">
+    </section>
+
+    <section class="cards">
+        <ng-container
+            *ngFor="let card of advertiserCards; let i = index; trackBy: index"
+        >
+            <div class="cards-item">
+                <h5>{{ '0' + (i + 1) }}</h5>
+                <h3>{{ card.head | translate }}</h3>
+                <p>{{ card.text | translate }}</p>
+            </div>
+        </ng-container>
+    </section>
+
+    <section class="text-block-wrap">
+        <div class="text-block">
+            <div class="text-block-text">
+                <h2>{{ "advertiser_text-block-1_heading" | translate}}</h2>
+                <p>{{ "advertiser_text-block-1_subheading" | translate }}</p>
+            </div>
+            <img src="assets/img/affiliate-text-img-1.png" alt="Text-img">
+        </div>
+
+        <div class="text-block">
+            <div class="text-block-text">
+                <h2>{{ "advertiser_text-block-2_heading" | translate}}</h2>
+                <p>{{ "advertiser_text-block-2_subheading" | translate }}</p>
+            </div>
+            <img src="assets/img/affiliate-text-img-2.png" alt="Text-img">
+        </div>
+    </section>
+
+    <section class="join">
+        <h2>{{ 'join_heading' | translate }}</h2>
+
+        <p>{{ "join_subheading" | translate }}</p>
+
+        <a
+            target="_blank"
+            type="button"
+            href="https://panel.jbomarketing.com/auth/affiliate?cpn=jbo"
+        >{{ 'join_btn' | translate }}</a>
+    </section>
+</div>
