@@ -46,6 +46,7 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-size: 75%;
     font-family: "Gilroy", sans-serif;
     font-weight: 300;
 
@@ -71,12 +72,12 @@ body {
     }
 }
 
-input{
+input {
     background-color: var(--background-color);
     color: var(--text-color);
 }
 
-textarea{
+textarea {
     background-color: var(--background-color);
     color: var(--text-color);
 }
@@ -185,6 +186,14 @@ img {
             height: 100%;
             width: 100%;
             border-radius: 6rem;
+
+            border: 2px solid $black;
+            transition: all .3s;
+
+            &:hover {
+                scale: 1.05;
+                animation: coolBorderGrow .3s ease;
+            }
         }
 
         @include respondTo(tab-landscape) {
@@ -370,7 +379,7 @@ img {
         transition: all .3s;
 
         &:hover {
-            scale: 1.1;
+            scale: 1.05;
             animation: coolBorderGrow .3s ease;
         }
 
@@ -386,11 +395,12 @@ img {
         }
 
         p {
+            font-size: 1rem;
             font-weight: 500;
         }
     }
 
-    @media (max-width: 1530px) {
+    @media (max-width: 1100px) {
         grid-template-columns: 1fr 1fr;
         justify-items: center;
     }
@@ -447,6 +457,7 @@ img {
         }
 
         p {
+            font-size: 1.2rem;
             font-weight: 500;
             margin-bottom: 2rem;
         }
@@ -515,6 +526,7 @@ img {
     gap: 2.5rem;
 
     p {
+        font-size: 1rem;
         max-width: 56.25rem;
         font-weight: 500;
     }
@@ -572,14 +584,8 @@ img {
                 }
             }
 
-            svg:hover {
-                &>* {
-                    fill: $blue;
-                }
-
-                g>* {
-                    fill: $blue;
-                }
+            img:hover {
+                filter: invert(60%) sepia(71%) saturate(5607%) hue-rotate(178deg) brightness(106%) contrast(101%);
             }
         }
 
@@ -624,13 +630,14 @@ img {
     grid-template-columns: repeat(6, 1fr);
     gap: 2.5rem;
 
-    &>*{
+    &>* {
         grid-column: span 2;
     }
 
     @include respondTo(tab-landscape) {
-        grid-template-columns:repeat(4, 1fr);
+        grid-template-columns: repeat(4, 1fr);
         justify-content: center;
+
         &>*:nth-last-child(1):nth-child(odd) {
             grid-column: 2 / span 2;
         }
@@ -638,6 +645,7 @@ img {
 
     @include respondTo(tab-portrait) {
         grid-template-columns: repeat(2, 1fr);
+
         &>*:nth-last-child(1):nth-child(odd) {
             grid-column: span 2;
         }

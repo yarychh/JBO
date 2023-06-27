@@ -150,7 +150,7 @@
                 transition: all .3s ease;
 
                 &:hover {
-                    scale: 1.05;
+                    scale: 1.02;
                     animation: coolBorderGrow .3s ease;
                 }
 
@@ -214,6 +214,13 @@
             img {
                 height: 18.25rem;
                 border-radius: 4.25rem;
+                border: 2px solid $black;
+                transition: all .3s;
+
+                &:hover {
+                    scale: 1.05;
+                    animation: coolBorderGrow .3s ease;
+                }
 
                 @include respondTo(big-desktop) {
                     height: 24rem;
@@ -228,6 +235,7 @@
                 max-width: 24rem;
 
                 p {
+                    font-size: 1rem;
                     font-weight: 400;
                     max-width: 24rem;
                 }
@@ -256,7 +264,6 @@
                     color: #fff;
                     background-image: url(~src/assets/img/home-stats-bg.png);
                     height: 12.5rem;
-                    max-width: 35rem;
                     background-size: cover;
                     background-position: center;
                     border: 1px solid #fff;
@@ -276,8 +283,8 @@
                             gap: 1rem;
 
                             img {
-                                width: 3.75rem;
-                                height: 3.75rem;
+                                width: 4rem;
+                                height: 4rem;
                             }
                         }
 
@@ -286,8 +293,8 @@
                             gap: .75rem;
 
                             &>* {
-                                height: 1.25rem;
-                                width: 1.25rem;
+                                height: 2rem;
+                                width: 2rem;
                             }
                         }
                     }
@@ -628,6 +635,10 @@
 
                     .logo {
                         width: 9.125rem;
+                        img{
+                            width: 100%;
+                            object-fit: cover;
+                        }
                     }
 
                     .text {

@@ -40,11 +40,13 @@
         h2 {
             font-size: 1.25rem;
             margin: 1.25rem 0;
+            white-space: pre-wrap;
             text-transform: uppercase;
         }
 
         p.text {
             @include flex(row, center);
+            font-size: 1rem;
             justify-content: space-between;
             text-overflow: ellipsis;
             width: 22.75rem;

@@ -38,6 +38,7 @@
     }
 
     p {
+        font-size: 1rem;
         font-weight: 400;
         margin-bottom: 1rem;
         max-width: 25rem;
@@ -90,6 +91,10 @@ form {
         font-weight: 500;
         border-bottom: 1.5px solid $black;
         position: relative;
+
+        label {
+            font-size: 1rem;
+        }
 
         input {
             border: none;
