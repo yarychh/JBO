@@ -1,13 +1,21 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomePageComponent } from "./main/home-page/home-page.component";
+import { HomePageComponent } from './main/home-page/home-page.component';
 import { BlogArticleComponent } from './main/blog-article/blog-article.component';
+import { AffiliateComponent } from './main/affiliate/affiliate.component';
+import { AboutComponent } from './main/about/about.component';
+import { ContactComponent } from './main/contact/contact.component';
+import { FuckYouComponent } from './main/fuck-you/fuck-you.component';
+import { PrivacyDocComponent } from './main/privacy-doc/privacy-doc.component';
+import { CareersComponent } from './main/careers/careers.component';
+import { BlogComponent } from './main/blog/blog.component';
+import { AdvertiserComponent } from './main/advertiser/advertiser.component';
 
 const routes: Routes = [
     {
         path: '',
         pathMatch: 'full',
-        redirectTo: 'home'
+        redirectTo: 'home',
     },
     {
         path: 'home',
@@ -15,60 +23,53 @@ const routes: Routes = [
     },
     {
         path: 'advertiser',
-        loadComponent: () =>
-            import('./main/advertiser/advertiser.component').then((c) => c.AdvertiserComponent),
+        component: AdvertiserComponent,
     },
     {
         path: 'affiliate',
-        loadComponent: () =>
-            import('./main/affiliate/affiliate.component').then((c) => c.AffiliateComponent),
+        component: AffiliateComponent,
     },
     {
         path: 'about-us',
-        loadComponent: () =>
-            import('./main/about/about.component').then((c) => c.AboutComponent),
+        component: AboutComponent,
     },
     {
         path: 'contacts',
-        loadComponent: () =>
-            import('./main/contact/contact.component').then((c) => c.ContactComponent),
+        component: ContactComponent,
     },
     {
         path: 'faq',
-        loadComponent: () =>
-            import('./main/fuck-you/fuck-you.component').then((c) => c.FuckYouComponent),
+        component: FuckYouComponent,
     },
     {
         path: 'privacy',
-        loadComponent: () =>
-            import('./main/privacy-doc/privacy-doc.component').then((c) => c.PrivacyDocComponent),
+        component: PrivacyDocComponent,
     },
     {
         path: 'careers',
-        loadComponent: () =>
-            import('./main/careers/careers.component').then((c) => c.CareersComponent),
+        component: CareersComponent,
     },
     {
         path: 'blog',
-        loadComponent: () =>
-            import('./main/blog/blog.component').then((c) => c.BlogComponent),
+        component: BlogComponent,
     },
     {
         path: 'article/:id',
-        component: BlogArticleComponent
+        component: BlogArticleComponent,
     },
     {
         path: '**',
         redirectTo: '/home',
-    }
+    },
 ];
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes, {
-        anchorScrolling: 'enabled',
-        onSameUrlNavigation: 'reload',
-    })],
+    imports: [
+        RouterModule.forRoot(routes, {
+            anchorScrolling: 'enabled',
+            onSameUrlNavigation: 'reload',
+        }),
+    ],
     exports: [RouterModule],
 })
-export class AppRoutingModule {
-}
+export class AppRoutingModule {}
